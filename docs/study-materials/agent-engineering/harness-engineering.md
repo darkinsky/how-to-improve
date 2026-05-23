@@ -20,7 +20,7 @@
 
 - **2025 年 8 月**：OpenAI 三名工程师开始 Codex Agent 实验项目，零手写代码
 - **2025 年 11 月**：Anthropic 发布博客《Effective Harnesses for Long-Running Agents》，首次系统讨论长期 Agent 的约束设计
-- **2026 年 2 月 5 日**：HashiCorp 联合创始人 Mitchell Hashimoto 在博客《My AI Adoption Journey》中正式命名 "Harness Engineering"
+- **2026 年 2 月 5 日**：HashiCorp 联合创始人 Mitchell Hashimoto 在博客《My AI Adoption Journey》中正式命名 \"Harness Engineering\"
 - **2026 年 2 月 11 日**：OpenAI 发布官方博客《Harness Engineering: Leveraging Codex in an Agent-First World》，披露 100 万行代码实验
 - **2026 年 3-5 月**：LangChain、Anthropic、ThoughtWorks、Stripe 等团队陆续发布实践报告；CMU/耶鲁/斯坦福发布学术综述
 
@@ -40,11 +40,11 @@ Agent = Model + Harness
 当 AI Agent 进入生产环境、执行跨步骤的长期任务时，出现四类典型失败：
 
 1. **试图一步到位**：Agent 倾向于一个会话做完所有事，上下文窗口被撑爆
-2. **过早宣布胜利**：部分功能完成就标记"完成"，不管还有大量未实现
+2. **过早宣布胜利**：部分功能完成就标记\"完成\"，不管还有大量未实现
 3. **过早标记功能完成**：单测跑通就停止，不检查端到端测试和联调
-4. **模式复制**：Agent 忠实复制代码库中的"坏模式"，占比超过 5% 时新代码采用概率 > 70%
+4. **模式复制**：Agent 忠实复制代码库中的\"坏模式\"，占比超过 5% 时新代码采用概率 > 70%
 
-**这些问题的根因不是"模型不够聪明"，而是运行环境缺乏结构化约束。**
+**这些问题的根因不是\"模型不够聪明\"，而是运行环境缺乏结构化约束。**
 
 ---
 
@@ -92,23 +92,23 @@ Agent = Model + Harness
 ### 3.2 CMU/耶鲁/亚马逊联合综述（2026.05）
 
 - **来源**: https://news.qq.com/rain/a/20260522A04EVA00
-- **核心发现**：同一个大模型塞进不同 Agent 框架系统，表现"判若两模"
+- **核心发现**：同一个大模型塞进不同 Agent 框架系统，表现\"判若两模\"
 - **结论**：决定 Agent 在真实世界表现的，不是模型本身，而是包在模型外面的 Harness
 
 ### 3.3 上海交通大学 Harness 综述（2026.04）
 
 - **来源**: https://news.qq.com/rain/a/20260414A01KTO00
 - **框架**：系统梳理了 Harness 作为 Agent 时代基座的理论体系
-- **定位**：Harness 是"Agent 时代统管一切的基座"
+- **定位**：Harness 是\"Agent 时代统管一切的基座\"
 
 ### 3.4 LangChain Terminal Bench 2.0 实验
 
 - **实验设计**：固定模型为 gpt-5.2-codex，只改 Harness（系统提示词结构、工具描述方式、中间件）
 - **结果**：得分从 52.8% → 66.5%，全球排名从第 30 → 第 5
 - **关键改进**：
-  1. 系统提示词强制"构建-验证"循环
+  1. 系统提示词强制\"构建-验证\"循环
   2. 工具上下文直接注入而非让 Agent 探索
-  3. "推理三明治"策略：规划+验证用 xhigh，中间用 high
+  3. \"推理三明治\"策略：规划+验证用 xhigh，中间用 high
   4. LoopDetectionMiddleware 检测 Doom Loop
 
 ### 3.5 Hashline 协议：零成本大幅提升
@@ -137,7 +137,7 @@ Agent = Model + Harness
 | 地图式文档 | AGENTS.md 仅约 100 行，指向 docs/ 子文档 | 渐进式披露，按需加载 |
 | 机械化架构约束 | Types→Config→Repo→Service→Runtime→UI 层级依赖 | 自定义 Linter 阻断违规，报错附带修复说明 |
 | 可观测性工具化 | 接入 Chrome DevTools Protocol | Agent 可自测、自验证 |
-| 垃圾收集 | 每日"GC Day"，后台 Agent 自动清理 | 对抗 AI 生成代码的熵积累 |
+| 垃圾收集 | 每日\"GC Day\"，后台 Agent 自动清理 | 对抗 AI 生成代码的熵积累 |
 | 仓库作为事实来源 | 团队知识作为版本控制制品 | 替代 Slack/Wiki/Docs 中的不可索引知识 |
 
 ### 4.2 Anthropic：三智能体架构与 Context Reset
@@ -152,7 +152,7 @@ Agent = Model + Harness
 - 日志不输出到控制台，写文件 + grep 友好的单行格式
 - 测试子采样：每 Agent 只跑随机 1-10% 测试
 - Agent 角色专业化：核心编译、去重、优化、文档
-- "我不是在为自己写测试框架，是在为 Claude 写"
+- \"我不是在为自己写测试框架，是在为 Claude 写\"
 
 **三智能体架构（GAN 启发）**：
 ```
@@ -170,7 +170,7 @@ Planner（规划） → Generator（执行） ⇄ Evaluator（评估）
 
 | 组件 | 关键设计 |
 |------|---------|
-| Devbox | AWS EC2 预装，预热池分配，10 秒启动，"牲口不是宠物" |
+| Devbox | AWS EC2 预装，预热池分配，10 秒启动，\"牲口不是宠物\" |
 | 编排状态机 | 混合确定性节点（lint/push）+ Agent 节点（实现功能/修 CI） |
 | Toolshed MCP | 集中式 MCP 服务，近 500 个工具，每 Minion 拿到筛选子集 |
 | 反馈回路 | Pre-push hook 秒级修 lint；最多 2 轮 CI，覆盖 300 万+ 测试 |
@@ -196,15 +196,15 @@ Planner（规划） → Generator（执行） ⇄ Evaluator（评估）
 
 | 阶段 | 时间 | 目标 | 操作 |
 |------|------|------|------|
-| Phase 1：信息层 | 1-2 天 | 从"百科全书"到"地图" | 文档拆解 + 索引 |
-| Phase 2：约束层 | 3-5 天 | 从"软规范"到"硬检查" | Linter + CI 集成 |
-| Phase 3：自动化层 | 1-2 周 | 从"人工治理"到"系统自愈" | 多 Agent 协作 + 自动治理 |
+| Phase 1：信息层 | 1-2 天 | 从\"百科全书\"到\"地图\" | 文档拆解 + 索引 |
+| Phase 2：约束层 | 3-5 天 | 从\"软规范\"到\"硬检查\" | Linter + CI 集成 |
+| Phase 3：自动化层 | 1-2 周 | 从\"人工治理\"到\"系统自愈\" | 多 Agent 协作 + 自动治理 |
 
 ### 4.6 沉默即成功（Silence is Success）
 
 HumanLayer 团队的实验发现：
 
-**问题**：完整测试套件输出 4000+ 行 → 噪音淹没关键失败信息 → Agent 产生"成功幻觉"
+**问题**：完整测试套件输出 4000+ 行 → 噪音淹没关键失败信息 → Agent 产生\"成功幻觉\"
 
 **解决方案**：成功返回极简 ✓，失败才打印全部错误细节
 
@@ -236,8 +236,8 @@ HumanLayer 团队的实验发现：
 | 论文 | 链接 | 要点 |
 |------|------|------|
 | Meta-Harness（Stanford） | https://arxiv.org/abs/2603.28052 | 自动搜索优化 Harness 代码 |
-| CMU/耶鲁/亚马逊 Harness 综述 | 搜索："Harness Engineering CMU Yale" | 系统梳理 Harness 学术基础 |
-| 上海交大 Agent Harness 综述 | 搜索："SJTU Agent Harness survey" | Agent 时代基座理论 |
+| CMU/耶鲁/亚马逊 Harness 综述 | 搜索：\"Harness Engineering CMU Yale\" | 系统梳理 Harness 学术基础 |
+| 上海交大 Agent Harness 综述 | 搜索：\"SJTU Agent Harness survey\" | Agent 时代基座理论 |
 
 ### 5.3 经典博文
 
@@ -263,7 +263,7 @@ HumanLayer 团队的实验发现：
 ### 6.2 模型-Harness 耦合与解耦
 
 - 现在 Agent 产品（Claude Code、Codex）把 Model 和 Harness 一起调优
-- 这会导致"过拟合"：Opus 在 Claude Code Harness 下得分远高于其他 Harness
+- 这会导致\"过拟合\"：Opus 在 Claude Code Harness 下得分远高于其他 Harness
 - **结论**：为任务选择 Harness 时，不要默认自带的就最合适
 
 ### 6.3 尚待解决的问题
@@ -271,23 +271,23 @@ HumanLayer 团队的实验发现：
 | 问题 | 现状 | 难点 |
 |------|------|------|
 | 棕地项目改造 | 公开成功案例几乎全是绿地项目 | 十年代码库，到处技术债，Harness 引入困难 |
-| 功能验证 | 用 AI 测试验证 AI 代码，缺乏独立视角 | "用同一双眼睛检查自己的作业" |
+| 功能验证 | 用 AI 测试验证 AI 代码，缺乏独立视角 | \"用同一双眼睛检查自己的作业\" |
 | 长期可维护性 | AI 经常重新实现已有功能 | 长期效果不明 |
 | 单 Agent vs 多 Agent | 取决于规模场景 | 小项目单 Agent 够用，大项目需专业化分工 |
 | Harness 该做厚做薄 | 场景决定 | 模型变强后，Harness 应定期简化 |
 
 ### 6.4 核心金句
 
-> "为了获得更高的 AI 自主性，运行时必须受到更严格的约束。增加信任需要的不是更多自由，而是更多限制。"
+> \"为了获得更高的 AI 自主性，运行时必须受到更严格的约束。增加信任需要的不是更多自由，而是更多限制。\"
 > — Birgitta Böckeler, ThoughtWorks
 
-> "If it cannot be enforced mechanically, agents will deviate."
+> \"If it cannot be enforced mechanically, agents will deviate.\"
 > — OpenAI 内部原则
 
-> "你必须不断提醒自己：你是在为 AI 写这个框架，不是为自己写。"
+> \"你必须不断提醒自己：你是在为 AI 写这个框架，不是为自己写。\"
 > — Nicholas Carlini
 
-> "Every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions are worth stress testing."
+> \"Every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions are worth stress testing.\"
 > — Anthropic Labs
 
 ---
@@ -317,4 +317,4 @@ HumanLayer 团队的实验发现：
 
 ---
 
-*本文档将持续更新。Harness Engineering 是 2026 年 AI 工程领域最重要的范式转变，它标志着 AI 开发的关注点从"怎么跟模型说话"转向"怎么为 AI 构建可靠的运行环境"。*
+*本文档将持续更新。Harness Engineering 是 2026 年 AI 工程领域最重要的范式转变，它标志着 AI 开发的关注点从\"怎么跟模型说话\"转向\"怎么为 AI 构建可靠的运行环境\"。*

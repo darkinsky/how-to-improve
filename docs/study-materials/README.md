@@ -12,6 +12,21 @@
 - [Flow-based Models](generative-models/flow-based-models.md)
 - [Flow Matching](generative-models/flow-matching.md)
 
+## AI Infra
+
+- [AI Infra 入门资料整理](ai-infra/README.md)
+- [01. 体系结构基础](ai-infra/01-architecture.md)
+- [02. CUDA 与算子编程](ai-infra/02-cuda-kernels.md)
+- [03. 分布式训练](ai-infra/03-distributed-training.md)
+- [04. LLM 推理系统](ai-infra/04-llm-inference.md)
+- [05. 网络与存储](ai-infra/05-network-storage.md)
+- [06. 调度与编排](ai-infra/06-scheduling-orchestration.md)
+
+## Learning Systems
+
+- [Meta-Learning](learning-systems/meta-learning.md)
+
 ## Agent Engineering
 
+- [Agent Memory](agent-engineering/agent-memory.md)
 - [Harness Engineering](agent-engineering/harness-engineering.md)

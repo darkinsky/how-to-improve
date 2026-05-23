@@ -262,4 +262,76 @@ Diffusion 路径：                Flow Matching 路径：
 
 ---
 
+---
+
+## 附录：ViT & DiT 速查（Flow Matching 的骨干网络）
+
+> 只需掌握核心思想，不用深入细节
+
+### ViT — Vision Transformer
+
+**论文：** An Image is Worth 16x16 Words（Google，ICLR 2021）
+https://arxiv.org/abs/2010.11929
+
+**核心思想：**
+把图像切成 16x16 的 Patch（共 196 个）→ 每个 Patch 展平成 token → 加位置编码 → 送入标准 Transformer
+
+**为什么重要：**
+- 证明 Transformer 在视觉任务同样有效
+- 遵循 Scaling Law：模型越大、数据越多，效果越好
+- 全局自注意力比 CNN 局部感受野更强
+
+**推荐资源：**
+- 论文精读（李沐）：https://www.youtube.com/watch?v=FRFt3x0i9yc
+- 官方代码：https://github.com/google-research/vision_transformer
+
+---
+
+### DiT — Diffusion Transformer
+
+**论文：** Scalable Diffusion Models with Transformers（UC Berkeley，ICCV 2023）
+https://arxiv.org/abs/2212.09748
+
+**核心思想：**
+用 ViT 替换 Diffusion/Flow Matching 里的 U-Net 做去噪骨干：
+
+- 加噪潜变量切成 Patch → 每块当 token
+- 用 Transformer 堆叠做去噪（无 U-Net 跳跃连接）
+- **AdaLN（自适应层归一化）：** 把时间步 t 和文本条件注入每个 Transformer 层
+
+**为什么比 U-Net 强：**
+
+| 维度 | U-Net | DiT |
+|------|-------|-----|
+| 全局建模 | 弱（局部卷积） | 强（Self-Attention） |
+| Scaling Law | 不明显 | 遵循，越大越好 |
+| 文字渲染 | 差 | 明显更好 |
+| 视频扩展 | 需大量修改 | 天然支持时空 token |
+
+**推荐资源：**
+- Yannic Kilcher 解读视频：https://www.youtube.com/watch?v=wIIBN2ao4v0
+- 官方代码（Meta）：https://github.com/facebookresearch/DiT
+
+---
+
+### 三者关系
+
+```
+Transformer (NLP, 2017)
+      |
+     ViT (视觉, 2020) — 图像切 Patch，用 Transformer 处理
+      |
+     DiT (生成, 2023) — 用 ViT 替换 Diffusion 的 U-Net
+      |
+FLUX.1 / SD3 / Wan2.1 (2024) — Flow Matching + DiT = 当前最优
+```
+
+**学习建议：**
+1. 看李沐 ViT 精读视频（约 1 小时）
+2. 读 DiT 论文 Section 3（核心架构，约 30 分钟）
+3. 回头看 FLUX.1 / SD3 技术报告，就能完全看懂了
+
+---
+
 *资料整理：Lovely | 更新时间：2026-03-27 | 仅含外网资料*
+
