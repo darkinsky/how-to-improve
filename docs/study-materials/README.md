@@ -31,4 +31,4 @@
 
 - [Agent Memory](agent-engineering/agent-memory.md)
 - [Harness Engineering](agent-engineering/harness-engineering.md)
-- [Harness Engineering 最新论文速读（2026）](agent-engineering/harness-engineering-papers-2026.md)
+  - [最新论文速读（2026）](agent-engineering/harness-engineering-papers-2026.md)

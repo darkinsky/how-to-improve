@@ -4,6 +4,8 @@
 > 采集时间：2026-05-23
 > 说明：本文档仅收录外网资料链接，不包含公司内网链接
 
+> **研究进展补充**：2026 年 3-5 月 Harness Engineering 方向论文明显增多，已整理为：[Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)。建议把本文作为概念/工程实践主线，把论文速读作为研究前沿补充阅读。
+
 ---
 
 ## 一、背景与起源
@@ -318,3 +320,20 @@ HumanLayer 团队的实验发现：
 ---
 
 *本文档将持续更新。Harness Engineering 是 2026 年 AI 工程领域最重要的范式转变，它标志着 AI 开发的关注点从\"怎么跟模型说话\"转向\"怎么为 AI 构建可靠的运行环境\"。*
+
+---
+
+## 最新论文与研究进展（2026）
+
+Harness Engineering 已经从工程经验进入研究阶段，近期论文主要围绕：
+
+- **Harness 表示化**：例如 Natural-Language Agent Harnesses，将 harness 政策抽象成可编辑、可检查、可迁移的自然语言对象。
+- **Harness 自动演化**：例如 Agentic Harness Engineering，通过组件/经验/决策可观测性，让 coding-agent harness 自动改进。
+- **运行时适配与推理时对齐**：不改模型参数，而通过接口、工具、轨迹控制和验证门控改善稳定性。
+- **安全审计**：从答案安全扩展到轨迹安全，检查工具调用、资源访问和上下文泄漏。
+- **领域专用 Harness**：科研、算法发现、可视化、仿真、搜索等任务正在出现垂直 harness。
+
+完整论文清单与阅读顺序见：
+
+- [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)
+

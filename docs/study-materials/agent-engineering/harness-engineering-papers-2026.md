@@ -1,5 +1,6 @@
 # Harness Engineering 最新论文速读（2026）
 
+> 返回主文档：[Harness Engineering（驭缰工程）学习资料](harness-engineering.md)
 > 更新时间：2026-05-23  
 > 来源：arXiv 元数据与摘要；仅收录公开外网论文链接。  
 > 主题：Agent Harness / Harness Engineering / Coding-Agent Harness / 运行时适配 / 安全审计 / 自动演化。
