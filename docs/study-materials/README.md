@@ -11,6 +11,7 @@
 - [GAN](generative-models/gan.md)
 - [Flow-based Models](generative-models/flow-based-models.md)
 - [Flow Matching](generative-models/flow-matching.md)
+- [Image & Video Generation](generative-models/image-video-generation.md)
 
 ## AI Infra
 
