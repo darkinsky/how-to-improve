@@ -1,5 +1,18 @@
 # Reinforcement Learning
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Reinforcement Learning |
+| 材料类型 | 索引 / 路线 |
+| 难度 | 中级到前沿 |
+| 优先级 | P0 / Survey / Frontier |
+| 状态 | 推荐 |
+| 建议用途 | 从经典 RL 进入 LLM / Agent RL |
+
+---
+
 这个目录整理强化学习进阶资料，以及 LLM / Agent 时代的 RL 前沿：RLHF、偏好优化、RLVR、Reasoning RL、Agentic RL、工具使用和自我改进。
 
 ---

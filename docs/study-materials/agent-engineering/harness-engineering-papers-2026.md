@@ -1,5 +1,18 @@
 # Harness Engineering 最新论文速读（2026）
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Agent Engineering |
+| 材料类型 | 前沿 / 论文速读 |
+| 难度 | 前沿 |
+| 优先级 | P1 / Frontier |
+| 状态 | 可用 |
+| 建议用途 | 跟进 Harness Engineering 最新研究方向 |
+
+---
+
 > 返回主文档：[Harness Engineering（驭缰工程）学习资料](harness-engineering.md)
 > 更新时间：2026-05-23  
 > 来源：arXiv 元数据与摘要；仅收录公开外网论文链接。  

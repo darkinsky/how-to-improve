@@ -1,5 +1,18 @@
 # 强化学习进阶学习资料与论文路线
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Reinforcement Learning |
+| 材料类型 | 论文路线 / 课程 |
+| 难度 | 进阶 |
+| 优先级 | P0 / Classic / Frontier |
+| 状态 | 推荐 |
+| 建议用途 | 从经典 RL 进阶到 Deep RL、Offline RL、RLHF |
+
+---
+
 > 适用背景：已经学完 Sutton & Barto《Reinforcement Learning: An Introduction》，希望从经典 RL 进阶到 Deep RL、Offline RL、Model-Based RL、RLHF 与现代大模型/机器人相关方向。  
 > 更新时间：2026-05-23  
 > 资料原则：优先选择经典论文、可复现实验、公开课程和长期维护的资源。

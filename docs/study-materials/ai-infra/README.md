@@ -1,5 +1,18 @@
 # AI Infra 入门资料整理
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | AI Infra |
+| 材料类型 | 索引 / 路线 |
+| 难度 | 中级 |
+| 优先级 | P0 / Hands-on / Frontier |
+| 状态 | 推荐 |
+| 建议用途 | 进入 AI Infra / LLM Systems 主线 |
+
+---
+
 > AI Infra（AI 基础设施）是支撑大模型训练、部署、运行的底层系统工程。
 > 本系列覆盖从硬件体系结构到上层调度的完整知识栈，适合有一定编程基础的同学系统入门。
 
@@ -7,14 +20,16 @@
 
 ## 📚 子章节目录
 
-| 章节 | 核心内容 | 关键词 |
-|------|----------|--------|
-| [01. 体系结构基础](01-architecture.md) | GPU 微架构、内存层次、Roofline Model、NVLink/IB 互联 | SM、Tensor Core、HBM、带宽 |
-| [02. CUDA 与算子编程](02-cuda-kernels.md) | CUDA 编程模型、Triton、TileLang、FlashAttention | Kernel、Warp、Shared Memory |
-| [03. 分布式训练](03-distributed-training.md) | DP/TP/PP/SP 并行策略、ZeRO、Megatron-LM、DeepSpeed | 3D Parallel、ZeRO-3、Pipeline Bubble |
-| [04. LLM 推理系统](04-llm-inference.md) | vLLM、SGLang、KV Cache、量化、Speculative Decoding | PagedAttention、RadixAttention、TTFT |
-| [05. 网络与存储](05-network-storage.md) | NCCL、InfiniBand、RDMA、JuiceFS、训练 I/O 优化 | AllReduce、RoCE、DataLoader |
-| [06. 调度与编排](06-scheduling-orchestration.md) | Ray、Kubernetes、Volcano、Slurm、可观测性 | Gang Scheduling、Ray Serve、DCGM |
+> 文档统一标签见：[Study Materials 内容标准](../content-standard.md)。
+
+| 章节 | 核心内容 | 关键词 | 优先级 |
+|------|----------|--------|--------|
+| [01. 体系结构基础](01-architecture.md) | GPU 微架构、内存层次、Roofline Model、NVLink/IB 互联 | SM、Tensor Core、HBM、带宽 | P0 / Classic |
+| [02. CUDA 与算子编程](02-cuda-kernels.md) | CUDA 编程模型、Triton、TileLang、FlashAttention | Kernel、Warp、Shared Memory | P0 / Hands-on |
+| [03. 分布式训练](03-distributed-training.md) | DP/TP/PP/SP 并行策略、ZeRO、Megatron-LM、DeepSpeed | 3D Parallel、ZeRO-3、Pipeline Bubble | P0 / Frontier |
+| [04. LLM 推理系统](04-llm-inference.md) | vLLM、SGLang、KV Cache、量化、Speculative Decoding | PagedAttention、RadixAttention、TTFT | P0 / Frontier |
+| [05. 网络与存储](05-network-storage.md) | NCCL、InfiniBand、RDMA、JuiceFS、训练 I/O 优化 | AllReduce、RoCE、DataLoader | P1 / Hands-on |
+| [06. 调度与编排](06-scheduling-orchestration.md) | Ray、Kubernetes、Volcano、Slurm、可观测性 | Gang Scheduling、Ray Serve、DCGM | P1 / Hands-on |
 
 ---
 

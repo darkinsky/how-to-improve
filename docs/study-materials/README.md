@@ -1,5 +1,18 @@
 # Study Materials
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Study Materials |
+| 材料类型 | 索引 / 路线 |
+| 难度 | 入门 |
+| 优先级 | P0 / Survey |
+| 状态 | 推荐 |
+| 建议用途 | 选择学习路线与查找资料入口 |
+
+---
+
 这里收录 AI、CS、工程与研究方向的公开学习资料。原则是：**优先整理最重要的课程、论文、代码和实践路线，而不是无限堆链接**。
 
 > 注意：本目录只迁移和整理可公开分享的学习资料；不包含公司内网链接、内部文档、聊天记录或其它私人内容。
@@ -16,6 +29,24 @@
 | 跟进 LLM / Agent RL | [Reinforcement Learning](reinforcement-learning/README.md) | Deep RL → RLHF / DPO → RLVR / Reasoning RL → Agentic RL |
 | 学 Agent 工程 | [Agent Engineering](agent-engineering/README.md) | Agent Memory → Harness Engineering → 轨迹评估 / 安全 / 自动演化 |
 | 学元学习与学习系统 | [Learning Systems](learning-systems/meta-learning.md) | Meta-learning 基础 → few-shot / optimization-based / model-based 方法 |
+
+---
+
+## 内容标准
+
+新增或大改学习资料时，先参考：[Study Materials 内容标准](content-standard.md)。
+
+当前统一使用以下标签：
+
+| 标签 | 含义 |
+|------|------|
+| `P0` | 必读核心，方向入门或长期能力建设不可跳过 |
+| `P1` | 强烈推荐，适合完成主线后深入 |
+| `P2` | 选择性阅读，依赖具体方向或兴趣 |
+| `Classic` | 长期稳定、基础性强的经典材料 |
+| `Frontier` | 近年前沿论文、系统、benchmark、技术报告 |
+| `Hands-on` | 有 Lab、代码、项目或可复现实验 |
+| `Survey` | 用于建立知识地图的综述 / 路线 |
 
 ---
 

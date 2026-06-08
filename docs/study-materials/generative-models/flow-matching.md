@@ -1,5 +1,18 @@
 # Flow Matching 学习计划与资料汇总
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Generative Models |
+| 材料类型 | 前沿 / 论文路线 |
+| 难度 | 进阶 |
+| 优先级 | P0 / Frontier |
+| 状态 | 需更新 |
+| 建议用途 | 理解 Flow Matching、Rectified Flow 与现代生成路线 |
+
+---
+
 > 整理时间：2026-03-27
 > 目标：系统掌握 Flow Matching 的理论基础、与 Diffusion 的关系、核心变体及工业应用
 > 前置推荐：先了解 Diffusion Model 基础（DDPM/DDIM），理解去噪生成过程；了解常微分方程（ODE）基本概念

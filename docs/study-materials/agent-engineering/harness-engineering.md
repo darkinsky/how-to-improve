@@ -1,5 +1,18 @@
 # Harness Engineering（驭缰工程）学习资料
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Agent Engineering |
+| 材料类型 | 专题 / 工程实践 |
+| 难度 | 进阶 |
+| 优先级 | P1 / Frontier / Hands-on |
+| 状态 | 需更新 |
+| 建议用途 | 理解 Agent harness、runtime、tools 与评估 |
+
+---
+
 > 综合来源：OpenAI、Anthropic、Stripe、LangChain、Mitchell Hashimoto、ThoughtWorks、CMU/耶鲁/斯坦福等
 > 采集时间：2026-05-23
 > 说明：本文档仅收录外网资料链接，不包含公司内网链接

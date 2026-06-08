@@ -1,5 +1,18 @@
 # LLM / Agent 相关强化学习前沿论文
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Reinforcement Learning |
+| 材料类型 | 前沿 / 论文路线 |
+| 难度 | 前沿 |
+| 优先级 | P0 / Frontier |
+| 状态 | 需更新 |
+| 建议用途 | 跟进 LLM reasoning、RLVR 与 Agent RL |
+
+---
+
 > 目标：在已掌握 Sutton 强化学习与基础 Deep RL 的前提下，理解当前最热的 LLM reasoning、RLHF/RLVR、Agent 训练、工具使用和自改进方向。  
 > 更新时间：2026-05-24  
 > 选择原则：优先收录影响力大、范式代表性强、能连接经典 RL 与 LLM/Agent 前沿的论文。

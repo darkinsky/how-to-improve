@@ -1,5 +1,18 @@
 # Agent Engineering
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Agent Engineering |
+| 材料类型 | 索引 / 路线 |
+| 难度 | 中级到前沿 |
+| 优先级 | P1 / Frontier / Hands-on |
+| 状态 | 推荐 |
+| 建议用途 | 理解 Agent = Model + Harness 的工程主线 |
+
+---
+
 这个目录整理 LLM Agent 的工程与研究资料，重点关注 Agent Memory、Harness Engineering、工具系统、运行时约束、轨迹评估和自动演化。
 
 ---

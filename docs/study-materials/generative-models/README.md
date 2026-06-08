@@ -1,5 +1,18 @@
 # Generative Models
 
+## 文档元信息
+
+| 字段 | 内容 |
+|------|------|
+| 主题领域 | Generative Models |
+| 材料类型 | 索引 / 路线 |
+| 难度 | 入门到进阶 |
+| 优先级 | P0 / Survey / Frontier |
+| 状态 | 推荐 |
+| 建议用途 | 建立生成模型主线 |
+
+---
+
 这个目录整理生成模型的核心路线：AutoEncoder / VAE、GAN、Flow-based Models、Diffusion、Flow Matching，以及现代图像与视频生成模型。
 
 ---
