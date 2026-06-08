@@ -18,6 +18,10 @@
 - [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
   - [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
 
+## Computer Science
+
+- [CS 公开课资源整理](computer-science/open-courses.md)
+
 ## AI Infra
 
 - [AI Infra 入门资料整理](ai-infra/README.md)
