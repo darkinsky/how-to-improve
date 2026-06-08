@@ -76,8 +76,8 @@
 
 ## Computer Science
 
-- [Computer Science 学习入口](computer-science/README.md)
-- [CS 公开课资源整理](computer-science/open-courses.md)
+- [Computer Science 学习入口](computer-science/README.md) — CS 基础、AI Infra、后端 / 分布式压缩路线
+- [CS 公开课资源整理](computer-science/open-courses.md) — 高质量公开课清单、课程分层、选课避坑
 
 ## AI Infra
 
