@@ -59,17 +59,18 @@
 3. [AI Infra 必读论文路线](ai-infra/07-ai-infra-papers.md)
 4. [04. LLM 推理系统](ai-infra/04-llm-inference.md)
 5. [LLM Serving 前沿系统](ai-infra/08-llm-serving-frontier.md)
-6. [Diffusion Model 学习计划与资料汇总](generative-models/diffusion-model.md)
-7. [Flow Matching 学习计划与资料汇总](generative-models/flow-matching.md)
-8. [图像与视频生成模型学习计划](generative-models/image-video-generation.md)
-9. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
-10. [Preference Optimization](reinforcement-learning/preference-optimization.md)
-11. [Reasoning RL](reinforcement-learning/reasoning-rl.md)
-12. [Agentic RL](reinforcement-learning/agentic-rl.md)
-13. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
-14. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
-15. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
-16. [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
+6. [Generative Models 2026](generative-models/generative-models-2026.md)
+7. [Diffusion Model 学习计划与资料汇总](generative-models/diffusion-model.md)
+8. [Flow Matching 学习计划与资料汇总](generative-models/flow-matching.md)
+9. [图像与视频生成模型学习计划](generative-models/image-video-generation.md)
+10. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
+11. [Preference Optimization](reinforcement-learning/preference-optimization.md)
+12. [Reasoning RL](reinforcement-learning/reasoning-rl.md)
+13. [Agentic RL](reinforcement-learning/agentic-rl.md)
+14. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
+15. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
+16. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
+17. [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
 
 ---
 
@@ -93,6 +94,7 @@
 ## Generative Models
 
 - [Generative Models 学习入口](generative-models/README.md)
+- [Generative Models 2026](generative-models/generative-models-2026.md)
 - [AutoEncoder & VAE](generative-models/autoencoder-vae.md)
 - [Diffusion Model](generative-models/diffusion-model.md)
 - [GAN](generative-models/gan.md)

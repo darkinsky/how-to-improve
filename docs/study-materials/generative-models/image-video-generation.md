@@ -17,6 +17,27 @@
 > 目标：系统掌握当前主流图像/视频生成模型的原理、架构演进与实践方法
 > 前置推荐：先完成 Diffusion Model 学习，理解去噪过程与条件生成基础
 
+> 总览补充：现代生成模型路线见 [Generative Models 2026](generative-models-2026.md)。本文重点跟踪图像/视频生成系统、模型演进、评估和实践。
+
+---
+
+## 先看结论
+
+图像与视频生成的核心主线：
+
+```text
+图像：DDPM → LDM / Stable Diffusion → SDXL / ControlNet / LoRA → SD3 / FLUX / DiT-flow hybrids
+视频：Video Diffusion → AnimateDiff / SVD → Sora / Veo / Movie Gen / Wan / CogVideoX
+```
+
+判断一个模型是否重要，不只看 demo 漂亮不漂亮，还要看：
+
+- 是否改变了架构范式：U-Net → DiT / MM-DiT / spacetime patch；
+- 是否降低了训练或推理成本：latent compression、few-step sampling、distillation；
+- 是否增强了可控性：ControlNet、IP-Adapter、camera control、trajectory control；
+- 是否改善了长时一致性：identity、object permanence、motion consistency；
+- 是否有可复现生态：开源权重、训练代码、推理框架、benchmark。
+
 ---
 
 ## 知识地图
@@ -215,6 +236,84 @@
 - **论文：** https://arxiv.org/abs/2311.15127
 - **代码：** https://github.com/Stability-AI/generative-models
 - **摘要：** 开源图生视频模型，从静态图像生成短视频片段
+
+---
+
+## 图像生成路线速览
+
+| 阶段 | 代表模型 | 关键变化 |
+|------|----------|----------|
+| Early text-to-image | DALL·E, GLIDE | 文本条件生成初步成型 |
+| Diffusion scaling | Imagen, DALL·E 2 | 语言模型文本编码器 + diffusion |
+| Open ecosystem | Stable Diffusion, LDM | latent diffusion 让消费级 GPU 可用 |
+| Control ecosystem | ControlNet, IP-Adapter, LoRA, DreamBooth | 控制、个性化和社区生态爆发 |
+| High-res / composition | SDXL | 更高分辨率、更好构图和风格 |
+| DiT / Flow era | SD3, FLUX | Transformer backbone、flow matching、文字渲染增强 |
+
+图像生成学习重点：
+
+- prompt following 与文本渲染；
+- subject consistency 和 personalization；
+- inpainting / editing / controllable generation；
+- LoRA、ControlNet、IP-Adapter 的工程生态；
+- 采样速度、显存和部署成本。
+
+---
+
+## 视频生成关键问题
+
+视频生成不是简单地逐帧生成图像，核心挑战包括：
+
+| 问题 | 说明 |
+|------|------|
+| Temporal Consistency | 同一角色、物体、背景在多帧中保持一致 |
+| Motion Control | 控制运动方向、速度、动作和镜头 |
+| Long Video Memory | 长视频中保持世界状态和因果连续性 |
+| Camera Control | 推拉摇移、视角变化、景深和构图 |
+| Multimodal Conditioning | 文本、图像、音频、姿态、轨迹等条件融合 |
+| Cost | 时空 token 多，训练和推理显存成本极高 |
+| Evaluation | 人眼敏感但指标不完善，benchmark 仍不稳定 |
+
+实践判断视频模型时，至少看：
+
+```text
+prompt following
++ motion realism
++ identity consistency
++ object permanence
++ camera controllability
++ temporal flicker
++ inference cost
+```
+
+---
+
+## 评估指标
+
+| 指标 / Benchmark | 用途 | 局限 |
+|------------------|------|------|
+| FID | 图像质量和分布距离 | 不评估 prompt following |
+| IS | 图像分类置信度 | 信息有限，现代文生图较少单独使用 |
+| CLIPScore | 图文一致性 | CLIP 偏差不等于人类偏好 |
+| Aesthetic Score | 美学质量估计 | 容易风格偏置 |
+| FVD | 视频分布质量 | 对局部错误和文本遵循不敏感 |
+| VBench | 视频多维评测 | 仍需人工评估补充 |
+| T2VBench | 文生视频评测 | 覆盖有限，易被 benchmark 优化 |
+| Human Preference | 最贴近真实感受 | 昂贵、慢、重复性差 |
+
+建议评估报告同时写：质量、文本遵循、运动一致性、可控性、安全、速度和成本。
+
+---
+
+## 实践 Checklist
+
+| 任务 | 建议记录 |
+|------|----------|
+| 文生图 | prompt、negative prompt、seed、steps、CFG、sampler、分辨率 |
+| 图生图 / 编辑 | strength、mask、参考图、ControlNet 条件 |
+| LoRA / DreamBooth | 数据量、caption 质量、rank、学习率、过拟合样例 |
+| 视频生成 | fps、帧数、分辨率、motion bucket、camera prompt、显存 |
+| 模型对比 | 同 prompt、同 seed、同分辨率、同预算 |
 
 ---
 

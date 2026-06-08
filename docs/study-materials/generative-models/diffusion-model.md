@@ -17,6 +17,33 @@
 > 目标：系统掌握扩散模型（Diffusion Models）的理论基础、核心变体、实现方法及前沿应用
 > 前置推荐：先完成 AE & VAE 学习，理解隐空间与生成模型基础
 
+> 总览补充：现代生成模型路线见 [Generative Models 2026](generative-models-2026.md)。本文重点讲 Diffusion 基础，Flow Matching / DiT / 视频生成见对应专题。
+
+---
+
+## 先看结论
+
+Diffusion 的核心不是“随机加噪很神奇”，而是把复杂生成问题拆成一系列更简单的去噪问题：
+
+```text
+Forward:  x0 → x1 → ... → xT ≈ pure noise
+Reverse:  xT → ... → x1 → x0
+```
+
+现代文生图 / 文生视频系统通常不是直接在像素空间做 DDPM，而是：
+
+```text
+text encoder → latent diffusion / flow backbone → scheduler / sampler → VAE decoder → safety / upscaler
+```
+
+学习时要抓住 5 条主线：
+
+1. **DDPM**：训练目标和反向去噪；
+2. **DDIM / DPM-Solver**：采样加速；
+3. **Score SDE**：用连续时间视角统一 diffusion；
+4. **CFG / LDM**：现代文生图 pipeline；
+5. **DiT / Flow Matching**：大模型时代的架构与训练目标演进。
+
 ---
 
 ## 知识地图
@@ -137,6 +164,92 @@
 | Stable Diffusion | [github.com/CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion) | Stable Diffusion 官方实现 |
 | Annotated Diffusion（可运行）| [colab 链接](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/annotated_diffusion.ipynb) | Hugging Face 注释版，Colab 可直接运行 |
 | DiT 官方代码 | [github.com/facebookresearch/DiT](https://github.com/facebookresearch/DiT) | Meta DiT 官方实现 |
+
+---
+
+## 现代 Diffusion Pipeline
+
+现代 text-to-image / text-to-video 系统通常由 6 个模块组成：
+
+| 模块 | 作用 | 关键问题 |
+|------|------|----------|
+| Text Encoder | 把 prompt 编成语义条件 | CLIP / T5 / 多文本编码器 |
+| VAE Encoder / Decoder | 像素空间和 latent space 转换 | 压缩率、重建质量、细节损失 |
+| Denoising Backbone | 预测噪声 / score / velocity | U-Net、DiT、MM-DiT |
+| Scheduler / Sampler | 决定采样路径和步数 | DDIM、DPM-Solver、Euler、Heun |
+| Guidance | 控制条件强度 | CFG scale、negative prompt、distillation |
+| Post-processing | 安全、超分、修复 | safety checker、upscaler、inpainting |
+
+一个实用理解：
+
+```text
+质量 = backbone 能力 + 训练数据 + 条件编码 + sampler + guidance + 后处理
+速度 = latent 压缩 + 采样步数 + kernel / batching / quantization
+可控性 = 条件接口 + attention 注入 + adapter / ControlNet / LoRA
+```
+
+---
+
+## DDPM、DDIM、Score SDE、CFG 的关系
+
+| 概念 | 解决问题 | 学习重点 |
+|------|----------|----------|
+| DDPM | 如何训练一个逐步去噪模型 | forward / reverse process、噪声预测损失 |
+| DDIM | 如何少步采样 | 非马尔可夫采样、确定性路径 |
+| Score SDE | 如何用连续时间统一扩散 | score function、SDE / ODE、probability flow |
+| CFG | 如何提升条件生成质量 | conditional / unconditional prediction 线性组合 |
+| LDM | 如何降低高分辨率生成成本 | 在 VAE latent space 中扩散 |
+| DiT | 如何让 diffusion 具备 scaling 能力 | patch token、Transformer backbone |
+
+关系可以粗略画成：
+
+```text
+DDPM → DDIM / DPM-Solver（采样加速）
+  ↓
+Score SDE（连续时间统一视角）
+  ↓
+CFG + LDM（现代文生图 pipeline）
+  ↓
+DiT / Flow Matching（大规模生成模型主线）
+```
+
+---
+
+## Diffusion 与 Flow Matching 的关系
+
+Diffusion 和 Flow Matching 都可以看作从简单分布到数据分布的连续生成过程：
+
+```text
+Diffusion:      learn denoising / score along noisy path
+Flow Matching:  learn velocity field along probability path
+Rectified Flow: learn straighter transport path for fewer sampling steps
+```
+
+学习建议：
+
+- 先用 DDPM / DDIM 建立“加噪-去噪”直觉；
+- 再用 Score SDE 建立连续时间视角；
+- 最后看 [Flow Matching](flow-matching.md)，理解 velocity prediction 和 ODE transport；
+- 结合 [Generative Models 2026](generative-models-2026.md) 看现代模型为什么越来越偏向 DiT + flow/rectified-flow 风格。
+
+---
+
+## 实践 Checklist
+
+做 diffusion 实验时，至少记录这些变量：
+
+| 类别 | 需要记录 |
+|------|----------|
+| Sampler | DDPM / DDIM / DPM-Solver / Euler / Heun |
+| Steps | 4 / 8 / 20 / 50 / 1000 steps |
+| Noise Schedule | linear / cosine / learned schedule |
+| Prediction Type | epsilon / x0 / v-prediction |
+| Guidance | CFG scale、negative prompt、guidance rescale |
+| Space | pixel diffusion vs latent diffusion |
+| Backbone | U-Net vs DiT |
+| Metrics | FID、CLIPScore、人类偏好、速度、显存 |
+
+结论不要只写“效果好/不好”，要同时写：质量、速度、稳定性、成本和失败案例。
 
 ---
 

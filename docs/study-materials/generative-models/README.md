@@ -36,24 +36,25 @@ DiT / Video Diffusion：将生成模型扩展到更大规模图像、视频和�
 
 ## 推荐学习顺序
 
-1. [AutoEncoder & VAE](autoencoder-vae.md)
-2. [GAN](gan.md)
-3. [Flow-based Models](flow-based-models.md)
-4. [Diffusion Model](diffusion-model.md)
-5. [Flow Matching](flow-matching.md)
-6. [Image & Video Generation](image-video-generation.md)
+1. [Generative Models 2026](generative-models-2026.md)：先建立现代生成模型全景。
+2. [AutoEncoder & VAE](autoencoder-vae.md)：理解 latent space 和 VAE encoder / decoder。
+3. [GAN](gan.md)：理解对抗训练、感知质量和 mode collapse。
+4. [Flow-based Models](flow-based-models.md)：理解可逆变换和似然建模。
+5. [Diffusion Model](diffusion-model.md)：掌握 DDPM、DDIM、Score SDE、CFG、LDM。
+6. [Flow Matching](flow-matching.md)：理解 Rectified Flow、velocity prediction 和少步采样。
+7. [Image & Video Generation](image-video-generation.md)：跟进 DiT、FLUX、Sora、Wan、CogVideoX 等现代系统。
 
 ---
 
 ## 必读 Top 10
 
-1. **VAE** — Auto-Encoding Variational Bayes
-2. **GAN** — Generative Adversarial Nets
-3. **NICE / RealNVP / Glow** — Flow-based Models 代表路线
-4. **DDPM** — Denoising Diffusion Probabilistic Models
-5. **DDIM** — Denoising Diffusion Implicit Models
-6. **Score-based SDE** — Score-Based Generative Modeling through SDEs
-7. **LDM / Stable Diffusion** — Latent Diffusion Models
+1. **Generative Models 2026** — 现代生成模型总览：Diffusion / Flow Matching / DiT / Video
+2. **VAE** — Auto-Encoding Variational Bayes
+3. **GAN** — Generative Adversarial Nets
+4. **NICE / RealNVP / Glow** — Flow-based Models 代表路线
+5. **DDPM** — Denoising Diffusion Probabilistic Models
+6. **DDIM** — Denoising Diffusion Implicit Models
+7. **Score-based SDE / CFG / LDM** — 现代文生图基础组件
 8. **DiT** — Scalable Diffusion Models with Transformers
 9. **Flow Matching / Rectified Flow** — 连续流生成的新主线
 10. **Sora / Flux / Wan / CogVideoX** — 图像与视频生成前沿代表
@@ -64,10 +65,11 @@ DiT / Video Diffusion：将生成模型扩展到更大规模图像、视频和�
 
 | 目标 | 建议路线 |
 |------|----------|
-| 建立生成模型基础 | VAE → GAN → Flow → Diffusion |
-| 学图像生成 | Diffusion → LDM / Stable Diffusion → ControlNet → DiT / Flux |
-| 学视频生成 | Diffusion → Video Diffusion → Sora / CogVideoX / Wan |
-| 跟进研究前沿 | Flow Matching → Rectified Flow → Consistency Models → DiT Scaling |
+| 建立生成模型基础 | [Generative Models 2026](generative-models-2026.md) → VAE → GAN → Flow → Diffusion |
+| 学现代图像生成 | [Diffusion Model](diffusion-model.md) → LDM / Stable Diffusion → ControlNet → DiT / FLUX |
+| 学视频生成 | Diffusion → Video Diffusion → [Image & Video Generation](image-video-generation.md) → Sora / CogVideoX / Wan |
+| 跟进研究前沿 | [Flow Matching](flow-matching.md) → Rectified Flow → Consistency Models → DiT Scaling |
+| 做生成模型系统和推理优化 | Diffusers → sampler 对比 → quantization / batching → video inference cost profiling |
 | 做工程实践 | Hugging Face Diffusers → Stable Diffusion → LoRA / ControlNet → 视频生成模型 |
 
 ---
