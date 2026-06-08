@@ -13,7 +13,7 @@
 
 ---
 
-这个目录整理 LLM Agent 的工程与研究资料，重点关注 Agent Memory、Harness Engineering、工具系统、运行时约束、轨迹评估和自动演化。
+这个目录整理 LLM Agent 的工程与研究资料，重点关注 Agent Memory、Harness Engineering、Agent Benchmarks、工具系统、运行时约束、轨迹评估和自动演化。
 
 ---
 
@@ -42,7 +42,8 @@ Agent 工程的核心问题不是“怎样写一个更长的 prompt”，而是�
 
 1. [Agent Memory](agent-memory.md)
 2. [Harness Engineering](harness-engineering.md)
-3. [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)
+3. [Agent Benchmarks](agent-benchmarks.md)
+4. [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)
 
 ---
 
@@ -54,10 +55,10 @@ Agent 工程的核心问题不是“怎样写一个更长的 prompt”，而是�
 4. **Generative Agents** — Memory、Reflection、Planning 的经典 Agent 架构
 5. **Voyager** — 终身学习与技能库
 6. **Reflexion** — verbal reinforcement 与失败经验记忆
-7. **Agent Memory 相关综述** — 记忆类型、检索和长期状态管理
-8. **Natural-Language Agent Harnesses** — Harness 可表示化
-9. **Agentic Harness Engineering** — Harness 自动演化
-10. **Auditing Agent Harness Safety** — 轨迹级安全审计
+7. **Agent Benchmarks** — SWE-bench、Terminal-Bench、WebArena、GAIA 等评测系统
+8. **Agent Memory 相关综述** — 记忆类型、检索和长期状态管理
+9. **Natural-Language Agent Harnesses** — Harness 可表示化
+10. **Agentic Harness Engineering / Harness Safety** — Harness 自动演化与轨迹级安全审计
 
 ---
 

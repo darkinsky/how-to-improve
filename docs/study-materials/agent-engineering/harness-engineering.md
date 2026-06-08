@@ -19,6 +19,8 @@
 
 > **研究进展补充**：2026 年 3-5 月 Harness Engineering 方向论文明显增多，已整理为：[Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)。建议把本文作为概念/工程实践主线，把论文速读作为研究前沿补充阅读。
 
+> **评测补充**：Agent 不能只看最终答案，benchmark 和轨迹审计同样关键。评测路线见：[Agent Benchmarks](agent-benchmarks.md)。
+
 ---
 
 ## 一、背景与起源
@@ -80,7 +82,57 @@ Agent = Model + Harness
 
 > 不要一上来就想搭齐六层。更务实的做法：**先做 L1 + L6**（信息边界 + 约束恢复），投入最低但最易见效。
 
-### 2.2 Agent 常见失败模式
+### 2.2 Agent Runtime 分层
+
+从工程实现看，Harness 可以拆成一个可观测、可测试、可替换的 runtime：
+
+```text
+Task Input
+  ↓
+Context Builder
+  ↓
+Planner / Controller
+  ↓
+Tool Router / Permission Gate
+  ↓
+Executor / Sandbox
+  ↓
+Memory Manager / State Store
+  ↓
+Verifier / Evaluator
+  ↓
+Trajectory Logger / Auditor
+```
+
+| 层级 | 职责 | 常见失败 |
+|------|------|----------|
+| Context Builder | 选择模型应该看到的文件、历史、状态 | 上下文过载、遗漏关键事实 |
+| Planner / Controller | 拆任务、决定下一步、管理循环 | 过度规划、兜圈子、提前收工 |
+| Tool Router | 决定可用工具、参数校验、权限控制 | 越权调用、不必要副作用 |
+| Sandbox / Executor | 隔离执行命令、浏览器、文件操作 | 环境污染、不可复现 |
+| Memory / State Store | 保存任务状态、长期记忆和中间产物 | 记忆污染、状态不一致 |
+| Verifier | 用测试、lint、规则或外部评估验证结果 | 自我评价偏差、成功幻觉 |
+| Trajectory Logger | 记录消息、工具调用、diff、验证结果 | 失败不可解释、无法回放 |
+
+一个好的 Agent runtime 不是让模型更自由，而是让模型在**明确边界、可验证反馈和可回放轨迹**中行动。
+
+### 2.3 Harness、Prompt Engineering、Context Engineering 的区别
+
+| 范式 | 核心问题 | 主要产物 | 局限 |
+|------|----------|----------|------|
+| Prompt Engineering | 该怎么问模型？ | 指令、few-shot、输出格式 | 主要约束单轮生成 |
+| Context Engineering | 该让模型看到什么？ | 检索、摘要、上下文窗口管理 | 仍偏信息供给，不管执行闭环 |
+| Harness Engineering | 整个运行环境该如何运作？ | runtime、tools、state、verifier、sandbox、audit | 工程复杂度更高，需要评测闭环 |
+
+可以粗略理解为：
+
+```text
+Prompt = 指令
+Context = 信息环境
+Harness = 可执行、可约束、可观测的运行系统
+```
+
+### 2.4 Agent 常见失败模式
 
 | 失败模式 | 现象 | 根因 |
 |---------|------|------|
@@ -229,9 +281,68 @@ HumanLayer 团队的实验发现：
 
 ---
 
-## 五、工具与框架生态
+## 五、评测、审计与安全闭环
 
-### 5.1 核心资源
+Harness 的质量不能靠主观感觉判断，必须用 benchmark、轨迹审计和回归任务验证。完整 benchmark 路线见：[Agent Benchmarks](agent-benchmarks.md)。
+
+### 5.1 Harness 评测指标
+
+| 指标 | 说明 |
+|------|------|
+| Task Success Rate | 最终任务是否完成 |
+| Verification Pass Rate | 测试、lint、规则检查是否通过 |
+| Tool Call Efficiency | 工具调用次数是否合理 |
+| Context Efficiency | token 使用是否可控，是否重复读无关信息 |
+| Recovery Ability | 失败后能否定位问题、重试、回滚或降级 |
+| Trajectory Safety | 是否越权、泄漏、破坏环境、绕过规则 |
+| Reproducibility | 同一任务多次运行是否稳定 |
+
+### 5.2 轨迹审计清单
+
+每次 Agent run 至少记录：
+
+```text
+task input
+selected context
+model messages
+tool calls + arguments
+tool outputs
+file diffs
+network requests
+permission prompts
+verification commands
+final result
+```
+
+没有轨迹，就无法判断失败来自模型、工具、上下文选择、权限设计还是验证器。
+
+### 5.3 安全边界
+
+Agent Harness 应默认最小权限：
+
+- 文件系统：限定可读 / 可写目录；
+- Shell：危险命令需要确认或禁用；
+- 网络：外部请求需要白名单或审计；
+- Secret：任何 token、key、cookie 不应进入模型上下文；
+- Git：提交、push、release 需要明确验证步骤；
+- 数据：用户隐私和内部资料不能被自动上传或外发。
+
+### 5.4 Harness 设计检查清单
+
+- [ ] 是否有明确任务完成标准？
+- [ ] 是否有工具权限边界？
+- [ ] 是否记录完整轨迹并可回放？
+- [ ] 是否有独立 verifier，而不是只听 Agent 自我汇报？
+- [ ] 是否能检测重复循环和无效重试？
+- [ ] 是否支持失败恢复、回滚或降级？
+- [ ] 是否有小型 regression benchmark？
+- [ ] 是否能解释每次失败属于哪类问题？
+
+---
+
+## 六、工具与框架生态
+
+### 6.1 核心资源
 
 | 资源 | 类型 | 链接 |
 |------|------|------|
@@ -246,7 +357,7 @@ HumanLayer 团队的实验发现：
 | 从概念到落地（MornAI） | 文章 | https://www.mornai.cn/news/ai-agent/harness-engineering/ |
 | 掘金 Anthropic 多智能体拆解 | 文章 | https://juejin.cn/post/7620708166142197802 |
 
-### 5.2 重要论文
+### 6.2 重要论文
 
 | 论文 | 链接 | 要点 |
 |------|------|------|
@@ -254,7 +365,7 @@ HumanLayer 团队的实验发现：
 | CMU/耶鲁/亚马逊 Harness 综述 | 搜索：\"Harness Engineering CMU Yale\" | 系统梳理 Harness 学术基础 |
 | 上海交大 Agent Harness 综述 | 搜索：\"SJTU Agent Harness survey\" | Agent 时代基座理论 |
 
-### 5.3 经典博文
+### 6.3 经典博文
 
 | 作者 | 时间 | 标题/内容 |
 |------|------|-----------|
@@ -266,22 +377,22 @@ HumanLayer 团队的实验发现：
 
 ---
 
-## 六、关键洞察与趋势
+## 七、关键洞察与趋势
 
-### 6.1 环境比模型更关键（实证）
+### 7.1 环境比模型更关键（实证）
 
 三个独立实验一致结论：
 1. **LangChain**：不改模型，Terminal Bench 排名从 30 → 5
 2. **Can Boluk**：Hashline 协议，成功率 6.7% → 68.3%
 3. **HumanLayer**：沉默即成功，达成率 43% → 78%
 
-### 6.2 模型-Harness 耦合与解耦
+### 7.2 模型-Harness 耦合与解耦
 
 - 现在 Agent 产品（Claude Code、Codex）把 Model 和 Harness 一起调优
 - 这会导致\"过拟合\"：Opus 在 Claude Code Harness 下得分远高于其他 Harness
 - **结论**：为任务选择 Harness 时，不要默认自带的就最合适
 
-### 6.3 尚待解决的问题
+### 7.3 尚待解决的问题
 
 | 问题 | 现状 | 难点 |
 |------|------|------|
@@ -291,7 +402,7 @@ HumanLayer 团队的实验发现：
 | 单 Agent vs 多 Agent | 取决于规模场景 | 小项目单 Agent 够用，大项目需专业化分工 |
 | Harness 该做厚做薄 | 场景决定 | 模型变强后，Harness 应定期简化 |
 
-### 6.4 核心金句
+### 7.4 核心金句
 
 > \"为了获得更高的 AI 自主性，运行时必须受到更严格的约束。增加信任需要的不是更多自由，而是更多限制。\"
 > — Birgitta Böckeler, ThoughtWorks
@@ -307,7 +418,7 @@ HumanLayer 团队的实验发现：
 
 ---
 
-## 七、推荐学习路线
+## 八、推荐学习路线
 
 ### Step 1：理解核心理念（1-2 天）
 - 阅读 JavaGuide 六层架构详解：https://javaguide.cn/ai/agent/harness-engineering.html

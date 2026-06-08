@@ -66,6 +66,7 @@
 10. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
 11. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
 12. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
+13. [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
 
 ---
 
@@ -107,6 +108,7 @@
 - [Agent Engineering 学习入口](agent-engineering/README.md)
 - [Agent Memory](agent-engineering/agent-memory.md)
 - [Harness Engineering](agent-engineering/harness-engineering.md)
+- [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
 - [Harness Engineering 最新论文速读（2026）](agent-engineering/harness-engineering-papers-2026.md)
 
 ## Learning Systems
