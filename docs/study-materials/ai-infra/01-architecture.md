@@ -17,6 +17,17 @@
 
 ---
 
+## 先看结论
+
+- AI Infra 的性能瓶颈通常不是单纯“算力不够”，而是 **计算、内存、通信和调度** 的组合问题。
+- GPU 性能分析要先判断是 compute-bound 还是 memory-bound；Roofline Model 是最重要的入门工具。
+- Tensor Core 负责高吞吐矩阵计算，HBM / L2 / shared memory 决定数据能否及时喂给计算单元。
+- Attention、LayerNorm、Softmax、GEMM 的优化思路不同：GEMM 多数偏 compute-bound，归一化和 softmax 更偏 memory-bound。
+- 互联也属于体系结构：单机 NVLink、跨机 InfiniBand / RoCE 会直接影响训练和 serving 的扩展效率。
+- 学完本章的最低标准：能解释 SM、warp、Tensor Core、HBM、NVLink、Roofline 与 FlashAttention 优化之间的关系。
+
+---
+
 ## GPU 微架构
 
 ### 整体架构层次

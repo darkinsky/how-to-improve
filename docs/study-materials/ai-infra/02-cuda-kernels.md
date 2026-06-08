@@ -17,6 +17,17 @@
 
 ---
 
+## 先看结论
+
+- 算子优化的核心是让数据搬运、线程组织和 Tensor Core 计算匹配起来，而不是只把 Python 改成 CUDA。
+- CUDA 适合理解底层执行模型；Triton / TileLang 更适合快速写高性能 fused kernel 和验证想法。
+- 入门顺序建议：vector add → matmul → reduction → softmax → attention，而不是直接手写复杂 Transformer kernel。
+- 关键概念必须掌握：thread/block/grid、warp、shared memory、coalescing、bank conflict、occupancy、Tensor Core。
+- 真正的完成标准是会 profiling：能用 Nsight / benchmark 定位是 memory-bound、compute-bound 还是 launch overhead。
+- 和 LLM 推理最相关的算子包括 attention、RMSNorm / LayerNorm、SwiGLU、sampling、quantized GEMM。
+
+---
+
 ## CUDA 编程基础
 
 ### 核心概念掌握路径

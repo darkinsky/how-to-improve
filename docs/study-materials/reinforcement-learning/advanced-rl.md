@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- 进阶 RL 的主线不是“算法越新越好”，而是理解 **policy optimization、value learning、model-based、offline data、preference/reward** 这些范式。
+- 从 Sutton 过渡到 Deep RL，最重要的是处理 function approximation、bootstrapping、off-policy 三者叠加带来的不稳定性。
+- 工程上最值得先掌握 PPO、SAC、CQL/IQL、Dreamer，再进入 RLHF / DPO / RLVR。
+- 现代 LLM / Agent RL 不是脱离经典 RL，而是把 reward、environment、trajectory、credit assignment 换成语言和工具环境。
+- 学 RL 必须做实验纪律：seed、baseline、ablation、日志、评估频率和失败案例记录，否则容易只复现随机曲线。
+- 完成标准：能实现一个 PPO/SAC baseline，解释 offline RL 和 RLHF 的差异，并能读懂 DPO/RLVR/Agentic RL 论文。
+
+---
+
 ## 总体路线图
 
 ```text

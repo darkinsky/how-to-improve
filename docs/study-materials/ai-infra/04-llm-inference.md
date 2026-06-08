@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- LLM 推理系统的核心矛盾是：**显存有限、请求动态、序列长度不均、prefill/decode 资源需求不同**。
+- Prefill 通常更 compute-bound，decode 通常更 memory-bound；优化 TTFT 和 TPOT 往往需要不同策略。
+- KV Cache 是 serving 的中心资源：PagedAttention、prefix caching、RadixAttention、KV quantization、MLA 都围绕它展开。
+- Continuous batching 解决吞吐，chunked prefill 平衡抢占和延迟，P/D 分离进一步把不同阶段拆到不同资源池。
+- 评估 serving 不能只看 tokens/s，还要同时看 TTFT、TPOT、tail latency、显存占用、SLO violation 和成本。
+- 完成标准：能解释一个请求从进入 vLLM / SGLang 到生成完成的生命周期，并能跑一组 benchmark 分析瓶颈。
+
+---
+
 ## 推理系统核心概念
 
 ### 两个阶段

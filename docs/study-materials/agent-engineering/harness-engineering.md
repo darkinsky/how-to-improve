@@ -23,6 +23,17 @@
 
 ---
 
+## 先看结论
+
+- Harness Engineering 的核心判断是：Agent 的可靠性不仅取决于模型，更取决于模型外部的运行系统。
+- Prompt Engineering 解决“怎么问”，Context Engineering 解决“给什么信息”，Harness Engineering 解决“环境如何约束、执行、验证和恢复”。
+- 一个成熟 harness 至少要包含：context builder、tool router、sandbox、memory/state、verifier、trajectory logger。
+- 生产级 Agent 不能只看最终答案，必须记录轨迹、支持 replay、做 regression benchmark 和安全审计。
+- 失败模式通常来自环境缺陷：权限过大、目标不清、状态丢失、工具反馈差、没有独立验证器。
+- 完成标准：能设计一个可测试、可回放、可审计的 coding / terminal agent harness。
+
+---
+
 ## 一、背景与起源
 
 ### 1.1 三代 AI 工程范式的演进

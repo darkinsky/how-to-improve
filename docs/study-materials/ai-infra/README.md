@@ -18,6 +18,17 @@
 
 ---
 
+## 先看结论
+
+- AI Infra 的主线是：**硬件体系结构 → 算子 → 训练系统 → 推理系统 → 网络存储 → 调度编排**。
+- 如果目标是 LLM Systems，优先学 `04-llm-inference.md`、`08-llm-serving-frontier.md` 和 `07-ai-infra-papers.md`。
+- 如果目标是训练系统，优先学 `03-distributed-training.md`，再补 NCCL、网络、存储和集群调度。
+- 如果目标是性能优化，必须补 GPU memory hierarchy、Roofline、CUDA/Triton、profiling，而不是只看框架 API。
+- 推荐学习方式是边读边做：跑 benchmark、读源码、改 kernel、记录 TTFT / TPOT / MFU / 显存等指标。
+- 不建议一开始追所有前沿系统；先建立 Prefill/Decode、KV Cache、parallelism、batching、communication 这些核心概念。
+
+---
+
 ## 📚 子章节目录
 
 > 文档统一标签见：[Study Materials 内容标准](../content-standard.md)。

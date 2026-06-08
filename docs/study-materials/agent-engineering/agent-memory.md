@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- Agent Memory 不是简单把聊天记录塞进向量库，而是要决定 **存什么、何时存、怎么检索、如何更新和遗忘**。
+- 记忆系统通常分为 in-context、external、in-weights、in-cache；工程上最常见的是外部记忆 + 检索 + 反思。
+- 好的 memory 需要同时管理 episodic memory、semantic memory 和 procedural memory，而不是只存事实。
+- 长任务 Agent 的关键是状态连续性：memory 要和 planner、tool trace、verifier、harness logger 协同设计。
+- 评估 memory 不能只看检索准确率，还要看任务成功率、长期一致性、污染率、隐私和过期清理。
+- 完成标准：能设计一个带写入策略、检索策略、更新/删除策略和评测任务的 agent memory prototype。
+
+---
+
 ## 🗺️ 知识地图
 
 ```

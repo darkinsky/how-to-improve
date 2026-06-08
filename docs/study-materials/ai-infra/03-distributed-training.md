@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- 分布式训练的本质是把 **参数、梯度、优化器状态、激活、序列和专家** 拆到多张 GPU / 多个节点上。
+- DDP 解决吞吐扩展，ZeRO / FSDP 解决显存扩展，TP / PP / SP / CP / EP 解决超大模型放置和通信效率。
+- 选择并行策略时先问三件事：模型是否放得下、通信是否可承受、pipeline bubble / activation memory 是否可控。
+- 通信不是附属细节：AllReduce、ReduceScatter、AllGather、NCCL、NVLink / IB 会决定大规模训练效率。
+- MoE 和长上下文会引入 Expert Parallelism、Context Parallelism 等新问题，不能只用传统 DP/TP/PP 理解。
+- 完成标准：能为一个 7B/70B/671B 级模型估算显存和通信，并给出合理的并行策略。
+
+---
+
 ## 并行策略全景
 
 ```
