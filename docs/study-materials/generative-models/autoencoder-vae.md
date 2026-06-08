@@ -18,6 +18,17 @@
 
 ---
 
+## 先看结论
+
+- AE 的核心是学习压缩表示，VAE 的核心是在 latent space 上引入概率建模和可采样性。
+- VAE 最重要的公式是 ELBO；最重要的技巧是 reparameterization trick；最常见的问题是 posterior collapse 和生成质量偏模糊。
+- 在现代生成模型中，VAE 的价值不只是单独生成，而是作为 Latent Diffusion 的 encoder / decoder，把像素空间压到更便宜的 latent space。
+- VQ-VAE、beta-VAE、CVAE 等变体分别对应离散表示、解耦表示和条件生成等不同目标。
+- 学 VAE 不必追求最新 SOTA，但必须理解 latent space、KL regularization、reconstruction loss 和 sampling 的关系。
+- 完成标准：能推导 ELBO，训练一个小型 VAE，并解释为什么 Stable Diffusion 需要 VAE。
+
+---
+
 ## 🗺️ 知识地图
 
 ```

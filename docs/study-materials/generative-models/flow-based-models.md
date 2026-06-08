@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- Flow-based Models 的核心优势是显式似然和可逆变换，核心代价是结构受限、维度守恒和 Jacobian 计算约束。
+- NICE、RealNVP、Glow 的主线是设计易逆且 Jacobian determinant 易算的 coupling layer。
+- Continuous Normalizing Flow / Neural ODE 把离散可逆层扩展到连续时间，但训练和采样成本更高。
+- 传统 normalizing flow 在图像生成主线上已被 Diffusion / Flow Matching 超越，但它仍是理解 Flow Matching、CNF 和概率路径的重要基础。
+- 学习重点不是背模型名字，而是理解 change of variables、log-likelihood、invertibility、coupling transform。
+- 完成标准：能实现一个 RealNVP toy example，并解释 flow 与 VAE / GAN / Diffusion 的差异。
+
+---
+
 ## 知识地图
 
 ```

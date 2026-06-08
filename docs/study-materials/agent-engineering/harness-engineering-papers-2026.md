@@ -18,7 +18,7 @@
 > 来源：arXiv 元数据与摘要；仅收录公开外网论文链接。  
 > 主题：Agent Harness / Harness Engineering / Coding-Agent Harness / 运行时适配 / 安全审计 / 自动演化。
 
-## 结论先行
+## 先看结论
 
 2026 年 3-5 月，Harness Engineering 已经从“工程经验词”快速变成一个可研究对象，出现了几条清晰主线：
 

@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- GAN 的历史价值很高：它定义了对抗式生成建模，并推动了高保真图像生成、图像翻译和人脸生成。
+- 但在现代基础生成模型主线上，GAN 已经不是图像 / 视频生成的主力；Diffusion、Flow Matching、DiT 更值得优先投入。
+- 学 GAN 的重点是理解 generator / discriminator 的博弈、mode collapse、训练不稳定、Wasserstein 距离和 FID。
+- StyleGAN 系列仍然是理解 latent editing、高质量人脸生成和生成模型可控性的经典材料。
+- 如果时间有限，建议只学原始 GAN、DCGAN、WGAN-GP、Pix2Pix / CycleGAN、StyleGAN2。
+- 完成标准：能实现一个 DCGAN 或 WGAN-GP，并解释为什么 GAN 难训练、为什么 Diffusion 后来成为主线。
+
+---
+
 ## 知识地图
 
 ```

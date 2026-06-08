@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- Flow Matching 可以理解为直接学习把噪声分布推到数据分布的 velocity field，是 Diffusion 之后最重要的生成模型主线之一。
+- 它和 Diffusion 的关系不是简单替代：Diffusion 多从 score / SDE 视角出发，Flow Matching 多从 ODE / probability path / vector field 视角出发。
+- Rectified Flow 的核心直觉是把生成路径拉直，让采样可以用更少步数完成。
+- Stable Diffusion 3、FLUX 等系统说明 Flow Matching / Rectified Flow 已经进入工业级图像生成主线。
+- 学习重点是 probability path、conditional flow matching、optimal transport path、ODE solver，而不是只看公式。
+- 完成标准：能在 2D toy data 上训练 velocity field，并解释 DDPM、DDIM、Flow Matching 和 Rectified Flow 的差异。
+
+---
+
 ## 知识地图
 
 ```

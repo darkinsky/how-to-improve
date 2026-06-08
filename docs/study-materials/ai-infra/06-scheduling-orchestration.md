@@ -17,6 +17,17 @@
 
 ---
 
+## 先看结论
+
+- 调度与编排解决的是“多任务如何共享 GPU 集群”的问题，不是简单把任务丢给 Kubernetes。
+- 训练任务关注 gang scheduling、队列、公平性、抢占、checkpoint / restart；推理服务关注 autoscaling、SLO、负载均衡和灰度发布。
+- Ray 更偏分布式 Python / serving runtime，Kubernetes 更偏容器编排，Slurm 更偏 HPC 调度，Volcano / Kueue 更偏批任务队列。
+- GPU 集群运维必须有可观测性：DCGM、GPU utilization、显存、网络、队列等待、失败重启和成本指标。
+- 大模型集群的关键不是“能启动”，而是能稳定运行、失败可恢复、资源利用率可解释。
+- 完成标准：能为训练任务和在线推理服务分别设计调度策略，并说明资源申请、扩缩容、监控和故障恢复路径。
+
+---
+
 ## 为什么需要调度系统
 
 - GPU 集群资源有限，多个训练/推理任务需要排队竞争

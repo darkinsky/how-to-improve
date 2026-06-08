@@ -17,6 +17,17 @@
 
 ---
 
+## 先看结论
+
+- 网络与存储是大规模训练 / 推理中最容易被低估的瓶颈：GPU 空转往往不是算子问题，而是通信或 I/O 跟不上。
+- 训练侧重点是 collective communication：AllReduce、ReduceScatter、AllGather、AllToAll 决定 DP、ZeRO、TP、MoE 的效率。
+- 拓扑很关键：NVLink、PCIe、InfiniBand、RoCE 的带宽和延迟差异会直接改变并行策略选择。
+- 存储侧重点是数据供给：dataset sharding、prefetch、cache、checkpoint 读写、对象存储和并行文件系统都会影响吞吐。
+- 调试优先看 NCCL 日志、拓扑、带宽测试、GPU utilization、dataloader wait time 和 checkpoint 时间。
+- 完成标准：能解释一次多机训练中的梯度同步路径，并定位是网络、存储还是计算导致 GPU 利用率下降。
+
+---
+
 ## 集合通信（Collective Communication）
 
 ### 核心操作

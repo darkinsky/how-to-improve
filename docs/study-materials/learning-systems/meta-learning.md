@@ -19,6 +19,17 @@
 
 ---
 
+## 先看结论
+
+- Meta-Learning 的核心问题是“如何让模型快速适应新任务”，而不是单纯提升单任务精度。
+- 三条经典主线分别是 metric-based、optimization-based、model-based；入门建议先学 Prototypical Networks，再学 MAML。
+- MAML 的关键是学习一个适合快速 fine-tune 的初始化；它很优雅，但二阶梯度、稳定性和任务分布假设会带来工程成本。
+- 现代 LLM 的 in-context learning、prompt adaptation、PEFT / LoRA 可以从 meta-learning 角度理解，但不能简单等同。
+- 元学习最容易被误用：如果测试任务分布和训练 episode 不匹配，少样本效果会显著下降。
+- 完成标准：能解释 episodic training、support/query split、MAML 内外循环，并实现一个 few-shot classification baseline。
+
+---
+
 ## 🗺️ 知识地图
 
 ```
