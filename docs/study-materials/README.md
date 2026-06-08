@@ -34,7 +34,10 @@
 
 ## 内容标准
 
-新增或大改学习资料时，先参考：[Study Materials 内容标准](content-standard.md)。
+新增或大改学习资料时，先参考：
+
+- [Study Materials 内容标准](content-standard.md)：定义选材标准、标签体系和推荐文档结构。
+- [Study Materials 维护机制](maintenance-guide.md)：定义更新节奏、前沿收录规则、索引同步和提交流程。
 
 当前统一使用以下标签：
 
@@ -126,6 +129,11 @@
 ---
 
 ## 文档维护建议
+
+维护和新增文档时优先参考：
+
+- [Study Materials 内容标准](content-standard.md)
+- [Study Materials 维护机制](maintenance-guide.md)
 
 每个方向后续尽量保持统一结构：
 

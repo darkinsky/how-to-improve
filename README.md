@@ -93,6 +93,8 @@ CS61A / CS50x
 │   ├── notes/              # 日常笔记与复盘模板
 │   ├── roadmap.md          # 仓库建设路线图
 │   └── study-materials/    # AI / CS 学习资料与研究路线
+│       ├── content-standard.md
+│       ├── maintenance-guide.md
 │       ├── ai-infra/
 │       ├── agent-engineering/
 │       ├── computer-science/
@@ -115,6 +117,7 @@ CS61A / CS50x
 5. **尽量可执行**：学习路线应包含实践项目、完成标准或下一步行动。
 6. **只收公开资料**：不包含公司内网链接、内部文档、聊天记录或私人内容。
 7. **统一内容标准**：学习资料新增或大改时，参考 [`docs/study-materials/content-standard.md`](docs/study-materials/content-standard.md)，标注难度、优先级和状态。
+8. **维护机制显式化**：定期按 [`docs/study-materials/maintenance-guide.md`](docs/study-materials/maintenance-guide.md) 做链接检查、前沿材料筛选、索引同步和过时内容清理。
 
 ---
 
