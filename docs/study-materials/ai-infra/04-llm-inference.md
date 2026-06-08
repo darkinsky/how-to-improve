@@ -15,6 +15,8 @@
 
 > LLM 推理是 AI Infra 当前最热门的方向之一。如何在有限显存和算力下服务海量请求，是核心挑战。
 
+> 延伸阅读：本文讲基础概念和主流框架；更系统的前沿 serving 架构见 [08. LLM Serving 前沿系统](08-llm-serving-frontier.md)。
+
 ---
 
 ## 推理系统核心概念
@@ -75,6 +77,29 @@ KV per token = 2 × num_layers × num_kv_heads × head_dim × dtype_bytes
 | **Continuous Batching** | 动态插入新请求、踢出已完成，不等齐 | 实现复杂 |
 | **Chunked Prefill** | Prefill 按 chunk 切分，与 decode 混合调度 | 平衡 TTFT 和吞吐 |
 | **Disaggregated Prefill** | Prefill 和 Decode 部署在不同实例 | 彻底隔离资源，运维成本高 |
+
+### Prefill / Decode 分离趋势
+
+Prefill 和 Decode 的资源画像不同：Prefill 更偏 compute-bound，Decode 更偏 memory-bandwidth-bound。长 prompt 或 RAG 请求会让 prefill 占用大量计算，进而干扰 decode 的 inter-token latency。
+
+常见演进路径：
+
+```text
+Static Batching
+  → Continuous Batching
+  → Chunked Prefill
+  → Prefill / Decode Disaggregation
+  → KV Cache-centric Serving
+```
+
+代表方向：
+
+- **Sarathi-Serve**：把 prefill 切成 chunk，减少对 decode 的阻塞；
+- **DistServe**：将 prefill 与 decode 分离部署，分别优化 TTFT 和 TPOT；
+- **Mooncake / LMCache**：把 KV Cache 作为可复用、可迁移、可分层存储的核心资源；
+- **Dynamo / llm-d**：面向云原生和集群级 serving 的系统化方案。
+
+更多系统梳理见：[08. LLM Serving 前沿系统](08-llm-serving-frontier.md)。
 
 ---
 

@@ -30,6 +30,8 @@
 | [04. LLM 推理系统](04-llm-inference.md) | vLLM、SGLang、KV Cache、量化、Speculative Decoding | PagedAttention、RadixAttention、TTFT | P0 / Frontier |
 | [05. 网络与存储](05-network-storage.md) | NCCL、InfiniBand、RDMA、JuiceFS、训练 I/O 优化 | AllReduce、RoCE、DataLoader | P1 / Hands-on |
 | [06. 调度与编排](06-scheduling-orchestration.md) | Ray、Kubernetes、Volcano、Slurm、可观测性 | Gang Scheduling、Ray Serve、DCGM | P1 / Hands-on |
+| [07. AI Infra 必读论文路线](07-ai-infra-papers.md) | 训练、推理、算子、集群系统论文地图 | ZeRO、Megatron、vLLM、MegaScale | P0 / Survey / Frontier |
+| [08. LLM Serving 前沿系统](08-llm-serving-frontier.md) | LLM serving 前沿架构、P/D 分离、KV Cache、SLO | DistServe、Sarathi、Mooncake、LMCache | P0 / Frontier / Hands-on |
 
 ---
 
@@ -54,13 +56,22 @@
 
 ## 🚀 推荐入门顺序
 
-```
+```text
 第 1 个月：体系结构 → CUDA 基础 → 单机多卡 DDP
 第 2 个月：分布式训练（TP/PP/ZeRO）→ FlashAttention 原理
 第 3 个月：vLLM 源码精读 → SGLang RadixAttention → 量化实践
 第 4 个月：TileLang Puzzles → Triton 自定义算子 → Nsight 性能分析
-第 5-6 月：选方向深挖（训练 / 推理 / 算子）
+第 5-6 月：读 AI Infra 论文路线 → 深挖 LLM Serving 前沿 / 分布式训练 / 算子优化
 ```
+
+---
+
+## 必读入口
+
+1. [07. AI Infra 必读论文路线](07-ai-infra-papers.md)：训练、推理、算子、集群系统的论文地图。
+2. [04. LLM 推理系统](04-llm-inference.md)：先建立 KV Cache、TTFT、TPOT、vLLM、SGLang 等基础概念。
+3. [08. LLM Serving 前沿系统](08-llm-serving-frontier.md)：进一步理解 P/D 分离、KV Cache 分层、structured decoding、MoE serving。
+4. [03. 分布式训练](03-distributed-training.md)：理解 ZeRO、TP、PP、SP、context parallelism 与大规模训练。
 
 ---
 

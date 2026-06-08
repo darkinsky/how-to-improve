@@ -15,6 +15,8 @@
 
 > 训练千亿参数模型需要数百甚至数千张 GPU 协同工作。分布式训练是 AI Infra 的核心挑战之一。
 
+> 延伸阅读：本文建立分布式训练基础概念；更完整的论文地图见 [07. AI Infra 必读论文路线](07-ai-infra-papers.md)。
+
 ---
 
 ## 并行策略全景
@@ -27,7 +29,9 @@
             ├─ 张量并行（TP）
             ├─ 流水线并行（PP）
             ├─ 序列并行（SP）
-            └─ 混合并行（TP + PP + DP = 3D Parallel）
+            ├─ 上下文并行（CP / Context Parallel）
+            ├─ 专家并行（EP / Expert Parallel, MoE）
+            └─ 混合并行（TP + PP + DP + SP/CP/EP）
 ```
 
 **选择原则：**
@@ -135,18 +139,40 @@ bubble ratio = (p-1)/(m+p-1)，p=流水线段数，m=micro-batch数
 
 ---
 
-## 序列并行（Sequence Parallelism）
+## 序列并行与上下文并行
 
-**原理**：将序列维度（token 维度）切分到多卡，配合 TP 使用，解决长序列 Attention 显存瓶颈。
+**序列并行（Sequence Parallelism）**：通常配合 TP 使用，把 activation 的序列维度切分到多卡，减少长序列下的显存压力。
 
-- TP 组内用 AllGather/ReduceScatter 同步序列维度
-- 超长序列训练（128K+ context）几乎必用
+**上下文并行（Context Parallelism）**：更进一步，把超长上下文的 attention 计算本身跨卡切分，常见于 128K+ context training。
 
-**Ring Attention**（更激进）：将 Attention 计算本身也分布式化，每卡只负责部分 KV，token 在 ring 上传递。
+| 技术 | 解决问题 | 典型场景 |
+|------|----------|----------|
+| Sequence Parallelism | TP 下 activation 显存过高 | 中长序列训练 |
+| Ring Attention | 分布式计算 attention，KV 在 ring 上传递 | 超长上下文训练 |
+| Ulysses / Context Parallel | 按 head / sequence 组织通信，降低长上下文瓶颈 | 128K+ context、长文档训练 |
 
 **必读**：
 - [Sequence Parallelism 论文](https://arxiv.org/abs/2205.05198)
 - [Ring Attention](https://arxiv.org/abs/2310.01889)
+
+---
+
+## 专家并行（Expert Parallelism / MoE）
+
+MoE 模型把 FFN 拆成多个 expert，每个 token 只激活其中少数 expert。训练系统除了 DP/TP/PP，还需要处理 expert 的放置、路由和 all-to-all 通信。
+
+| 问题 | 说明 |
+|------|------|
+| Expert Placement | expert 放在同机还是跨机，影响 all-to-all 成本 |
+| Load Balancing | 路由不均会导致部分 expert 成为 straggler |
+| Token Dispatch / Combine | token 发给 expert，再把结果收回来，通信量大 |
+| Expert Parallel + TP/PP | MoE 通常要和 3D parallel 组合使用 |
+| Fault Tolerance | expert 节点失败会影响对应 token 路由 |
+
+**代表材料**：
+- DeepSpeed-MoE / Megatron-Core MoE
+- Switch Transformer / GShard
+- [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)
 
 ---
 

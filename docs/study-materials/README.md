@@ -56,14 +56,16 @@
 
 1. [CS 公开课资源整理](computer-science/open-courses.md)
 2. [AI Infra 入门资料整理](ai-infra/README.md)
-3. [04. LLM 推理系统](ai-infra/04-llm-inference.md)
-4. [Diffusion Model 学习计划与资料汇总](generative-models/diffusion-model.md)
-5. [Flow Matching 学习计划与资料汇总](generative-models/flow-matching.md)
-6. [图像与视频生成模型学习计划](generative-models/image-video-generation.md)
-7. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
-8. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
-9. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
-10. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
+3. [AI Infra 必读论文路线](ai-infra/07-ai-infra-papers.md)
+4. [04. LLM 推理系统](ai-infra/04-llm-inference.md)
+5. [LLM Serving 前沿系统](ai-infra/08-llm-serving-frontier.md)
+6. [Diffusion Model 学习计划与资料汇总](generative-models/diffusion-model.md)
+7. [Flow Matching 学习计划与资料汇总](generative-models/flow-matching.md)
+8. [图像与视频生成模型学习计划](generative-models/image-video-generation.md)
+9. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
+10. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
+11. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
+12. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
 
 ---
 
@@ -81,6 +83,8 @@
 - [04. LLM 推理系统](ai-infra/04-llm-inference.md)
 - [05. 网络与存储](ai-infra/05-network-storage.md)
 - [06. 调度与编排](ai-infra/06-scheduling-orchestration.md)
+- [07. AI Infra 必读论文路线](ai-infra/07-ai-infra-papers.md)
+- [08. LLM Serving 前沿系统](ai-infra/08-llm-serving-frontier.md)
 
 ## Generative Models
 
