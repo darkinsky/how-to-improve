@@ -21,6 +21,8 @@
 
 ## 按目标选择路线
 
+如果只想从全局路线开始，先看：[Study Materials Learning Paths](learning-paths.md)。
+
 | 目标 | 推荐入口 | 建议路线 |
 |------|----------|----------|
 | 系统补 CS 基础 | [Computer Science](computer-science/README.md) | CS61A / CS50x → CS61B → MIT 6.006 → CSAPP → OS / DB / Distributed Systems |
@@ -57,6 +59,7 @@
 
 如果只想先抓主线，建议从这些文档开始：
 
+0. [Study Materials Learning Paths](learning-paths.md)
 1. [CS 公开课资源整理](computer-science/open-courses.md)
 2. [AI Infra 入门资料整理](ai-infra/README.md)
 3. [AI Infra 必读论文路线](ai-infra/07-ai-infra-papers.md)

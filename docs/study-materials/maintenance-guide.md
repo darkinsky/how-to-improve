@@ -171,10 +171,22 @@
 1. 明确本次更新目标
 2. 修改或新增文档
 3. 更新相关索引
-4. 运行 Markdown 相对链接检查
+4. 运行 Markdown 质量检查脚本
 5. 查看 git diff / stat
 6. commit with concise message
 7. push
+```
+
+推荐检查命令：
+
+```bash
+python scripts/check_markdown_links.py
+```
+
+如果想把结构性 warning 也作为失败处理：
+
+```bash
+python scripts/check_markdown_links.py --strict
 ```
 
 推荐提交信息格式：
