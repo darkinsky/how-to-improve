@@ -63,10 +63,13 @@
 7. [Flow Matching 学习计划与资料汇总](generative-models/flow-matching.md)
 8. [图像与视频生成模型学习计划](generative-models/image-video-generation.md)
 9. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
-10. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
-11. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
-12. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
-13. [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
+10. [Preference Optimization](reinforcement-learning/preference-optimization.md)
+11. [Reasoning RL](reinforcement-learning/reasoning-rl.md)
+12. [Agentic RL](reinforcement-learning/agentic-rl.md)
+13. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
+14. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
+15. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
+16. [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
 
 ---
 
@@ -101,6 +104,9 @@
 
 - [Reinforcement Learning 学习入口](reinforcement-learning/README.md)
 - [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
+- [Preference Optimization](reinforcement-learning/preference-optimization.md)
+- [Reasoning RL](reinforcement-learning/reasoning-rl.md)
+- [Agentic RL](reinforcement-learning/agentic-rl.md)
 - [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
 
 ## Agent Engineering

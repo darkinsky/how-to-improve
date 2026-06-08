@@ -17,6 +17,8 @@
 > 更新时间：2026-05-24  
 > 选择原则：优先收录影响力大、范式代表性强、能连接经典 RL 与 LLM/Agent 前沿的论文。
 
+> 专题拆分：本文作为总览页；偏好优化见 [Preference Optimization](preference-optimization.md)，推理强化学习见 [Reasoning RL](reasoning-rl.md)，Agent 训练见 [Agentic RL](agentic-rl.md)。
+
 ---
 
 ## 先看结论
