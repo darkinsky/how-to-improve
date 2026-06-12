@@ -92,8 +92,8 @@
 - [PagedAttention（vLLM）](https://arxiv.org/abs/2309.06180) · [FlashAttention-2](https://arxiv.org/abs/2307.08691) · [Megatron-LM](https://arxiv.org/abs/1909.08053) · [ZeRO](https://arxiv.org/abs/1910.02054) · [MegaScale](https://arxiv.org/abs/2402.15627)
 
 **GitHub：**
-- [vllm](https://github.com/vllm-project/vllm) · [sglang](https://github.com/sgl-project/sglang) · [tilelang](https://github.com/tile-ai/tilelang) · [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) · [DeepSpeed](https://github.com/microsoft/DeepSpeed) · [flash-attention](https://github.com/Dao-AILab/flash-attention)
+- [vllm](https://github.com/vllm-project/vllm) · [sglang](https://github.com/sgl-project/sglang) · [tilelang](https://github.com/tile-ai/tilelang) · [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) · [DeepSpeed](https://github.com/deepspeedai/DeepSpeed) · [flash-attention](https://github.com/Dao-AILab/flash-attention)
 
-**博客：**
-- [Lilian Weng](https://lilianweng.github.io) · [LMSYS Blog](https://lmsys.org/blog/) · [vLLM Blog](https://blog.vllm.ai/) · [知乎 @BBuf](https://www.zhihu.com/people/bbuf)
+**博客 / 资料：**
+- [Lilian Weng](https://lilianweng.github.io) · [LMSYS Blog](https://www.lmsys.org/blog/) · [vLLM Blog](https://vllm.ai/blog) · [BBuf GitHub](https://github.com/BBuf)
 

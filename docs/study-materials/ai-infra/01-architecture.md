@@ -62,8 +62,8 @@ GPU
 - **Occupancy**：SM 上活跃 warp 数 / 最大 warp 数，高 occupancy 有助于隐藏内存延迟
 
 **推荐阅读：**
-- [NVIDIA Hopper Architecture 白皮书](https://resources.nvidia.com/en-us-tensor-core/gtc22-whitepaper-hopper)
-- [NVIDIA GPU 架构系列（知乎 @BBuf）](https://zhuanlan.zhihu.com/p/654012273)
+- [NVIDIA Hopper Architecture In-Depth](https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/)
+- [NVIDIA H100 Tensor Core GPU Architecture Whitepaper](https://www.advancedclustering.com/wp-content/uploads/2022/03/gtc22-whitepaper-hopper.pdf)
 - [Dissecting the NVIDIA Volta GPU Architecture](https://arxiv.org/abs/1804.06826)
 
 ---
@@ -90,7 +90,9 @@ DRAM（主机内存）     ~TB 级                ~200 ns
 - 算术强度低（如 LayerNorm、Softmax）→ Memory-bound
 - FlashAttention 的核心思路就是通过 tiling 提高 Attention 的算术强度
 
-**必读**：[EfficientML Roofline Model 讲解](https://efficientml.ai/)
+**必读：**
+- [Roofline: An Insightful Visual Performance Model for Multicore Architectures（原始论文，Williams et al., 2009）](https://people.eecs.berkeley.edu/~kubitron/cs252/handouts/papers/RooflineVyNoYellow.pdf)
+- [NVIDIA Nsight Compute Roofline Analysis](https://developer.nvidia.com/blog/accelerating-hpc-applications-with-nsight-compute-roofline-analysis/)：结合 GPU profiler 看 Roofline 图
 
 ---
 
@@ -103,6 +105,12 @@ DRAM（主机内存）     ~TB 级                ~200 ns
 | **cp.async（异步拷贝）** | 数据从 HBM 直接异步搬到 Shared Memory，不占寄存器，隐藏延迟 |
 | **TMA（Tensor Memory Accelerator）** | H100 新增，硬件直接搬运多维 tensor，减少 SM 开销 |
 | **Double Buffering** | 预取下一块数据的同时计算当前块，隐藏内存延迟 |
+
+**推荐阅读：**
+- [CUDA C++ Best Practices Guide - Memory Optimizations](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#memory-optimizations)：官方文档，系统讲 global memory coalescing、shared memory、bank conflict 等基础规则。
+- [Using Shared Memory in CUDA C/C++](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)：NVIDIA 技术博客，适合理解 shared memory、同步和 bank conflict。
+- [CUDA C++ Programming Guide - Asynchronous Data Copies](https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/async-copies.html)：官方 `cuda::memcpy_async` / `cp.async` 说明。
+- [CUTLASS Tutorial: Mastering the NVIDIA Tensor Memory Accelerator](https://research.colfax-intl.com/tutorial-hopper-tma/)：Hopper TMA 入门，适合了解 H100 上 GMEM ↔ SMEM 的异步多维搬运。
 
 ---
 
@@ -187,4 +195,3 @@ ncu --metrics sm__throughput.avg,dram__throughput.avg \
 | [MIT 6.5930: Hardware Architecture for Deep Learning](https://www.eecs.mit.edu/) | 深度学习硬件专项 |
 | [GPU MODE（CUDA Mode）](https://github.com/cuda-mode) | 实战向 GPU 编程讲座 |
 | [How GPU Computing Works（GTC 2021）](https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31151/) | NVIDIA 官方入门讲座 |
-
