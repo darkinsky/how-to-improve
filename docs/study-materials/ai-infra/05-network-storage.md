@@ -89,6 +89,7 @@ Time = 2 × 7/8 × 14GB / 600GB/s ≈ 40ms
 ### 推荐资料
 
 - [NCCL User Guide](https://docs.nvidia.com/deeplearning/nccl/user-guide/) 与 [NVIDIA NCCL GitHub](https://github.com/NVIDIA/nccl)
+- [NCCL 算法原理（知乎，中文补充）](https://zhuanlan.zhihu.com/p/364816069)
 - [Bandwidth Optimal All-reduce Algorithms（Ring AllReduce 原论文）](https://arxiv.org/abs/1811.05233)
 - [MegaScale: Scaling LLM Training to 10,000 GPUs](https://arxiv.org/abs/2402.15627) — 万卡训练网络挑战实战
 

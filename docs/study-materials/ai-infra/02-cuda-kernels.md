@@ -129,7 +129,7 @@ pip install tilelang
 # 4. 实现 MLA（Multi-head Latent Attention）
 ```
 
-**实践参考**：[TileLang Puzzles](https://github.com/tile-ai/tilelang-puzzles) 与 [TileLang examples](https://github.com/tile-ai/tilelang/tree/main/examples)
+**实践参考**：[TileLang Puzzles](https://github.com/tile-ai/tilelang-puzzles)、[TileLang examples](https://github.com/tile-ai/tilelang/tree/main/examples)；中文补充：[TileLang: 80行Python代码实现FlashMLA](https://zhuanlan.zhihu.com/p/27965825936)
 
 ---
 

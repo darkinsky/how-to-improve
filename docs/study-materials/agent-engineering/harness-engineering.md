@@ -237,6 +237,8 @@ Agent Harness 应默认最小权限：
 | 十大实践指南（OpenAI/Stripe/Anthropic） | 文章 | https://edison-a-n.github.io/2026/03/14/harness-engineering-practical-guide/ |
 | Anthropic Building Effective Agents | 官方工程文章 | https://www.anthropic.com/engineering/building-effective-agents |
 | Anthropic Multi-agent Research System | 官方工程文章 | https://www.anthropic.com/engineering/built-multi-agent-research-system |
+| 最佳实践操作手册（知乎） | 中文补充 / 实践解读 | https://zhuanlan.zhihu.com/p/2023068557592863537 |
+| Anthropic Harness 架构拆解（知乎） | 中文补充 / 架构解读 | https://zhuanlan.zhihu.com/p/2024114529022276730 |
 | DeepSky 博客 | 文章 | https://www.cnblogs.com/deep-sky/p/19867681 |
 | 长运行多智能体框架设计 | 文章 | https://cloud.tencent.com/developer/article/2647567 |
 | 从概念到落地（MornAI） | 文章 | https://www.mornai.cn/news/ai-agent/harness-engineering/ |
@@ -313,6 +315,7 @@ Agent Harness 应默认最小权限：
 ### Step 2：深入学习实践案例（2-3 天）
 - 阅读十大实践指南：https://edison-a-n.github.io/2026/03/14/harness-engineering-practical-guide/
 - 阅读 Anthropic 工程实践文章：https://www.anthropic.com/engineering/building-effective-agents
+- 对照中文实践解读：https://zhuanlan.zhihu.com/p/2023068557592863537
 - 重点理解 OpenAI、Anthropic、Stripe 三个案例
 
 ### Step 3：追踪前沿研究（1-2 天）
