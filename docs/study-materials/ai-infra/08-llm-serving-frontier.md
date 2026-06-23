@@ -314,6 +314,26 @@ Metrics(TTFT, TPOT, throughput, eviction_count)
 
 ---
 
+## 实践项目 / 完成标准
+
+### Project：Serving Architecture Decision Record
+
+围绕一个真实 workload 写一份 serving ADR：
+
+- workload：prompt length、output length、QPS、并发、SLO、峰谷波动；
+- architecture：vLLM / SGLang / TensorRT-LLM / Dynamo / llm-d 的选择理由；
+- scheduling：continuous batching、chunked prefill、P/D 分离是否需要；
+- KV strategy：prefix cache、offloading、eviction、remote KV 是否需要；
+- metrics：TTFT、TPOT、P99、cost/request、SLO violation。
+
+完成标准：
+
+- 能解释为什么不是单纯追求 tokens/s；
+- 能把系统瓶颈和调度策略对应起来；
+- 能提出一组可复现 benchmark 命令和 dashboard 指标。
+
+---
+
 ## 推荐阅读顺序
 
 1. Orca：先理解 iteration-level scheduling；

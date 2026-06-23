@@ -42,6 +42,8 @@ Agent 工程的核心问题不是“怎样写一个更长的 prompt”，而是�
 
 1. [Agent Memory](agent-memory.md)
 2. [Harness Engineering](harness-engineering.md)
+   - [Harness Engineering Cases](harness-engineering-cases.md)
+   - [Harness Engineering Research](harness-engineering-research.md)
 3. [Agent Benchmarks](agent-benchmarks.md)
 4. [Code Agents / SWE Agents](code-agents.md)
 5. [Agent Runtime Frameworks / Protocols](agent-runtime-frameworks.md)
@@ -70,7 +72,7 @@ Agent 工程的核心问题不是“怎样写一个更长的 prompt”，而是�
 |------|----------|
 | 理解 Agent 基础 | ReAct → Toolformer → WebGPT → Reflexion |
 | 学 Agent Memory | Generative Agents → Voyager → Agent Memory 文档 |
-| 学工程化 Agent | Harness Engineering → Agent Runtime Frameworks → 工具系统 → 状态管理 → 验证与恢复 |
+| 学工程化 Agent | Harness Engineering → Cases → Agent Runtime Frameworks → 工具系统 → 状态管理 → 验证与恢复 |
 | 做 Code Agent / SWE Agent | Code Agents → SWE-bench / Terminal-Bench → mini SWE agent → trajectory replay |
 | 跟进研究前沿 | Harness 2026 论文 → 自动演化 → 轨迹安全 → Harness optimizer |
 | 做 Agent 评估 | SWE-bench / WebArena / Terminal-Bench / τ-bench / GAIA |

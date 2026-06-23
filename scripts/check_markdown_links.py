@@ -4,7 +4,7 @@
 Checks:
 - local Markdown links point to existing files;
 - study-materials documents contain metadata and conclusion sections;
-- topic documents are nudged toward required learning sections;
+- selected high-value topic documents contain learning/practice guidance;
 - high-change frontier documents contain Freshness metadata;
 - duplicate external URLs are reported when they may need centralization;
 - long Markdown documents are reported for review.
@@ -46,6 +46,19 @@ STRUCTURE_EXEMPT_FILES = {
     "deep-reading-guide.md",
     "official-links.md",
 }
+CATALOG_HINTS = ("catalog", "open-courses", "papers", "official-links")
+REQUIRED_GUIDANCE_DOCS = {
+    "agent-engineering/agent-memory.md",
+    "agent-engineering/code-agents.md",
+    "agent-engineering/agent-runtime-frameworks.md",
+    "agent-engineering/harness-engineering.md",
+    "ai-infra/04-llm-inference.md",
+    "ai-infra/08-llm-serving-frontier.md",
+    "evaluation-benchmarking.md",
+    "learning-systems/meta-learning.md",
+    "reinforcement-learning/llm-agent-rl-frontier.md",
+    "reinforcement-learning/reasoning-rl.md",
+}
 
 
 @dataclass
@@ -85,10 +98,17 @@ def is_study_material(path: Path, study_root: Path) -> bool:
         return False
 
 
+def rel_to_study(path: Path, study_root: Path) -> str:
+    return str(path.relative_to(study_root)).replace("\\", "/")
+
+
 def is_topic_doc(path: Path, study_root: Path) -> bool:
     if not is_study_material(path, study_root):
         return False
     if path.name in STRUCTURE_EXEMPT_FILES:
+        return False
+    rel_text = rel_to_study(path, study_root).lower()
+    if any(hint in rel_text for hint in CATALOG_HINTS):
         return False
     return True
 
@@ -115,8 +135,9 @@ def check_duplicate_external_urls(
     root: Path,
     md_files: list[Path],
     duplicate_threshold: int,
+    show_infos: bool,
 ) -> list[Issue]:
-    if duplicate_threshold <= 1:
+    if duplicate_threshold <= 1 or not show_infos:
         return []
 
     locations: dict[str, set[Path]] = defaultdict(set)
@@ -145,7 +166,45 @@ def check_duplicate_external_urls(
     return issues
 
 
-def check_study_materials_structure(root: Path, md_files: list[Path], long_threshold: int) -> list[Issue]:
+def has_learning_guidance(text: str) -> bool:
+    return any(
+        heading in text
+        for heading in (
+            "## 学习路线",
+            "## 推荐学习顺序",
+            "## 建议学习路线",
+            "## 推荐阅读顺序",
+            "## 推理学习路径",
+            "## 📅 学习计划",
+            "## 七、推荐学习路线",
+            "## 八、推荐学习路线",
+            "## 8. 推荐实践路线",
+        )
+    )
+
+
+def has_practice_guidance(text: str) -> bool:
+    return any(
+        heading in text
+        for heading in (
+            "## 实践",
+            "## 实践项目",
+            "## 实践项目 / 完成标准",
+            "## 代码实践",
+            "## 完成标准",
+            "## 项目",
+            "## Benchmark",
+            "动手实践",
+        )
+    )
+
+
+def check_study_materials_structure(
+    root: Path,
+    md_files: list[Path],
+    long_threshold: int,
+    show_infos: bool,
+) -> list[Issue]:
     issues: list[Issue] = []
     study_root = root / "docs" / "study-materials"
 
@@ -155,7 +214,8 @@ def check_study_materials_structure(root: Path, md_files: list[Path], long_thres
 
         text = path.read_text(encoding="utf-8", errors="ignore")
         lines = text.splitlines()
-        rel_text = str(path.relative_to(study_root)).lower()
+        rel_text = rel_to_study(path, study_root).lower()
+        rel_path = rel_to_study(path, study_root)
 
         if path.name != "README.md" and "## 文档元信息" not in text:
             issues.append(Issue("WARN", path, "missing '## 文档元信息'"))
@@ -163,16 +223,16 @@ def check_study_materials_structure(root: Path, md_files: list[Path], long_thres
         if len(lines) >= 80 and "## 先看结论" not in text:
             issues.append(Issue("WARN", path, "long document without '## 先看结论'"))
 
-        if is_topic_doc(path, study_root) and len(lines) >= 120:
-            if "## 学习路线" not in text and "## 推荐学习顺序" not in text:
-                issues.append(Issue("INFO", path, "topic document may need '## 学习路线' or '## 推荐学习顺序'"))
-            if "## 实践" not in text and "## 实践项目" not in text and "## 代码实践" not in text and "## 完成标准" not in text:
-                issues.append(Issue("INFO", path, "topic document may need practice projects or completion standards"))
+        if is_topic_doc(path, study_root) and rel_path in REQUIRED_GUIDANCE_DOCS:
+            if not has_learning_guidance(text):
+                issues.append(Issue("WARN", path, "priority topic missing learning route"))
+            if not has_practice_guidance(text):
+                issues.append(Issue("WARN", path, "priority topic missing practice projects or completion standards"))
 
         if any(keyword in rel_text for keyword in FRONTIER_KEYWORDS) and "## Freshness" not in text:
             issues.append(Issue("WARN", path, "frontier/high-change document missing '## Freshness'"))
 
-        if len(lines) >= long_threshold:
+        if show_infos and len(lines) >= long_threshold:
             issues.append(Issue("INFO", path, f"long document: {len(lines)} lines"))
 
     return issues
@@ -183,6 +243,8 @@ def main() -> int:
     parser.add_argument("--root", default=".", help="Repository root. Defaults to current directory.")
     parser.add_argument("--long-threshold", type=int, default=500, help="Report Markdown files longer than this many lines.")
     parser.add_argument("--duplicate-url-threshold", type=int, default=4, help="Report external URLs repeated in this many files.")
+    parser.add_argument("--show-info", action="store_true", help="Show informational hints. Defaults to warnings/errors only.")
+    parser.add_argument("--summary-only", action="store_true", help="Only print the final summary unless errors/warnings exist.")
     parser.add_argument("--strict", action="store_true", help="Treat warnings as errors.")
     args = parser.parse_args()
 
@@ -191,17 +253,21 @@ def main() -> int:
 
     issues: list[Issue] = []
     issues.extend(check_local_links(root, md_files))
-    issues.extend(check_study_materials_structure(root, md_files, args.long_threshold))
-    issues.extend(check_duplicate_external_urls(root, md_files, args.duplicate_url_threshold))
+    issues.extend(check_study_materials_structure(root, md_files, args.long_threshold, args.show_info))
+    issues.extend(check_duplicate_external_urls(root, md_files, args.duplicate_url_threshold, args.show_info))
 
     errors = [i for i in issues if i.level == "ERROR"]
     warnings = [i for i in issues if i.level == "WARN"]
     infos = [i for i in issues if i.level == "INFO"]
 
-    if issues:
-        for issue in issues:
+    visible_issues = issues if args.show_info else [i for i in issues if i.level != "INFO"]
+    if args.summary_only and not errors and not warnings:
+        visible_issues = []
+
+    if visible_issues:
+        for issue in visible_issues:
             print(issue.format(root))
-    else:
+    elif not args.summary_only:
         print("No Markdown issues found.")
 
     print(

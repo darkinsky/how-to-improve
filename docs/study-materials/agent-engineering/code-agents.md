@@ -127,6 +127,18 @@ Code agent 轨迹可以用于：
 
 ---
 
+## 学习路线
+
+1. **函数级代码生成**：先用 HumanEval / MBPP 理解 pass@k、单测和格式约束。
+2. **仓库级理解**：学习 repo indexing、symbol search、dependency graph 和 failing test trace。
+3. **真实 issue 修复**：阅读 SWE-bench / SWE-agent，理解 edit plan、patch、test feedback loop。
+4. **长任务工具使用**：用 Terminal-Bench 观察 shell、文件、网络、环境配置中的失败模式。
+5. **轨迹评估**：记录 tool calls、diff、test output、repair loop，建立 failure taxonomy。
+
+完成后应能设计一个小型 coding-agent benchmark，而不是只写一个 demo。
+
+---
+
 ## 实践项目 / 完成标准
 
 ### Project 1：Mini SWE Agent

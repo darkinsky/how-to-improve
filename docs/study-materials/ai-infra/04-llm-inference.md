@@ -227,6 +227,29 @@ sglang/srt/server.py（HTTP 服务入口）
 
 ---
 
+## 实践项目 / 完成标准
+
+### Project 1：vLLM / SGLang Benchmark
+
+- 选择同一个 7B/14B 模型，在 vLLM 和 SGLang 上跑不同 prompt length、output length、并发数。
+- 记录 TTFT、TPOT、throughput、P95/P99 latency、GPU memory 和失败请求。
+- 对比 continuous batching、prefix cache、chunked prefill 对结果的影响。
+
+完成标准：
+
+- 输出一张 workload → bottleneck → tuning action 表；
+- 能解释瓶颈来自 prefill、decode、KV cache、scheduler 还是 kernel；
+- 给出不同场景下的推荐 serving 配置。
+
+### Project 2：KV Cache Memory Budget
+
+- 对 7B/70B 或 MoE 模型估算不同 context length 和 batch size 的 KV cache 占用。
+- 比较 MHA、MQA/GQA、MLA、KV quantization 对显存预算的影响。
+
+完成标准：能在服务上线前给出显存容量、并发上限和长上下文风险评估。
+
+---
+
 ## 推理学习路径
 
 ```

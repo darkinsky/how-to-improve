@@ -46,8 +46,24 @@
 | LoRA / QLoRA | `foundation-models/README.md` | 论文 / 方法 | P0 / Hands-on | https://arxiv.org/abs/2106.09685 | https://github.com/huggingface/peft | LoRA / QLoRA Fine-tuning | 2026-06 |
 | FlashAttention | `ai-infra/02-cuda-kernels.md` | 系统 / Kernel | P0 / Hands-on | https://arxiv.org/abs/2205.14135 | https://github.com/Dao-AILab/flash-attention | FlashAttention / FlashInfer Kernel Study | 2026-06 |
 | vLLM | `ai-infra/04-llm-inference.md` | 系统 | P0 / Frontier | https://arxiv.org/abs/2309.06180 | https://github.com/vllm-project/vllm | vLLM / SGLang Serving Benchmark | 2026-06 |
+| SGLang | `ai-infra/04-llm-inference.md` | 系统 | P0 / Frontier | https://github.com/sgl-project/sglang | https://github.com/sgl-project/sglang | vLLM / SGLang Serving Benchmark | 2026-06 |
 | SWE-bench | `agent-engineering/agent-benchmarks.md` | Benchmark | P0 / Frontier | https://www.swebench.com/ | https://github.com/SWE-bench/SWE-bench | Mini SWE Agent | 2026-06 |
+| Terminal-Bench | `agent-engineering/agent-benchmarks.md` | Benchmark | P0 / Frontier | https://www.tbench.ai/ | https://github.com/laude-institute/terminal-bench | Coding Agent Regression Suite | 2026-06 |
+| MCP | `agent-engineering/agent-runtime-frameworks.md` | 协议 | P1 / Frontier | https://modelcontextprotocol.io/ | https://github.com/modelcontextprotocol | Agent Runtime Bake-off | 2026-06 |
+| DPO | `reinforcement-learning/preference-optimization.md` | 论文 / 方法 | P0 / Classic | https://arxiv.org/abs/2305.18290 | N/A | Preference Optimization Mini Lab | 2026-06 |
+| DeepSeek-R1 / RLVR | `reinforcement-learning/reasoning-rl.md` | 论文 / 方法 | P0 / Frontier | https://arxiv.org/abs/2501.12948 | N/A | Verifiable Reasoning RL Mini Lab | 2026-06 |
+| RAGAS | `evaluation-benchmarking.md` | 工具 / Eval | P1 / Hands-on | https://docs.ragas.io/ | https://github.com/explodinggradients/ragas | Unified Eval Harness | 2026-06 |
 | VBench | `evaluation-benchmarking.md` | Benchmark | P1 / Frontier | https://arxiv.org/abs/2311.17982 | https://github.com/Vchitect/VBench | VLM / Generation Evaluation | 2026-06 |
+
+### P0/P1 维护检查
+
+每季度优先检查上表，而不是全库平均用力：
+
+- P0 材料是否仍由正确主文档解释；
+- 官方链接和代码仓库是否失效或迁移；
+- 相关 Project Card 是否仍能验证该材料的核心能力；
+- `最近审阅` 是否超过一个季度；
+- 同一材料是否在多个文档中重复长篇解释。
 
 
 ---

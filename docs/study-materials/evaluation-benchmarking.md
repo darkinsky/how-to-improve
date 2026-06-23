@@ -87,6 +87,18 @@ Task Definition
 
 ---
 
+## 学习路线
+
+1. **定义任务**：先写清楚 input、output、允许工具、禁止行为和成功标准。
+2. **选择指标**：区分 accuracy、latency、cost、safety、stability、human preference。
+3. **实现 harness**：让测试可重复运行，输出 JSONL traces 和 summary report。
+4. **做错误分析**：把失败分成 model、retrieval、tool、environment、eval design 等类别。
+5. **沉淀回归集**：把高频失败和线上事故转成 regression tests。
+
+完成后应能从“模型看起来不错”推进到“系统可以持续比较、复盘和改进”。
+
+---
+
 ## 实践项目 / 完成标准
 
 ### Project 1：Unified Eval Harness

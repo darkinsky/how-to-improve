@@ -266,6 +266,29 @@ log_probs = F.log_softmax(-dists, dim=1)
 
 ---
 
+## 实践项目 / 完成标准
+
+### Project 1：Few-shot Classification Baselines
+
+- 在 miniImageNet / Omniglot 或简化数据集上实现 ProtoNet、Reptile、MAML 三类 baseline。
+- 使用统一 episode sampler，固定 N-way K-shot 设置。
+- 记录 accuracy、confidence interval、训练时间和显存占用。
+
+完成标准：
+
+- 能解释 support/query split 和 episodic training；
+- 能说明 ProtoNet、MAML、Reptile 的适用场景；
+- 能复现实验并写出失败原因，例如 task distribution mismatch 或 inner-loop instability。
+
+### Project 2：ICL as Meta-learning 复盘
+
+- 选择 3-5 篇 ICL / meta-optimizer 论文。
+- 对比显式梯度更新、上下文内适应和 PEFT 的相同点与边界。
+
+完成标准：输出一页对照表，避免把所有 few-shot 能力都泛化为“元学习”。
+
+---
+
 ## 💡 学习建议
 
 1. **先度量，后优化**：Prototypical Networks 概念最直觉，建议从这里入门，再学 MAML

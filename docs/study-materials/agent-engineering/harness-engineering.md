@@ -154,145 +154,19 @@ Harness = 可执行、可约束、可观测的运行系统
 
 ---
 
-## 三、前沿研究
+---
 
-### 3.1 Meta-Harness：自动优化 Harness 代码
+## 三、延伸阅读：案例与研究
 
-- **arXiv**: https://arxiv.org/abs/2603.28052
-- **作者**: Yoonho Lee 等（Stanford University）
-- **核心思想**：引入一个**外循环系统**，在 Harness 代码空间中进行搜索优化
-- **关键结果**：
-  - 在线文本分类：比 SOTA 系统提升 7.7 分，同时使用 4 倍更少的上下文 token
-  - 数学推理：单个 Harness 使 5 个保留模型在 200 道 IMO 级问题上平均提升 4.7 分
-  - Agentic Coding：在 TerminalBench-2 上超越手工基线
-- **启示**：Harness 的优化正在走向自动化，无需修改模型权重
+本文保留 harness 的核心概念、架构、评测和学习路线。为降低单篇长度，案例和研究前沿拆到两个附录：
 
-### 3.2 CMU/耶鲁/亚马逊联合综述（2026.05）
-
-- **来源**: https://news.qq.com/rain/a/20260522A04EVA00
-- **核心发现**：同一个大模型塞进不同 Agent 框架系统，表现\"判若两模\"
-- **结论**：决定 Agent 在真实世界表现的，不是模型本身，而是包在模型外面的 Harness
-
-### 3.3 上海交通大学 Harness 综述（2026.04）
-
-- **来源**: https://news.qq.com/rain/a/20260414A01KTO00
-- **框架**：系统梳理了 Harness 作为 Agent 时代基座的理论体系
-- **定位**：Harness 是\"Agent 时代统管一切的基座\"
-
-### 3.4 LangChain Terminal Bench 2.0 实验
-
-- **实验设计**：固定模型为 gpt-5.2-codex，只改 Harness（系统提示词结构、工具描述方式、中间件）
-- **结果**：得分从 52.8% → 66.5%，全球排名从第 30 → 第 5
-- **关键改进**：
-  1. 系统提示词强制\"构建-验证\"循环
-  2. 工具上下文直接注入而非让 Agent 探索
-  3. \"推理三明治\"策略：规划+验证用 xhigh，中间用 high
-  4. LoopDetectionMiddleware 检测 Doom Loop
-
-### 3.5 Hashline 协议：零成本大幅提升
-
-- **来源**: https://can.ac （安全研究员 Can Boluk）
-- **核心思想**：每行代码附带基于内容的哈希标签（2-3 字符），编辑时引用标签而非整行原文，写入时校验哈希一致性
-- **实验结果**：
-  - Grok Code Fast 1 成功率：6.7% → 68.3%（10 倍）
-  - Gemini 成功率提升 8%（比大多数模型升级还大，且训练成本为零）
-  - Grok 4 Fast 输出 token 下降 61%
+- [Harness Engineering Cases](harness-engineering-cases.md)：OpenAI、Anthropic、Stripe、LangChain、HumanLayer 等工程案例。
+- [Harness Engineering Research](harness-engineering-research.md)：Meta-Harness、自动演化、轨迹安全和领域专用 harness 研究。
+- [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)：论文清单与速读顺序。
 
 ---
 
-## 四、工程落地实践
-
-### 4.1 OpenAI：100 万行零手写代码
-
-**关键数据**：
-- 3 名工程师 → 7 人，5 个月 → 约 100 万行代码，1500 个 PR
-- 效率约人工 10 倍，零行手写代码
-
-**核心实践**：
-
-| 实践 | 做法 | 关键细节 |
-|------|------|---------|
-| 地图式文档 | AGENTS.md 仅约 100 行，指向 docs/ 子文档 | 渐进式披露，按需加载 |
-| 机械化架构约束 | Types→Config→Repo→Service→Runtime→UI 层级依赖 | 自定义 Linter 阻断违规，报错附带修复说明 |
-| 可观测性工具化 | 接入 Chrome DevTools Protocol | Agent 可自测、自验证 |
-| 垃圾收集 | 每日\"GC Day\"，后台 Agent 自动清理 | 对抗 AI 生成代码的熵积累 |
-| 仓库作为事实来源 | 团队知识作为版本控制制品 | 替代 Slack/Wiki/Docs 中的不可索引知识 |
-
-### 4.2 Anthropic：三智能体架构与 Context Reset
-
-**Carlini C 编译器项目**：
-- 16 个并行 Claude Opus 实例，约 2000 个会话
-- 产出 10 万行 Rust 代码，GCC torture test 99% 通过率
-- 可编译 PostgreSQL、Redis、FFmpeg、CPython、Linux 6.9 Kernel 等 150+ 项目
-- API 成本约 2 万美元
-
-**Harness 关键细节**：
-- 日志不输出到控制台，写文件 + grep 友好的单行格式
-- 测试子采样：每 Agent 只跑随机 1-10% 测试
-- Agent 角色专业化：核心编译、去重、优化、文档
-- \"我不是在为自己写测试框架，是在为 Claude 写\"
-
-**三智能体架构（GAN 启发）**：
-```
-Planner（规划） → Generator（执行） ⇄ Evaluator（评估）
-```
-- Evaluator 用 Playwright MCP 实际点击、打分
-- Context Reset：上下文快满时结构化提取状态 → 启动新 Agent → 交接
-- 重要发现：模型越强，Harness 中部分组件可能冗余，需要定期简化
-
-### 4.3 Stripe Minions 系统
-
-**关键数据**：每周 1300+ 个完全由 Agent 生成、无人手写代码的 PR 被合并
-
-**组件**：
-
-| 组件 | 关键设计 |
-|------|---------|
-| Devbox | AWS EC2 预装，预热池分配，10 秒启动，\"牲口不是宠物\" |
-| 编排状态机 | 混合确定性节点（lint/push）+ Agent 节点（实现功能/修 CI） |
-| Toolshed MCP | 集中式 MCP 服务，近 500 个工具，每 Minion 拿到筛选子集 |
-| 反馈回路 | Pre-push hook 秒级修 lint；最多 2 轮 CI，覆盖 300 万+ 测试 |
-
-**理念**：What's good for humans is good for agents → Agent 是一等公民
-
-### 4.4 Mitchell Hashimoto：个人 Harness 实践
-
-**六步路线**：
-
-| 步骤 | 做法 |
-|------|------|
-| 放弃聊天模式 | 让 Agent 在能读文件、跑程序的环境干活 |
-| 复现自己的工作 | 每件事做两次，自己一次 + 让 Agent 一次 |
-| 下班前启动 Agent | 最后 30 分钟布置深度调研、模糊探索等任务 |
-| 外包确定性任务 | Agent 几乎一定做好的任务后台跑 |
-| 工程化 Harness | Agent 每犯一次错，工程化一个方案防再次犯错 |
-| 始终有 Agent 跑 | 目标 10-20% 工作时间有后台 Agent 运行 |
-
-**AGENTS.md 哲学**：每一行对应一个过去的 Agent 失败案例，是活的反馩循环，不是静态制品。
-
-### 4.5 LangChain Harness 三阶段路线图
-
-| 阶段 | 时间 | 目标 | 操作 |
-|------|------|------|------|
-| Phase 1：信息层 | 1-2 天 | 从\"百科全书\"到\"地图\" | 文档拆解 + 索引 |
-| Phase 2：约束层 | 3-5 天 | 从\"软规范\"到\"硬检查\" | Linter + CI 集成 |
-| Phase 3：自动化层 | 1-2 周 | 从\"人工治理\"到\"系统自愈\" | 多 Agent 协作 + 自动治理 |
-
-### 4.6 沉默即成功（Silence is Success）
-
-HumanLayer 团队的实验发现：
-
-**问题**：完整测试套件输出 4000+ 行 → 噪音淹没关键失败信息 → Agent 产生\"成功幻觉\"
-
-**解决方案**：成功返回极简 ✓，失败才打印全部错误细节
-
-**结果**：
-- 10 步内完成任务比例：43% → 78%
-- 平均节省约 35% 上下文 token
-
----
-
-## 五、评测、审计与安全闭环
+## 四、评测、审计与安全闭环
 
 Harness 的质量不能靠主观感觉判断，必须用 benchmark、轨迹审计和回归任务验证。完整 benchmark 路线见：[Agent Benchmarks](agent-benchmarks.md)。
 
@@ -351,7 +225,7 @@ Agent Harness 应默认最小权限：
 
 ---
 
-## 六、工具与框架生态
+## 五、工具与框架生态
 
 ### 6.1 核心资源
 
@@ -388,7 +262,7 @@ Agent Harness 应默认最小权限：
 
 ---
 
-## 七、关键洞察与趋势
+## 六、关键洞察与趋势
 
 ### 7.1 环境比模型更关键（实证）
 
@@ -429,7 +303,7 @@ Agent Harness 应默认最小权限：
 
 ---
 
-## 八、推荐学习路线
+## 七、推荐学习路线
 
 ### Step 1：理解核心理念（1-2 天）
 - 阅读 JavaGuide 六层架构详解：https://javaguide.cn/ai/agent/harness-engineering.html
@@ -457,17 +331,3 @@ Agent Harness 应默认最小权限：
 *本文档将持续更新。Harness Engineering 是 2026 年 AI 工程领域最重要的范式转变，它标志着 AI 开发的关注点从\"怎么跟模型说话\"转向\"怎么为 AI 构建可靠的运行环境\"。*
 
 ---
-
-## 最新论文与研究进展（2026）
-
-Harness Engineering 已经从工程经验进入研究阶段，近期论文主要围绕：
-
-- **Harness 表示化**：例如 Natural-Language Agent Harnesses，将 harness 政策抽象成可编辑、可检查、可迁移的自然语言对象。
-- **Harness 自动演化**：例如 Agentic Harness Engineering，通过组件/经验/决策可观测性，让 coding-agent harness 自动改进。
-- **运行时适配与推理时对齐**：不改模型参数，而通过接口、工具、轨迹控制和验证门控改善稳定性。
-- **安全审计**：从答案安全扩展到轨迹安全，检查工具调用、资源访问和上下文泄漏。
-- **领域专用 Harness**：科研、算法发现、可视化、仿真、搜索等任务正在出现垂直 harness。
-
-完整论文清单与阅读顺序见：
-
-- [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)

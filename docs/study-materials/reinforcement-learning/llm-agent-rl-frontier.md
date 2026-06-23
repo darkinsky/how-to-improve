@@ -292,6 +292,26 @@ RLVR = Reinforcement Learning with Verifiable Rewards。核心想法：数学、
 
 ---
 
+## 实践项目 / 完成标准
+
+### Project 1：Verifiable Reasoning RL Mini Lab
+
+- 选择数学、代码或格式可验证任务。
+- 构造 rule-based verifier，比较 SFT、rejection sampling、RLVR / GRPO 思路的训练或模拟结果。
+- 记录 pass@1、pass@k、reward hacking 样例和长度变化。
+
+完成标准：能解释 verifier 为什么比人工偏好更稳定，以及它在哪些任务上会失效。
+
+### Project 2：Agentic RL Trajectory Dataset
+
+- 收集工具调用、网页任务或 coding-agent 的成功/失败轨迹。
+- 标注 state、action、observation、reward、failure mode。
+- 比较用轨迹做 imitation、preference optimization、verifier training 的不同价值。
+
+完成标准：输出一份 trajectory schema 和 20-50 条高质量样例。
+
+---
+
 ## 9. 与本目录其它文档的关系
 
 - 主线基础：[强化学习进阶学习资料与论文路线](advanced-rl.md)

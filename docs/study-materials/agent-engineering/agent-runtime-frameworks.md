@@ -69,6 +69,17 @@ Prompt / Tool Calling
 
 ---
 
+## 学习路线
+
+1. **先理解抽象层**：从 raw tool calling、structured output、workflow graph 到 stateful runtime。
+2. **再比较协议**：重点理解 MCP 解决 tool/context 接入，A2A 解决 agent 间互操作。
+3. **然后做框架对比**：用同一任务分别跑 LangGraph、AutoGen、Semantic Kernel / LlamaIndex Workflows。
+4. **最后补工程治理**：加入 observability、replay、sandbox、evaluation harness 和 deployment policy。
+
+完成后应能回答：同一任务为什么在不同 runtime 中成功率、可观测性和恢复能力不同。
+
+---
+
 ## 实践项目 / 完成标准
 
 ### Project：Agent Runtime Bake-off
