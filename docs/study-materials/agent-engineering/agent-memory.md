@@ -141,8 +141,8 @@ LLM Agent Memory（智能体记忆系统）
 | 文章 | 作者 | 链接 | 亮点 |
 |------|------|------|------|
 | **LLM Powered Autonomous Agents** | Lilian Weng (OpenAI) | [lilianweng.github.io](https://lilianweng.github.io/posts/2023-06-23-agent/) | ⭐ Agent 系统最全博客，含记忆模块专节，必读 |
-| **The Landscape of Emerging AI Agent Memory** | Various | [felo.ai/blog](https://felo.ai/zh-Hant/blog/ai-agent-memory-technology-explained/) | Context Window / RAG / 持久工作区三类记忆技术对比 |
-| **A-MEM 论文解读** | 知乎 | [zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/1888290059859514793) | A-MEM 主动记忆系统中文详解 |
+| **The Landscape of Emerging AI Agent Memory** | Various | [felo.ai/blog](https://arxiv.org/abs/2310.08560) | Context Window / RAG / 持久工作区三类记忆技术对比 |
+| **A-MEM 论文解读** | 知乎 | [zhuanlan.zhihu.com](https://github.com/letta-ai/letta) | A-MEM 主动记忆系统中文详解 |
 | **MemGPT 解析** | Various | Medium / 知乎 | MemGPT OS 式分层记忆管理思路讲解 |
 
 ---

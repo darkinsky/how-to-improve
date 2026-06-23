@@ -52,6 +52,8 @@ Transformer 基础
 | P1 | QLoRA | 论文 | 量化 + PEFT，低成本微调核心方法 |
 | P1 | Switch Transformer / GShard | 论文 | MoE / sparse expert 模型经典路线 |
 | P1 | Constitutional AI / InstructGPT | 论文 | alignment、RLHF、RLAIF 和 instruction following 的关键材料 |
+| P1 | The Illustrated Transformer / The Annotated Transformer | 经典教程 | 适合把论文结构落实到代码和图解 |
+| P1 | The Hardware Lottery / Bitter Lesson | 经典文章 | 理解为什么 scaling、硬件和通用方法反复胜出 |
 
 ---
 
@@ -63,11 +65,25 @@ Transformer 基础
 - **GPT / GPT-2 / GPT-3**：理解 decoder-only LM、next-token prediction、prompting、in-context learning。
 - **BERT / T5**：不是当前 LLM agent 的主线架构，但有助于理解 encoder、masked LM、text-to-text 范式。
 
+高质量补充：
+
+- The Illustrated Transformer：https://jalammar.github.io/illustrated-transformer/
+- The Annotated Transformer：http://nlp.seas.harvard.edu/annotated-transformer/
+- nanoGPT：https://github.com/karpathy/nanoGPT
+- Andrej Karpathy - Neural Networks: Zero to Hero：https://github.com/karpathy/nn-zero-to-hero
+
 ### 2. Scaling Laws
 
 - **Kaplan Scaling Laws**：早期 scaling law，提出 loss 与模型、数据、计算的幂律关系。
 - **Chinchilla**：强调 compute-optimal 训练中数据量更重要，影响后续 LLM 训练配比。
 - **Data quality / dedup / contamination**：现代训练中数据治理和 benchmark 污染和 scaling 同样重要。
+
+高质量补充：
+
+- The Bitter Lesson：http://www.incompleteideas.net/IncIdeas/BitterLesson.html
+- The Hardware Lottery：https://arxiv.org/abs/2009.06489
+- Scaling Laws for Neural Language Models：https://arxiv.org/abs/2001.08361
+- Training Compute-Optimal Large Language Models：https://arxiv.org/abs/2203.15556
 
 ### 3. Post-training 与 Alignment
 

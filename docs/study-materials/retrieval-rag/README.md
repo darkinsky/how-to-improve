@@ -51,6 +51,10 @@ Sparse Retrieval / BM25
 | P1 | Atlas | 论文 | retrieval-augmented few-shot learning |
 | P1 | Self-RAG | 论文 | 模型学习何时检索、何时引用、何时反思 |
 | P1 | HyDE | 方法 | hypothetical document expansion，实用 query rewriting 思路 |
+| P1 | Contriever | 论文 / 代码 | 无监督 dense retrieval 强基线 |
+| P1 | BGE / FlagEmbedding | 模型 / 工具 | 中文和多语种 embedding / reranker 实践入口 |
+| P1 | RAGAS | 工具 / Eval | RAG faithfulness / answer relevance / context precision 评估 |
+| P1 | LlamaIndex / LangChain RAG docs | 官方文档 | 工程 pipeline、chunking、retriever、reranker 实践参考 |
 | Frontier | GraphRAG | 系统 / 方法 | 图结构知识组织和全局问题回答代表方向 |
 
 ---
@@ -67,6 +71,14 @@ Sparse Retrieval / BM25
 
 - **DPR**：dual encoder 检索，问题和文档分别编码。
 - 学习重点：negative sampling、embedding quality、recall@k。
+
+
+推荐补充资料：
+
+- Contriever 论文：https://arxiv.org/abs/2112.09118
+- Contriever 代码：https://github.com/facebookresearch/contriever
+- Sentence-BERT 论文：https://arxiv.org/abs/1908.10084
+- BGE / FlagEmbedding：https://github.com/FlagOpen/FlagEmbedding
 
 ### Late Interaction
 
@@ -134,6 +146,13 @@ Document parsing
 - global question answering；
 - provenance tracking。
 
+
+推荐补充资料：
+
+- Microsoft GraphRAG：https://github.com/microsoft/graphrag
+- GraphRAG 论文：https://arxiv.org/abs/2404.16130
+- LightRAG：https://arxiv.org/abs/2410.05779
+
 ### Agentic RAG
 
 RAG 与 Agent 结合后，检索成为 tool：
@@ -171,6 +190,20 @@ plan → search → read → refine query → search again → synthesize → ve
 ---
 
 ## 延伸资料
+
+
+### 高质量外部引用
+
+| 方向 | 资料 | 类型 | 链接 |
+|------|------|------|------|
+| RAG 基础 | Retrieval-Augmented Generation | 论文 | https://arxiv.org/abs/2005.11401 |
+| Dense Retrieval | DPR | 论文 / 代码 | https://arxiv.org/abs/2004.04906 / https://github.com/facebookresearch/DPR |
+| Late Interaction | ColBERT | 论文 / 代码 | https://arxiv.org/abs/2004.12832 / https://github.com/stanford-futuredata/ColBERT |
+| Long-context RAG | Lost in the Middle | 论文 | https://arxiv.org/abs/2307.03172 |
+| RAG Eval | RAGAS | 文档 / 代码 | https://docs.ragas.io/ / https://github.com/explodinggradients/ragas |
+| RAG Framework | LlamaIndex RAG Docs | 官方文档 | https://docs.llamaindex.ai/ |
+| RAG Framework | LangChain RAG Docs | 官方文档 | https://python.langchain.com/docs/tutorials/rag/ |
+
 
 - Agent Memory：`../agent-engineering/agent-memory.md`
 - Agent Benchmarks：`../agent-engineering/agent-benchmarks.md`

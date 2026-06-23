@@ -144,7 +144,7 @@ Flow-based Models（流模型）
   ★ 直觉讲解为主，配合代码，适合数学基础一般的读者
 
 - **Adam Kosiorek - Normalizing Flows**
-  http://akosiorek.github.io/ml/2018/04/03/norm_flows.html
+  https://lilianweng.github.io/posts/2018-10-13-flow-models/
   清晰的数学推导，含变量替换公式的完整推导
 
 - **Normalizing Flows: An Introduction and Review of Current Methods**

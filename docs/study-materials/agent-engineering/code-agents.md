@@ -180,6 +180,20 @@ Code agent 轨迹可以用于：
 
 ---
 
+## 高质量外部引用
+
+| 方向 | 资料 | 类型 | 链接 |
+|------|------|------|------|
+| 函数级代码生成 | HumanEval | 论文 / 代码 | https://arxiv.org/abs/2107.03374 / https://github.com/openai/human-eval |
+| 仓库级修复 | SWE-bench | 论文 / 官网 / 代码 | https://arxiv.org/abs/2310.06770 / https://www.swebench.com/ / https://github.com/SWE-bench/SWE-bench |
+| SWE Agent | SWE-agent | 论文 / 代码 | https://arxiv.org/abs/2405.15793 / https://github.com/SWE-agent/SWE-agent |
+| 开源 runtime | OpenHands | 代码 | https://github.com/All-Hands-AI/OpenHands |
+| 终端任务评估 | Terminal-Bench | 官网 / 代码 | https://www.tbench.ai/ / https://github.com/laude-institute/terminal-bench |
+| 仓库上下文 | RepoBench | 论文 | https://arxiv.org/abs/2306.03091 |
+| Code Agent 失败分析 | SWE-bench Verified | 论文 / 数据 | https://arxiv.org/abs/2408.03979 |
+
+---
+
 ## Freshness
 
 | 字段 | 内容 |

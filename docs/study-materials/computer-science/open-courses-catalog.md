@@ -132,7 +132,7 @@
 ### Berkeley CS61B — Data Structures
 
 - 学校：UC Berkeley
-- 主页：[CS61B](https://www.datastructur.es/)
+- 主页：[CS61B](https://sp25.datastructur.es/)
 - 主题：Java、链表、树、图、哈希表、排序、复杂度、软件工程
 - 适合：从“会写代码”进阶到“会组织程序”的学习者
 - 难度：★★★☆☆
@@ -300,7 +300,7 @@
 ### Berkeley CS164 — Programming Languages and Compilers
 
 - 学校：UC Berkeley
-- 主页：[CS164](https://cs164berkeley.github.io/)
+- 主页：[CS164](https://berkeley-cs164-sp25.github.io/)
 - 主题：程序语言、解释器、编译器、类型系统
 - 适合：想从 PL 视角理解语言实现的人
 - 难度：★★★★☆

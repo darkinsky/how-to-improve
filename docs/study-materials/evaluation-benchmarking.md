@@ -134,6 +134,22 @@ Task Definition
 
 ---
 
+## 高质量外部引用
+
+| 方向 | 资料 | 类型 | 链接 |
+|------|------|------|------|
+| LLM 综合评估 | HELM | Benchmark / 方法论 | https://crfm.stanford.edu/helm/ |
+| 通用知识 | MMLU | 论文 | https://arxiv.org/abs/2009.03300 |
+| 大规模任务集 | BIG-bench | 论文 / 代码 | https://arxiv.org/abs/2206.04615 / https://github.com/google/BIG-bench |
+| 数学推理 | GSM8K / MATH | 论文 | https://arxiv.org/abs/2110.14168 / https://arxiv.org/abs/2103.03874 |
+| 代码生成 | HumanEval | 论文 / 代码 | https://arxiv.org/abs/2107.03374 / https://github.com/openai/human-eval |
+| RAG Eval | RAGAS | 文档 / 代码 | https://docs.ragas.io/ / https://github.com/explodinggradients/ragas |
+| Agent Eval | WebArena / OSWorld | 论文 / 代码 | https://arxiv.org/abs/2307.13854 / https://github.com/xlang-ai/OSWorld |
+| Safety Eval | HarmBench | 论文 / 代码 | https://arxiv.org/abs/2402.04249 / https://github.com/centerforaisafety/HarmBench |
+| Systems Eval | MLPerf Inference | 官方 benchmark | https://mlcommons.org/benchmarks/inference-datacenter/ |
+
+---
+
 ## Freshness
 
 | 字段 | 内容 |

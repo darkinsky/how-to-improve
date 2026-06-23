@@ -36,17 +36,23 @@
 | LoRA | https://arxiv.org/abs/2106.09685 | https://github.com/microsoft/LoRA | 结合 PEFT 实践读 |
 | QLoRA | https://arxiv.org/abs/2305.14314 | https://github.com/artidoro/qlora | 关注 4-bit quantization 和 adapter |
 | Switch Transformer | https://arxiv.org/abs/2101.03961 | - | 和 GShard、MoE 并行一起读 |
+| The Illustrated Transformer | https://jalammar.github.io/illustrated-transformer/ | - | 图解 Transformer，作为论文前置读物 |
+| The Annotated Transformer | http://nlp.seas.harvard.edu/annotated-transformer/ | https://github.com/harvardnlp/annotated-transformer | 代码级理解 attention 和训练循环 |
+| The Bitter Lesson | http://www.incompleteideas.net/IncIdeas/BitterLesson.html | - | 理解通用方法、计算和 scaling 为什么长期胜出 |
 
 ## RAG / Retrieval
 
 | 材料 | 官方链接 | 代码 / 项目 | 推荐阅读方式 |
 |------|----------|-------------|--------------|
 | DPR | https://arxiv.org/abs/2004.04906 | https://github.com/facebookresearch/DPR | 关注 dual encoder 和 negatives |
-| RAG | https://arxiv.org/abs/2005.11401 | https://github.com/facebookresearch/rag | 画出 retrieval-generation pipeline |
+| RAG | https://arxiv.org/abs/2005.11401 | https://huggingface.co/docs/transformers/model_doc/rag | 画出 retrieval-generation pipeline |
 | FiD | https://arxiv.org/abs/2007.01282 | https://github.com/facebookresearch/FiD | 关注 fusion-in-decoder |
 | ColBERT | https://arxiv.org/abs/2004.12832 | https://github.com/stanford-futuredata/ColBERT | 对比单向量 dense retrieval |
 | Self-RAG | https://arxiv.org/abs/2310.11511 | https://github.com/AkariAsai/self-rag | 关注 retrieval decision 和 critique |
 | GraphRAG | https://github.com/microsoft/graphrag | https://github.com/microsoft/graphrag | 从系统文档和 examples 入手 |
+| Contriever | https://arxiv.org/abs/2112.09118 | https://github.com/facebookresearch/contriever | 无监督 dense retrieval 强基线 |
+| BGE / FlagEmbedding | https://github.com/FlagOpen/FlagEmbedding | https://github.com/FlagOpen/FlagEmbedding | embedding / reranker 工程实践入口 |
+| RAGAS | https://docs.ragas.io/ | https://github.com/explodinggradients/ragas | RAG 评估工具入口 |
 
 ## AI Infra
 
@@ -58,6 +64,8 @@
 | vLLM / PagedAttention | https://arxiv.org/abs/2309.06180 | https://github.com/vllm-project/vllm | 关注 KV cache 管理 |
 | SGLang | https://arxiv.org/abs/2312.07104 | https://github.com/sgl-project/sglang | 关注 structured generation 和 runtime |
 | Ray | https://arxiv.org/abs/1712.05889 | https://github.com/ray-project/ray | 关注分布式任务和 actor 抽象 |
+| TensorRT-LLM | https://github.com/NVIDIA/TensorRT-LLM | https://github.com/NVIDIA/TensorRT-LLM | NVIDIA LLM 推理优化和部署实践 |
+| llm-d | https://llm-d.ai/ | https://github.com/llm-d | 云原生分布式 serving 参考 |
 
 ## Agent / Code Agent
 
@@ -68,8 +76,10 @@
 | Generative Agents | https://arxiv.org/abs/2304.03442 | https://github.com/joonspk-research/generative_agents | 关注 memory/reflection/planning |
 | SWE-bench | https://arxiv.org/abs/2310.06770 | https://github.com/swe-bench/SWE-bench | 先读 benchmark 设计 |
 | OpenHands | https://github.com/All-Hands-AI/OpenHands | https://github.com/All-Hands-AI/OpenHands | 从 runtime 和 sandbox 看起 |
-| LangGraph | https://github.com/langchain-ai/langgraph | https://github.com/langchain-ai/langgraph | 关注 stateful graph workflow |
+| LangGraph | https://langchain-ai.github.io/langgraph/ | https://github.com/langchain-ai/langgraph | 关注 stateful graph workflow |
 | Model Context Protocol | https://modelcontextprotocol.io/ | https://github.com/modelcontextprotocol | 关注 tool/context 接入协议 |
+| DSPy | https://arxiv.org/abs/2310.03714 | https://github.com/stanfordnlp/dspy | programmatic prompting 和 optimizer |
+| SWE-agent | https://arxiv.org/abs/2405.15793 | https://github.com/SWE-agent/SWE-agent | repo-level coding agent 系统 |
 
 ## RL / Reasoning
 
@@ -109,3 +119,6 @@
 | WebArena | https://arxiv.org/abs/2307.13854 | https://github.com/web-arena-x/webarena | 关注 web agent 任务设计 |
 | OSWorld | https://arxiv.org/abs/2404.07972 | https://github.com/xlang-ai/OSWorld | 关注 GUI agent 评估 |
 | VBench | https://arxiv.org/abs/2311.17982 | https://github.com/Vchitect/VBench | 视频生成评估 |
+| RAGAS | https://docs.ragas.io/ | https://github.com/explodinggradients/ragas | RAG faithfulness / relevance / context precision |
+| HarmBench | https://arxiv.org/abs/2402.04249 | https://github.com/centerforaisafety/HarmBench | 安全评估和 red-teaming 基线 |
+| MLPerf Inference | https://mlcommons.org/benchmarks/inference-datacenter/ | - | 系统评估和推理 benchmark 方法论 |

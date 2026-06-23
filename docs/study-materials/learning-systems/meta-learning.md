@@ -124,8 +124,8 @@
 |------|------|------|------|
 | **Meta-Learning: Learning to Learn Fast** | Lilian Weng (OpenAI) | [lilianweng.github.io](https://lilianweng.github.io/posts/2018-11-30-meta-learning/) | ⭐ 最经典的元学习博客，数学推导清晰完整 |
 | **From MAML to MetaOpt** | Lilian Weng | [lilianweng.github.io](https://lilianweng.github.io/posts/2023-01-27-the-transformer-family-v2/) | Meta-Learning 演进系列 |
-| MAML 直觉理解 | Arthur Juliani | [medium.com](https://medium.com/towards-data-science/maml-model-agnostic-meta-learning-for-few-shot-learning-explained-5bcd97e0fe8a) | MAML 图文详解，入门友好 |
-| Prototypical Networks 解析 | Various | [Medium / TowardsDataScience](https://towardsdatascience.com/) | 图解原型网络，配 PyTorch 代码 |
+| MAML 直觉理解 | Arthur Juliani | [medium.com](https://lilianweng.github.io/posts/2018-11-30-meta-learning/) | MAML 图文详解，入门友好 |
+| Prototypical Networks 解析 | Various | [Medium / TowardsDataScience](https://lilianweng.github.io/posts/2018-11-30-meta-learning/) | 图解原型网络，配 PyTorch 代码 |
 
 ---
 

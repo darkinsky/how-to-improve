@@ -121,6 +121,21 @@ Prompt / Tool Calling
 
 ---
 
+## 高质量外部引用
+
+| 方向 | 资料 | 类型 | 链接 |
+|------|------|------|------|
+| Agent 范式 | ReAct | 论文 | https://arxiv.org/abs/2210.03629 |
+| Tool Use | Toolformer | 论文 | https://arxiv.org/abs/2302.04761 |
+| Agent 协议 | Model Context Protocol | 官方规范 | https://modelcontextprotocol.io/ |
+| Stateful Workflow | LangGraph | 官方文档 | https://langchain-ai.github.io/langgraph/ |
+| Multi-agent | AutoGen | 官方文档 / 代码 | https://microsoft.github.io/autogen/ / https://github.com/microsoft/autogen |
+| Enterprise Orchestration | Semantic Kernel | 官方文档 | https://learn.microsoft.com/en-us/semantic-kernel/ |
+| Programmatic Prompting | DSPy | 论文 / 文档 | https://arxiv.org/abs/2310.03714 / https://dspy.ai/ |
+| Structured Generation | Outlines | 代码 | https://github.com/dottxt-ai/outlines |
+
+---
+
 ## Freshness
 
 | 字段 | 内容 |

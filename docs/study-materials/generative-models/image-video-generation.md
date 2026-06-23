@@ -335,7 +335,7 @@ prompt following
   https://www.youtube.com/watch?v=wIIBN2ao4v0
 
 - **Flux.1 架构解析**
-  https://medium.com/@mikeyoung_97230/flux-1-architecture-explained-84e36b6e8374
+  https://blackforestlabs.ai/announcing-black-forest-labs/
 
 ### 视频生成
 
@@ -382,7 +382,7 @@ prompt following
    - 本地部署：https://github.com/black-forest-labs/flux
 
 4. **ControlNet 实践**
-   - 官方示例：https://github.com/lllyasviel/ControlNet/tree/main/gradio_depth2image
+   - 官方示例：https://github.com/lllyasviel/ControlNet
 
 ### 视频生成上手路径
 
@@ -469,6 +469,20 @@ prompt following
 - Sora / Veo / Movie Gen / CogVideoX / Wan；
 - autoregressive image tokens、flow matching、consistency / LCM 等范式对比；
 - DALL-E 1、Parti、Muse、VAR、VideoPoet 等补充路线。
+
+---
+
+## 高质量外部引用
+
+| 方向 | 资料 | 类型 | 链接 |
+|------|------|------|------|
+| Diffusion 基础 | DDPM / DDIM / Score SDE | 论文 | https://arxiv.org/abs/2006.11239 / https://arxiv.org/abs/2010.02502 / https://arxiv.org/abs/2011.13456 |
+| Latent Diffusion | LDM / Stable Diffusion | 论文 / 代码 | https://arxiv.org/abs/2112.10752 / https://github.com/CompVis/latent-diffusion |
+| 条件控制 | ControlNet / IP-Adapter | 论文 / 代码 | https://arxiv.org/abs/2302.05543 / https://github.com/tencent-ailab/IP-Adapter |
+| DiT 主线 | DiT / SD3 | 论文 | https://arxiv.org/abs/2212.09748 / https://arxiv.org/abs/2403.03206 |
+| FLUX | Black Forest Labs / Diffusers | 官方资料 | https://blackforestlabs.ai/announcing-black-forest-labs/ / https://huggingface.co/docs/diffusers/api/pipelines/flux |
+| 视频生成 | Sora / Movie Gen / CogVideoX / Wan | 技术报告 / 代码 | https://openai.com/index/video-generation-models-as-world-simulators/ / https://ai.meta.com/research/movie-gen/ / https://github.com/THUDM/CogVideo / https://github.com/Wan-Video/Wan2.1 |
+| 生成评估 | VBench | 论文 / 代码 | https://arxiv.org/abs/2311.17982 / https://github.com/Vchitect/VBench |
 
 ---
 

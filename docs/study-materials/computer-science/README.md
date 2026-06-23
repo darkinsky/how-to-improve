@@ -93,7 +93,7 @@ CS61A / CS50x → CS61B → CSAPP → 6.S081 → 15-445 → 6.5840 → CS336 / C
 ## 如果只学 10 门
 
 1. [Berkeley CS61A](https://cs61a.org/) — 编程抽象与 SICP 思想
-2. [Berkeley CS61B](https://www.datastructur.es/) — 数据结构与工程化编程
+2. [Berkeley CS61B](https://sp25.datastructur.es/) — 数据结构与工程化编程
 3. [MIT 6.006](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/) — 算法基础
 4. [CMU 15-213 / CSAPP](https://www.cs.cmu.edu/~213/) — 计算机系统
 5. [MIT 6.S081 / 6.1810](https://pdos.csail.mit.edu/6.1810/) — 操作系统工程

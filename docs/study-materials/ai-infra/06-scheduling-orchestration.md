@@ -74,7 +74,7 @@ class GPUWorker:
 ### 推荐资料
 
 - [Ray 官方教程](https://docs.ray.io/en/latest/ray-overview/getting-started.html)
-- [vLLM 多节点部署文档](https://docs.vllm.ai/en/latest/serving/distributed_serving.html)
+- [vLLM 多节点部署文档](https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html)
 
 ---
 

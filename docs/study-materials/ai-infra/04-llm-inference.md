@@ -78,6 +78,16 @@ KV per token = 2 × num_layers × num_kv_heads × head_dim × dtype_bytes
 | **KV 量化** | INT8/FP8 存储 KV，节省约 50% 显存 | vLLM/SGLang |
 | **MLA（DeepSeek）** | 低秩压缩 KV，大幅减少 KV Cache 占用 | 模型层面 |
 
+
+推荐补充资料：
+
+- vLLM / PagedAttention 论文：https://arxiv.org/abs/2309.06180
+- vLLM 官方文档：https://docs.vllm.ai/en/latest/
+- SGLang 论文：https://arxiv.org/abs/2312.07104
+- SGLang 官方文档：https://docs.sglang.ai/
+- NVIDIA TensorRT-LLM：https://github.com/NVIDIA/TensorRT-LLM
+- llm-d：https://llm-d.ai/
+
 ---
 
 ## 批处理策略

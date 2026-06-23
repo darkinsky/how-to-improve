@@ -143,11 +143,11 @@ Flow Matching
   https://mlg.eng.cam.ac.uk/blog/2024/01/20/flow-matching.html
 
 - **Lilian Weng - Flow Matching（2024）**
-  https://lilianweng.github.io/posts/2023-10-09-generative-compared/
+  https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
   ★ Lilian Weng 对比讲解 Diffusion vs Flow Matching，清晰对比两者优劣
 
 - **Rectified Flow 作者 Blog（刘宇）**
-  https://www.cs.utexas.edu/~lqiang/rectflow/html/blog.html
+  https://rectifiedflow.github.io/blog/2024/intro/
   ★ 作者亲自写的直觉解释，含动态可视化
 
 - **Flow Matching 直觉可视化（交互式）**
@@ -157,7 +157,7 @@ Flow Matching
 ### 深度技术
 
 - **Understanding Flow Matching（Sander Dieleman）**
-  https://sander.ai/2024/09/02/flow-matching.html
+  https://sander.ai/
   ★ Spotify Research 的 Sander Dieleman 出品，数学推导严谨，适合有一定基础后阅读
 
 - **从 DDPM 到 Flow Matching 的演进（The Annotated Diffusion Model 作者续篇）**

@@ -53,6 +53,11 @@
 | DPO | `reinforcement-learning/preference-optimization.md` | 论文 / 方法 | P0 / Classic | https://arxiv.org/abs/2305.18290 | N/A | Preference Optimization Mini Lab | 2026-06 |
 | DeepSeek-R1 / RLVR | `reinforcement-learning/reasoning-rl.md` | 论文 / 方法 | P0 / Frontier | https://arxiv.org/abs/2501.12948 | N/A | Verifiable Reasoning RL Mini Lab | 2026-06 |
 | RAGAS | `evaluation-benchmarking.md` | 工具 / Eval | P1 / Hands-on | https://docs.ragas.io/ | https://github.com/explodinggradients/ragas | Unified Eval Harness | 2026-06 |
+| Contriever | `retrieval-rag/README.md` | 论文 / 系统 | P1 / Classic | https://arxiv.org/abs/2112.09118 | https://github.com/facebookresearch/contriever | RAG Evaluation Harness | 2026-06 |
+| BGE / FlagEmbedding | `retrieval-rag/README.md` | 模型 / 工具 | P1 / Hands-on | https://github.com/FlagOpen/FlagEmbedding | https://github.com/FlagOpen/FlagEmbedding | RAG Evaluation Harness | 2026-06 |
+| LangGraph | `agent-engineering/agent-runtime-frameworks.md` | 框架 | P1 / Hands-on | https://langchain-ai.github.io/langgraph/ | https://github.com/langchain-ai/langgraph | Agent Runtime Bake-off | 2026-06 |
+| SWE-agent | `agent-engineering/code-agents.md` | 系统 | P1 / Hands-on | https://arxiv.org/abs/2405.15793 | https://github.com/SWE-agent/SWE-agent | Mini SWE Agent | 2026-06 |
+| TensorRT-LLM | `ai-infra/04-llm-inference.md` | 系统 | P1 / Hands-on | https://github.com/NVIDIA/TensorRT-LLM | https://github.com/NVIDIA/TensorRT-LLM | vLLM / SGLang Serving Benchmark | 2026-06 |
 | VBench | `evaluation-benchmarking.md` | Benchmark | P1 / Frontier | https://arxiv.org/abs/2311.17982 | https://github.com/Vchitect/VBench | VLM / Generation Evaluation | 2026-06 |
 
 ### P0/P1 维护检查
@@ -164,6 +169,19 @@
 | WebArena / OSWorld / AndroidWorld / GAIA | `agent-engineering/agent-benchmarks.md` | `multimodal/README.md` | Agent Eval |
 | RAGAS / TruLens / DeepEval | `evaluation-benchmarking.md` | `retrieval-rag/README.md` | RAG Eval |
 | FID / CLIPScore / FVD / VBench | `evaluation-benchmarking.md` | `generative-models/image-video-generation.md` | Generative Eval |
+
+---
+
+## 外部引用质量分层
+
+| 层级 | 优先收录 | 说明 |
+|------|----------|------|
+| S | arXiv / 会议论文 / 官方技术报告 / 官方文档 / 官方 repo | 默认优先，适合作为主引用 |
+| A | 课程主页 / 教材 / 一线研究者或工程师长文 | 可作为解释性补充 |
+| B | 社区教程 / 博客 / 复现仓库 | 只在实践价值明显且链接稳定时保留 |
+| C | 聚合站、转载、短新闻、缺少出处的二手解读 | 原则上不作为核心引用；若保留需有替代官方来源 |
+
+更新资料时优先用 S/A 层替换 C 层来源。中文文章可以作为入门辅助，但核心论点必须能回到论文、官方文档、代码或一线作者文章。
 
 ---
 

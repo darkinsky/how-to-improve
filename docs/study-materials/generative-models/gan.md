@@ -183,10 +183,10 @@ GAN（生成对抗网络）
   ★ 深入浅出讲透 GAN 理论与训练技巧，Lilian Weng 是 OpenAI 前研究员
 
 - **GANs in 50 lines of code（Medium）**
-  https://medium.com/@devnag/generative-adversarial-networks-gans-in-50-lines-of-code-pytorch-e81b79659e3f
+  https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html
 
 - **GAN — How does it work?（Towards Data Science）**
-  https://towardsdatascience.com/generative-adversarial-network-gan-for-dummies-a-step-by-step-tutorial-81dfd8f5db5f
+  https://lilianweng.github.io/posts/2017-08-20-gan/
 
 ### 深入技术博客
 
@@ -195,7 +195,7 @@ GAN（生成对抗网络）
   ★ 收录了 500+ GAN 变体，当"GAN 百科全书"用
 
 - **StyleGAN 解析（distill.pub 风格）**
-  https://towardsdatascience.com/explained-a-style-based-generator-architecture-for-gans-generating-and-tuning-realistic-6cb2be0f431
+  https://distill.pub/2016/deconv-checkerboard/
 
 - **GAN 训练技巧大全（ganhacks）**
   https://github.com/soumith/ganhacks
@@ -232,7 +232,7 @@ GAN（生成对抗网络）
    - ★ 代码质量很高，值得精读
 
 3. **StyleGAN2 微调（自定义数据集）**
-   - Roboflow 教程：https://blog.roboflow.com/how-to-train-stylegan2/
+   - Roboflow 教程：https://github.com/NVlabs/stylegan2-ada-pytorch
    - StyleGAN2-ADA（少样本训练）：https://github.com/NVlabs/stylegan2-ada-pytorch
 
 ### GAN 框架与工具库
