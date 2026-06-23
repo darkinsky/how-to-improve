@@ -369,3 +369,26 @@ Rectified Flow: learn straighter transport path for fewer sampling steps
 
 *文档由 OpenClaw AI 助手整理生成，持续更新中*
 
+---
+
+## Diffusion / Fast Sampling 补充清单
+
+| 优先级 | 材料 | 方向 | 为什么重要 |
+|--------|------|------|------------|
+| P0 | Latent Diffusion Models | latent diffusion | Stable Diffusion 基础 |
+| P0 | Classifier-Free Guidance | conditional generation | 条件生成和质量控制核心技巧 |
+| P0 | EDM | diffusion training/sampling | 现代 diffusion 训练与采样改进 |
+| P1 | Consistency Models | few-step generation | 快速采样重要路线 |
+| P1 | Latent Consistency Models / LCM | fast latent diffusion | diffusion 蒸馏和少步生成 |
+| P1 | ControlNet | controllable generation | 条件控制事实标准之一 |
+| P1 | T2I-Adapter / IP-Adapter | adapter-based control | 图像条件、风格和控制扩展 |
+| P1 | DreamBooth / Textual Inversion | personalization | 个性化生成经典方法 |
+
+建议区分四个问题：
+
+```text
+training objective
+sampling solver
+conditioning / guidance
+personalization / controllability
+```

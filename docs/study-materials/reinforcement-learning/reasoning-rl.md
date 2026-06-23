@@ -284,3 +284,29 @@ Reasoning model 的关键特点之一是推理时可以花更多计算：
 - [Preference Optimization](preference-optimization.md)：偏好数据和 direct alignment 方法。
 - [Agentic RL](agentic-rl.md)：把可验证奖励扩展到工具调用和环境状态。
 - [LLM / Agent 相关强化学习前沿论文](llm-agent-rl-frontier.md)：总览 LLM / Agent RL 主线。
+
+---
+
+## RLVR 相关前沿范式补充
+
+| 优先级 | 材料 / 方法 | 方向 | 建议关注点 |
+|--------|-------------|------|------------|
+| P0 | STaR | reasoning bootstrapping | 用 rationale 自举提升推理 |
+| P0 | ReST / ReSTEM | rejection sampling / self-training | 采样、筛选、再训练循环 |
+| P0 | Process Reward Models | PRM | step-level supervision 与 reward hacking |
+| P1 | Self-Rewarding Language Models | self-reward | 模型自评和迭代风险 |
+| P1 | SPIN | self-play fine-tuning | 无人工偏好数据的自博弈微调 |
+| P1 | Tree of Thoughts / Graph of Thoughts | inference-time search | 搜索树、verifier、branching 策略 |
+| P1 | Quiet-STaR | internal reasoning | 隐式 reasoning token / rationale |
+| P1 | Reflexion | verbal reinforcement | 失败反思作为 episodic memory |
+
+建议把 RLVR 放在更大的 test-time compute 框架下理解：
+
+```text
+sampling
+  → verifier / ORM
+  → PRM
+  → rejection sampling
+  → search / tree-of-thought
+  → self-training / RL
+```

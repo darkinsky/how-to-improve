@@ -120,3 +120,26 @@ CS61A / CS50x → CS61B → CSAPP → 6.S081 → 15-445 → 6.5840 → CS336 / C
 - 能解释程序从源代码到执行的基本路径：编译、链接、内存、系统调用；
 - 能实现或修改一个小型 OS / DB / Distributed System Lab；
 - 能读懂现代 AI / Infra 课程对系统、网络、并发和性能的要求。
+
+---
+
+## 系统经典论文路线
+
+- [Systems Classic Papers](systems-classic-papers.md)：Lamport Clock、Paxos、Raft、GFS、MapReduce、Bigtable、Dynamo、Spanner、Borg、TensorFlow、Ray、MLPerf。
+
+---
+
+## 经典书籍补充清单
+
+| 优先级 | 书籍 | 方向 | 为什么重要 |
+|--------|------|------|------------|
+| P0 | CSAPP | 计算机系统 | 程序、内存、链接、并发、系统性能的共同底座 |
+| P0 | SICP | 程序设计思想 | 抽象、解释器、语言设计和程序构造经典 |
+| P0 | Designing Data-Intensive Applications / DDIA | 数据系统 | 分布式存储、数据流、一致性和系统设计入门经典 |
+| P0 | OSTEP | 操作系统 | 进程、线程、虚拟内存、文件系统的可读教材 |
+| P0 | CLRS | 算法 | 算法分析和经典算法参考书 |
+| P1 | Computer Networking: A Top-Down Approach | 计算机网络 | 网络协议栈和互联网系统入门经典 |
+| P1 | Database System Concepts | 数据库 | SQL、事务、优化器、存储和并发控制基础 |
+| P1 | Compilers: Principles, Techniques, and Tools | 编译器 | 词法、语法、优化和代码生成经典教材 |
+| P1 | The Datacenter as a Computer | 数据中心 | 数据中心硬件、网络、能耗和系统设计全局视角 |
+| P1 | Site Reliability Engineering | SRE | 生产系统可靠性、SLO、事故复盘和运维工程经典 |

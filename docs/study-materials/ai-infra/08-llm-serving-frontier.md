@@ -334,3 +334,15 @@ Metrics(TTFT, TPOT, throughput, eviction_count)
 - [04. LLM 推理系统](04-llm-inference.md)：基础概念、vLLM / SGLang / TensorRT-LLM 入门。
 - [07. AI Infra 必读论文路线](07-ai-infra-papers.md)：训练、推理、算子和集群系统的论文地图。
 - 本文：专注 LLM serving 前沿系统和工程取舍。
+
+---
+
+## Freshness
+
+| 字段 | 内容 |
+|------|------|
+| 最后审阅 | 2026-06 |
+| 更新频率 | 每季度；高变化阶段可每月 |
+| 过时风险 | 高 |
+| 维护重点 | 新论文、新系统、新 benchmark、官方技术报告、失效链接 |
+| 稳定性 | 经典材料稳定，前沿系统观察中 |

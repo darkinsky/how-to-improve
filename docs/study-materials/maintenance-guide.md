@@ -207,4 +207,68 @@ Improve study materials maintenance
 2. **补实践项目**：每个方向至少有 2-3 个可执行 mini project；
 3. **补评测标准**：AI Infra、Agent、RL、生成模型都应有 benchmark / evaluation 入口；
 4. **补完成标准**：每条路线都应说明学到什么程度算完成；
-5. **定期清理**：删除低质量链接和过时材料，避免知识库退化成链接堆。 
+5. **定期清理**：删除低质量链接和过时材料，避免知识库退化成链接堆。
+
+
+---
+
+## Quarterly Frontier Review
+
+每季度对高变化方向做一次审计：
+
+| 方向 | 审计重点 |
+|------|----------|
+| LLM Serving | vLLM、SGLang、P/D 分离、KV cache、speculative decoding、新 benchmark |
+| Agent Runtime | MCP、A2A、OpenAI Agents SDK、LangGraph、AutoGen、Code Agents |
+| Reasoning RL | RLVR、GRPO、PRM、verifier、test-time compute、reward hacking |
+| Multimodal / VLM | GPT-4V/4o、Gemini、Qwen-VL、InternVL、GUI Agent、Document AI |
+| Video Generation | Sora、Veo、Movie Gen、CogVideoX、Wan、VideoPoet、VBench |
+| RAG | Self-RAG、CRAG、GraphRAG、Agentic RAG、RAG eval |
+
+审计步骤：
+
+1. 检查前沿材料是否仍然代表主线；
+2. 标记过时或被替代的材料；
+3. 更新 `最后审阅` 和 `过时风险`；
+4. 同步 [Material Index](material-index.md)；
+5. 运行 Markdown 检查和链接检查。
+
+---
+
+## 单一事实源维护流程
+
+新增或调整重要材料时：
+
+1. 判断它属于哪个主文档；
+2. 更新主文档；
+3. 在相关文档中只保留简短引用；
+4. 更新 [Material Index](material-index.md)；
+5. 如果材料对应实践项目，更新 [Project Cards](project-cards.md)。
+
+---
+
+## 外部链接维护策略
+
+- 每次新增 P0 材料，优先添加官方链接或官方 repo。
+- 外部链接检查可以抽样进行，避免 CI 因临时网络失败不稳定。
+- 失效链接优先替换为 arXiv、官方仓库或 Internet Archive。
+- 对前沿产品页面，优先保留技术报告或官方文档，而不是新闻稿。
+
+---
+
+## 自动化检查建议
+
+本仓库当前至少应运行：
+
+```bash
+python scripts/check_markdown_links.py --strict
+git diff --check
+```
+
+后续可增加：
+
+- 重复标题检查；
+- 重复材料检查；
+- required sections 检查；
+- 外部链接抽样检查；
+- 文档长度和拆分建议。

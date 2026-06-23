@@ -100,3 +100,11 @@ Inference-time Search：在推理阶段结合 verifier、搜索和工具反馈
 - Tool-use RL 和 long-horizon credit assignment；
 - Self-improvement / synthetic data / inference-time search 单独成文；
 - Agentic RL benchmark 与 [Agent Benchmarks](../agent-engineering/agent-benchmarks.md) 的联动。
+
+---
+
+## 前置与相邻路线
+
+- [Foundation Models / LLM Fundamentals](../foundation-models/README.md)：补 LLM、post-training、MoE、长上下文基础。
+- [Evaluation / Benchmarking](../evaluation-benchmarking.md)：补 reasoning、code、agent benchmark 和 failure taxonomy。
+- [Code Agents / SWE Agents](../agent-engineering/code-agents.md)：连接 Agentic RL 与真实代码任务轨迹。

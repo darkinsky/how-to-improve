@@ -92,3 +92,10 @@ DiT / Video Diffusion：将生成模型扩展到更大规模图像、视频和�
 - 视频生成评估：VBench、T2VBench 等；
 - 多模态统一生成模型；
 - 生成模型的 evaluation、alignment 和 safety。
+
+---
+
+## 相邻路线
+
+- [Multimodal / Vision-Language Models](../multimodal/README.md)：补 CLIP、BLIP-2、LLaVA、SAM、文档理解和 GUI Agent。
+- [Evaluation / Benchmarking](../evaluation-benchmarking.md)：补 FID、CLIPScore、FVD、VBench 和人工偏好评估。

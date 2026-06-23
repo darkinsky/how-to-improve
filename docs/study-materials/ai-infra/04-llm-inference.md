@@ -251,3 +251,38 @@ sglang/srt/server.py（HTTP 服务入口）
   自己实现一个简化推理引擎
 ```
 
+---
+
+## 推理系统前沿补充清单
+
+| 优先级 | 系统 / 方法 | 方向 | 解决的问题 |
+|--------|-------------|------|------------|
+| P0 | Orca | continuous batching | decode 阶段动态 batch，提高 GPU 利用率 |
+| P0 | vLLM / PagedAttention | KV cache 管理 | 降低 KV cache 碎片，提高吞吐 |
+| P0 | SGLang / RadixAttention | prefix cache / structured generation | 多轮和结构化 workload 优化 |
+| P1 | Sarathi / Sarathi-Serve | chunked prefill | prefill/decode 干扰和调度 |
+| P1 | DistServe | prefill-decode disaggregation | 不同阶段资源解耦 |
+| P1 | Mooncake | KV cache-centric serving | disaggregated serving 与 KV cache 传输 |
+| P1 | Splitwise | disaggregated inference | prefill/decode 分离部署 |
+| P1 | FlashInfer | inference kernel | attention / sampling / decode kernel 优化 |
+| P1 | Medusa / EAGLE / EAGLE-2 | speculative decoding | 减少 decode latency |
+| P2 | SpecInfer / Lookahead Decoding | speculative inference | 并行验证和候选生成 |
+
+读这些系统时建议统一记录：
+
+```markdown
+## Workload Assumption
+## Bottleneck
+## Scheduling Policy
+## KV Cache Strategy
+## Kernel Dependency
+## Evaluation Metrics: TTFT / TPOT / Throughput / P99 / Cost
+```
+
+### 补充：Serving 调度系统
+
+| 材料 / 系统 | 方向 | 为什么值得补 |
+|-------------|------|--------------|
+| TetriInfer | serving scheduling | 面向 LLM 推理的调度和资源利用优化，可作为 P/D 分离、chunked prefill 之外的前沿系统补充 |
+| NanoFlow | serving / pipeline | 面向细粒度推理流水线和资源调度的前沿系统，适合与 DistServe、Mooncake 对比 |
+| Dynamo-style serving architecture | disaggregated serving | 不是单一论文条目，而是总结 KV cache、prefill/decode、scheduler、worker 解耦的服务架构风格 |

@@ -13,8 +13,8 @@
 
 ---
 
-> 整理时间：2026-04-11  
-> 目标：系统掌握 LLM Agent 记忆系统的类型、架构、核心算法及工程实践  
+> 整理时间：2026-04-11
+> 目标：系统掌握 LLM Agent 记忆系统的类型、架构、核心算法及工程实践
 > 前置推荐：先完成 LLM 基础、RAG、Transformer 注意力机制学习
 
 ---
@@ -304,3 +304,32 @@ if sum(recent_importance) > threshold:
 ---
 
 *文档由 OpenClaw AI 助手整理生成，持续更新中 🤖*
+
+---
+
+## Agent Memory 补充清单
+
+| 优先级 | 材料 | 方向 | 建议关注点 |
+|--------|------|------|------------|
+| P0 | MemGPT / Letta | virtual context / memory OS | working memory 与 archival memory 管理 |
+| P0 | Generative Agents | episodic / reflective memory | observation、reflection、planning 三层结构 |
+| P0 | Reflexion | verbal memory | 失败反思如何影响下一次行动 |
+| P1 | Voyager | skill library / lifelong learning | procedural memory 和自动课程 |
+| P1 | GraphRAG | graph memory | entity/relation/community summary |
+| P1 | MemoryBank | long-term personal memory | 用户长期偏好和情节记忆 |
+| P1 | Zep / A-Mem / memory service systems | engineering memory | 生产化记忆服务、检索、TTL、权限 |
+| P1 | Multimodal Memory / MIRIX-like systems | multimodal memory | 图像、文本、事件的统一记忆 |
+
+建议统一采用以下分类：
+
+```text
+working memory
+episodic memory
+semantic memory
+procedural memory
+external retrieval memory
+graph memory
+multimodal memory
+```
+
+评估 memory 不能只看主观体验，至少要记录：recall accuracy、staleness、privacy risk、retrieval latency、memory pollution。

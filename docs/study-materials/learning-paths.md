@@ -20,6 +20,9 @@
 | 目标 | 路线入口 | 适合人群 |
 |------|----------|----------|
 | 补 CS 基础 | [Computer Science](computer-science/README.md) | 转专业、基础不系统、想补长期技术底座 |
+| 补 LLM 基础 | [Foundation Models](foundation-models/README.md) | 想系统理解 Transformer、Scaling Laws、LLaMA、LoRA、MoE、长上下文 |
+| 做 RAG / 知识库 / 长上下文 | [Retrieval / RAG](retrieval-rag/README.md) | 想做知识库问答、Agent Memory、GraphRAG、RAG eval |
+| 做 Multimodal / VLM | [Multimodal](multimodal/README.md) | 想做 VLM、文档理解、GUI Agent、多模态 RAG |
 | 做 AI Infra / LLM Systems | [AI Infra](ai-infra/README.md) | 训练系统、推理系统、GPU / CUDA、集群调度方向 |
 | 做 LLM / Agent 工程 | [Agent Engineering](agent-engineering/README.md) | Agent runtime、tool use、evaluation、harness 方向 |
 | 跟进 LLM / Agent RL | [Reinforcement Learning](reinforcement-learning/README.md) | RLHF、DPO、RLVR、Reasoning RL、Agentic RL 方向 |
@@ -31,7 +34,111 @@
 先选一条主线 → 完成 2-3 个核心文档 → 做 1 个实践项目 → 再扩展到相邻方向
 ```
 
+
+
 ---
+
+## 我该先学哪条路线？
+
+| 你的情况 | 推荐路线 | 先不要做什么 |
+|----------|----------|--------------|
+| CS 基础不系统 | Computer Science → Systems Classic Papers → AI Infra | 不要直接啃 serving frontier 或 CUDA kernel 细节 |
+| 想做 LLM / Agent 产品 | Foundation Models → RAG → Agent Engineering → Code Agents → Evaluation | 不要只调 prompt，不做 eval harness |
+| 想做 LLM Infra | Computer Science → Foundation Models → AI Infra → LLM Serving | 不要跳过系统、网络、存储和调度 |
+| 想做 RL / Reasoning | Foundation Models → Advanced RL → Preference Optimization → Reasoning RL → Agentic RL | 不要一开始做 online agent RL |
+| 想做多模态 | Foundation Models → Generative Models → Multimodal → Multimodal RAG / GUI Agent | 不要只看图像生成 demo |
+| 想做科研能力提升 | Systems Classic Papers → Evaluation → 论文复现 / benchmark → Research notes | 不要只读论文不复现 |
+
+### 路线决策树
+
+```text
+先问目标：
+  想补基础？
+    → CS / Systems / Foundation Models
+  想做应用？
+    → RAG / Agent / Evaluation
+  想做 Infra？
+    → Systems / CUDA / Distributed Training / Serving
+  想做研究？
+    → Foundation Models / RL / Generative / Evaluation
+  想做多模态？
+    → VLM / Generative / GUI Agent / Multimodal RAG
+```
+
+---
+
+## 4 周 / 8 周 / 12 周路线速查
+
+| 方向 | 4 周最小路线 | 8 周系统路线 | 12 周进阶路线 | 推荐项目 |
+|------|--------------|--------------|---------------|----------|
+| Foundation Models | Transformer → GPT → Scaling Laws → LoRA | + Chinchilla、LLaMA、Long Context、MoE | + Transformer alternatives、inference-time compute、post-training | Train a Tiny GPT / LoRA 微调 |
+| RAG / Long Context | DPR → RAG → rerank → eval | + FiD、ColBERT、Self-RAG、GraphRAG | + Agentic RAG、multimodal RAG、memory service | RAG Evaluation Harness |
+| AI Infra | architecture → CUDA → distributed training → serving metrics | + Megatron/ZeRO、FlashAttention、vLLM/SGLang | + P/D 分离、FlashInfer、MoE serving、调度系统 | vLLM/SGLang Benchmark |
+| Agent Engineering | ReAct → Memory → Harness → Benchmark | + Code Agents、runtime frameworks、trajectory logging | + Agentic RL、harness optimizer、safety audit | Mini SWE Agent |
+| RL / Reasoning | PPO/DPO → RLVR → verifier → reward hacking | + AlphaZero/MuZero、Decision Transformer、PRM | + Agentic RL、online sandbox、self-training | Tiny DPO / Tiny RLVR |
+| Generative Models | VAE/GAN/Flow → Diffusion → Flow Matching → DiT | + LDM、ControlNet、LCM、video generation | + FLUX/SD3、VAR、Sora/Veo/Movie Gen、evaluation | DDPM / Flow Matching / LCM Lab |
+| Multimodal | CLIP → BLIP-2 → LLaVA → grounding | + DINOv2、SAM、Document AI、GUI Agent | + multimodal RAG、video understanding、agent grounding | VLM Mini Benchmark |
+
+项目细节见：[Study Materials Project Cards](project-cards.md)。材料归属见：[Material Index](material-index.md)。
+
+
+## 路线 0：Foundation Models / LLM 基础
+
+### 适合谁
+
+- 想补 Transformer、GPT、Scaling Laws、LLaMA、LoRA/QLoRA、MoE、长上下文；
+- 后续准备学 Agent、RAG、LLM RL、AI Infra，但发现 LLM 底座不够系统。
+
+### 推荐路线
+
+```text
+Transformer / GPT
+  → Scaling Laws / Chinchilla
+  → LLaMA / instruction tuning
+  → LoRA / QLoRA
+  → Long Context / RoPE / ALiBi
+  → MoE / Switch / GShard / Mixtral / DeepSeek-V3
+```
+
+### 必读入口
+
+1. [Foundation Models / LLM Fundamentals](foundation-models/README.md)
+2. [Preference Optimization](reinforcement-learning/preference-optimization.md)
+3. [LLM 推理系统](ai-infra/04-llm-inference.md)
+
+### 完成标准
+
+- 能解释 decoder-only Transformer、KV cache、tokenization、pretraining objective；
+- 能说明 Kaplan / Chinchilla scaling laws 的差异；
+- 能完成一个 tiny GPT 或 LoRA 微调实验。
+
+---
+
+## 路线 0.5：RAG / Long Context / Multimodal
+
+### 推荐路线
+
+```text
+Foundation Models
+  → Retrieval / RAG / Long Context
+  → RAG Evaluation
+  → Multimodal / VLM
+  → Multimodal RAG / GUI Agent
+```
+
+### 必读入口
+
+1. [Retrieval / RAG / Long Context](retrieval-rag/README.md)
+2. [Multimodal / Vision-Language Models](multimodal/README.md)
+3. [Evaluation / Benchmarking](evaluation-benchmarking.md)
+4. [Agent Memory](agent-engineering/agent-memory.md)
+
+### 完成标准
+
+- 能构建一个带 citation correctness 的 RAG eval harness；
+- 能对比 long context、naive RAG、rerank RAG、GraphRAG；
+- 能设计一个 VLM mini benchmark，覆盖 OCR、图表、GUI screenshot 和视觉幻觉。
+
 
 ## 路线 A：AI Infra / LLM Systems
 

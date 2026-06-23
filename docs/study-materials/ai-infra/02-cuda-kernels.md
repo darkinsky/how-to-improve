@@ -190,3 +190,30 @@ pip install tilelang
   FA-3 源码 → CUTLASS/CuTe → 自定义硬件 kernel
 ```
 
+---
+
+## Kernel / Compiler 生态补充清单
+
+| 优先级 | 材料 | 方向 | 为什么值得补 |
+|--------|------|------|--------------|
+| P0 | CUTLASS / CuTe | GEMM / Tensor Core | NVIDIA 官方高性能 kernel 编程模型 |
+| P0 | Triton | Python GPU DSL | LLM kernel 原型和工程常用工具 |
+| P0 | FlashAttention-2 / FlashAttention-3 | attention kernel | 理解 IO-aware attention 和 Hopper 优化 |
+| P1 | FlashInfer | inference kernels | decode / sampling / attention serving kernel |
+| P1 | ThunderKittens | GPU kernel DSL | 研究型 kernel DSL，适合理解 tile-level 编程 |
+| P1 | TileLang | high-level kernel DSL | 高层抽象和性能之间的折中 |
+| P1 | TVM / TensorIR / Ansor | tensor compiler | auto-scheduling 和 tensor program abstraction |
+| P1 | MLIR / IREE | compiler infra | 编译器中间表示和部署栈 |
+| P1 | XLA | graph compiler | JAX / TensorFlow 编译优化基础 |
+
+学习顺序建议：
+
+```text
+CUDA memory hierarchy
+  → shared memory tiling
+  → Tensor Core / MMA
+  → CUTLASS / CuTe
+  → Triton
+  → FlashAttention / FlashInfer
+  → TVM / MLIR / XLA
+```

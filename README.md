@@ -6,15 +6,28 @@
 
 ---
 
+## 如果你第一次来
+
+1. **不知道从哪学起**：先看 [Study Materials Learning Paths](docs/study-materials/learning-paths.md)，按目标选择 4/8/12 周路线。
+2. **已经有明确方向**：直接进入下方专题 README，从“先看结论”和 Top 材料开始。
+3. **想做可验证项目**：看 [Project Cards](docs/study-materials/project-cards.md)，选择能产出代码、报告或复盘的任务。
+4. **想深读核心材料**：看 [Top Materials Deep Reading Guide](docs/study-materials/deep-reading-guide.md)，按“为什么读、怎么读、完成标准、实践”推进。
+5. **想维护或贡献内容**：先看 [内容标准](docs/study-materials/content-standard.md)、[维护机制](docs/study-materials/maintenance-guide.md) 和 [CONTRIBUTING](CONTRIBUTING.md)。
+
+---
+
 ## 核心内容
 
 | 方向 | 内容 | 入口 |
 |------|------|------|
 | CS 基础 | 计算机公开课、数据结构、算法、系统、数据库、分布式、AI 课程 | [CS 公开课资源](docs/study-materials/computer-science/README.md) |
+| LLM / Foundation Models | Transformer、Scaling Laws、LLaMA、LoRA/QLoRA、MoE、长上下文 | [Foundation Models](docs/study-materials/foundation-models/README.md) |
+| RAG / Long Context | Dense Retrieval、RAG、FiD、ColBERT、Self-RAG、GraphRAG、RAG 评估 | [Retrieval / RAG](docs/study-materials/retrieval-rag/README.md) |
+| Multimodal / VLM | CLIP、BLIP-2、LLaVA、SAM、文档理解、GUI Agent、多模态 RAG | [Multimodal](docs/study-materials/multimodal/README.md) |
 | AI Infra / LLM Systems | GPU 体系结构、CUDA、分布式训练、LLM 推理、网络存储、调度编排 | [AI Infra 入门资料](docs/study-materials/ai-infra/README.md) |
 | 生成模型 | VAE、GAN、Flow、Diffusion、Flow Matching、图像/视频生成 | [Generative Models](docs/study-materials/generative-models/README.md) |
 | 强化学习 / LLM RL | Deep RL、RLHF、DPO、RLVR、Reasoning RL、Agentic RL | [Reinforcement Learning](docs/study-materials/reinforcement-learning/README.md) |
-| Agent Engineering | Agent Memory、Harness Engineering、Agent 运行时、工具与评估 | [Agent Engineering](docs/study-materials/agent-engineering/README.md) |
+| Agent Engineering | Agent Memory、Harness Engineering、Code Agents、Agent 运行时、工具与评估 | [Agent Engineering](docs/study-materials/agent-engineering/README.md) |
 | 工程与科研方法 | 工程实践、科研方法、复盘模板 | [docs](docs/) |
 
 ---
@@ -22,6 +35,13 @@
 ## 推荐学习路线
 
 如果只想按目标选择路线，优先看：[Study Materials Learning Paths](docs/study-materials/learning-paths.md)。
+
+辅助入口：
+
+- [Material Index](docs/study-materials/material-index.md)：查看重要材料的主文档和相关文档。
+- [Project Cards](docs/study-materials/project-cards.md)：选择可验证的实践项目。
+- [Top Materials Deep Reading Guide](docs/study-materials/deep-reading-guide.md)：查看 Top 材料怎么读、读完掌握什么。
+- [Official Links for P0 Materials](docs/study-materials/official-links.md)：查看 P0 材料的官方入口。
 
 ### 1. AI Infra / LLM Systems 路线
 
@@ -101,6 +121,9 @@ CS61A / CS50x
 │       ├── ai-infra/
 │       ├── agent-engineering/
 │       ├── computer-science/
+│       ├── foundation-models/
+│       ├── retrieval-rag/
+│       ├── multimodal/
 │       ├── generative-models/
 │       ├── learning-systems/
 │       └── reinforcement-learning/
@@ -143,4 +166,9 @@ CS61A / CS50x
 
 ## License
 
-暂未指定许可证。公开发布或接受贡献前，建议补充合适的开源许可证。
+本仓库采用双许可证：
+
+- 文档与学习资料：CC BY 4.0
+- 代码与脚本：MIT
+
+详见 [LICENSE](LICENSE)。贡献说明见 [CONTRIBUTING.md](CONTRIBUTING.md)。

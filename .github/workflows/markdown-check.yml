@@ -1,0 +1,25 @@
+name: Markdown checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdown-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check Markdown links and required sections
+        run: python scripts/check_markdown_links.py --strict
+
+      - name: Check whitespace
+        run: git diff --check

@@ -471,4 +471,3 @@ Harness Engineering 已经从工程经验进入研究阶段，近期论文主要
 完整论文清单与阅读顺序见：
 
 - [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)
-

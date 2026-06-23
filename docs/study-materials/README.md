@@ -26,6 +26,9 @@
 | 目标 | 推荐入口 | 建议路线 |
 |------|----------|----------|
 | 系统补 CS 基础 | [Computer Science](computer-science/README.md) | CS61A / CS50x → CS61B → MIT 6.006 → CSAPP → OS / DB / Distributed Systems |
+| 补 LLM / Foundation Models 基础 | [Foundation Models](foundation-models/README.md) | Transformer → GPT → Scaling Laws → LLaMA → LoRA / QLoRA → MoE / Long Context |
+| 做 RAG / 长上下文应用 | [Retrieval / RAG](retrieval-rag/README.md) | DPR / RAG → FiD / ColBERT → Self-RAG → GraphRAG → RAG Eval |
+| 学 Multimodal / VLM | [Multimodal](multimodal/README.md) | CLIP → BLIP-2 / Flamingo → LLaVA → Grounding / Document AI / GUI Agent |
 | 进入 AI Infra / LLM Systems | [AI Infra](ai-infra/README.md) | 体系结构 → CUDA / Triton → 分布式训练 → LLM 推理 → 网络存储 → 调度编排 |
 | 学现代生成模型 | [Generative Models](generative-models/README.md) | VAE / GAN / Flow → Diffusion → Flow Matching → 图像/视频生成 |
 | 跟进 LLM / Agent RL | [Reinforcement Learning](reinforcement-learning/README.md) | Deep RL → RLHF / DPO → RLVR / Reasoning RL → Agentic RL |
@@ -40,6 +43,10 @@
 
 - [Study Materials 内容标准](content-standard.md)：定义选材标准、标签体系和推荐文档结构。
 - [Study Materials 维护机制](maintenance-guide.md)：定义更新节奏、前沿收录规则、索引同步和提交流程。
+- [Material Index](material-index.md)：定义重要材料的主文档和相关文档，减少重复维护。
+- [Project Cards](project-cards.md)：把学习路线转化为可验证的实践项目。
+- [Top Materials Deep Reading Guide](deep-reading-guide.md)：为各方向 Top 材料补“怎么读、读完掌握什么、常见误区”。
+- [Official Links for P0 Materials](official-links.md)：为 P0 材料提供官方论文、代码、课程或项目入口。
 
 当前统一使用以下标签：
 
@@ -57,33 +64,51 @@
 
 ## 必读入口
 
-如果只想先抓主线，建议从这些文档开始：
+如果只想先抓主线，建议按以下顺序进入：
 
-0. [Study Materials Learning Paths](learning-paths.md)
+1. [Study Materials Learning Paths](learning-paths.md) — 先按目标选择路线。
+2. [Material Index](material-index.md) — 查看重要材料的主文档和相关文档。
+3. [Project Cards](project-cards.md) — 把路线转化为可验证项目。
+4. [Top Materials Deep Reading Guide](deep-reading-guide.md) — 深读各方向 Top 材料。
+5. [Official Links for P0 Materials](official-links.md) — 查 P0 材料官方入口。
+
+核心专题入口：
+
 1. [CS 公开课资源整理](computer-science/open-courses.md)
 2. [AI Infra 入门资料整理](ai-infra/README.md)
-3. [AI Infra 必读论文路线](ai-infra/07-ai-infra-papers.md)
-4. [04. LLM 推理系统](ai-infra/04-llm-inference.md)
-5. [LLM Serving 前沿系统](ai-infra/08-llm-serving-frontier.md)
-6. [Generative Models 2026](generative-models/generative-models-2026.md)
-7. [Diffusion Model 学习计划与资料汇总](generative-models/diffusion-model.md)
-8. [Flow Matching 学习计划与资料汇总](generative-models/flow-matching.md)
-9. [图像与视频生成模型学习计划](generative-models/image-video-generation.md)
-10. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
-11. [Preference Optimization](reinforcement-learning/preference-optimization.md)
-12. [Reasoning RL](reinforcement-learning/reasoning-rl.md)
-13. [Agentic RL](reinforcement-learning/agentic-rl.md)
-14. [LLM / Agent 相关强化学习前沿论文](reinforcement-learning/llm-agent-rl-frontier.md)
-15. [Agent Memory 学习计划与资料汇总](agent-engineering/agent-memory.md)
-16. [Harness Engineering 学习资料](agent-engineering/harness-engineering.md)
-17. [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
+3. [Foundation Models / LLM Fundamentals](foundation-models/README.md)
+4. [Retrieval / RAG / Long Context](retrieval-rag/README.md)
+5. [Multimodal / Vision-Language Models](multimodal/README.md)
+6. [Evaluation / Benchmarking](evaluation-benchmarking.md)
+7. [Generative Models 2026](generative-models/generative-models-2026.md)
+8. [强化学习进阶学习资料与论文路线](reinforcement-learning/advanced-rl.md)
+9. [Agent Engineering 学习入口](agent-engineering/README.md)
+10. [Learning Systems / Meta-Learning](learning-systems/meta-learning.md)
 
 ---
+
+
+## Foundation Models
+
+- [Foundation Models / LLM Fundamentals](foundation-models/README.md) — Transformer、GPT、Scaling Laws、LLaMA、LoRA/QLoRA、MoE、长上下文
+
+## Retrieval / RAG
+
+- [Retrieval / RAG / Long Context](retrieval-rag/README.md) — DPR、RAG、FiD、ColBERT、Self-RAG、GraphRAG、RAG Eval
+
+## Multimodal
+
+- [Multimodal / Vision-Language Models](multimodal/README.md) — CLIP、BLIP-2、LLaVA、SAM、文档理解、GUI Agent
+
+## Evaluation
+
+- [Evaluation / Benchmarking](evaluation-benchmarking.md) — LLM、RAG、Agent、生成模型和 Serving 的评估方法
 
 ## Computer Science
 
 - [Computer Science 学习入口](computer-science/README.md) — CS 基础、AI Infra、后端 / 分布式压缩路线
 - [CS 公开课资源整理](computer-science/open-courses.md) — 高质量公开课清单、课程分层、选课避坑
+- [Systems Classic Papers](computer-science/systems-classic-papers.md) — 分布式、数据库、调度、存储和 ML Systems 经典论文路线
 
 ## AI Infra
 
@@ -123,6 +148,8 @@
 - [Agent Memory](agent-engineering/agent-memory.md)
 - [Harness Engineering](agent-engineering/harness-engineering.md)
 - [Agent Benchmarks](agent-engineering/agent-benchmarks.md)
+- [Code Agents / SWE Agents](agent-engineering/code-agents.md)
+- [Agent Runtime Frameworks / Protocols](agent-engineering/agent-runtime-frameworks.md)
 - [Harness Engineering 最新论文速读（2026）](agent-engineering/harness-engineering-papers-2026.md)
 
 ## Learning Systems

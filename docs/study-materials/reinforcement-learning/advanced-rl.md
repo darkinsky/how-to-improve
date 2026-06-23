@@ -13,8 +13,8 @@
 
 ---
 
-> 适用背景：已经学完 Sutton & Barto《Reinforcement Learning: An Introduction》，希望从经典 RL 进阶到 Deep RL、Offline RL、Model-Based RL、RLHF 与现代大模型/机器人相关方向。  
-> 更新时间：2026-05-23  
+> 适用背景：已经学完 Sutton & Barto《Reinforcement Learning: An Introduction》，希望从经典 RL 进阶到 Deep RL、Offline RL、Model-Based RL、RLHF 与现代大模型/机器人相关方向。
+> 更新时间：2026-05-23
 > 资料原则：优先选择经典论文、可复现实验、公开课程和长期维护的资源。
 
 ---
@@ -269,3 +269,34 @@ Sutton 基础
 3. **DreamerV3**：理解 world model 和 foundation agent 的连接。
 4. **RLHF / DPO**：连接大模型训练与经典 RL。
 5. **Safe RL / evaluation**：避免只追 reward，不理解部署风险。
+
+---
+
+## 经典 RL 补充清单
+
+| 优先级 | 材料 | 方向 | 为什么重要 |
+|--------|------|------|------------|
+| P0 | Sutton & Barto: Reinforcement Learning | 教材 | RL 概念、Bellman equation、DP/MC/TD 基础 |
+| P0 | DQN | Value-based Deep RL | deep RL 起点 |
+| P1 | Double DQN / Dueling DQN / Prioritized Replay | DQN 改进 | 稳定性、估计偏差、sample efficiency |
+| P1 | Rainbow DQN | Value-based 集成 | DQN 系列方法集大成 |
+| P0 | TRPO / PPO | Policy Optimization | 现代 RL 工程和 RLHF 的基础 |
+| P1 | DDPG / TD3 / SAC | Continuous Control | 连续动作控制经典 |
+| P1 | IMPALA / R2D2 | Distributed RL | 大规模 actor-learner 架构 |
+| P0 | AlphaGo / AlphaZero | Search + RL | self-play、policy/value network、MCTS 经典 |
+| P0 | MuZero | Model-based RL | learned dynamics + planning 的里程碑 |
+| P1 | Dreamer / DreamerV2 / DreamerV3 | World Models | latent dynamics + imagination rollouts |
+| P1 | Decision Transformer | Offline RL / Sequence Modeling | 把 RL 轨迹建模为序列预测 |
+| P1 | TD-MPC / TD-MPC2 | Model Predictive Control | representation + planning 的现代路线 |
+
+建议补一张主线图：
+
+```text
+Value-based: DQN → Rainbow
+Policy-based: TRPO → PPO
+Actor-Critic: DDPG → TD3 → SAC
+Distributed RL: IMPALA → R2D2
+Search + RL: AlphaGo → AlphaZero → MuZero
+World Models: Dreamer → TD-MPC
+Offline RL: CQL/IQL → Decision Transformer
+```

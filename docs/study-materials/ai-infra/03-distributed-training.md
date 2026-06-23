@@ -235,3 +235,31 @@ MoE 模型把 FFN 拆成多个 expert，每个 token 只激活其中少数 exper
   → 调整并行配置观察吞吐量变化
 ```
 
+---
+
+## 经典训练系统补充清单
+
+| 优先级 | 系统 / 论文 | 核心思想 | 建议学习重点 |
+|--------|-------------|----------|--------------|
+| P0 | Megatron-LM | tensor parallelism + pipeline parallelism | attention / MLP 切分、通信模式 |
+| P0 | ZeRO / DeepSpeed | optimizer state / gradient / parameter sharding | 显存拆分、通信开销、stage 1/2/3 差异 |
+| P1 | GPipe | pipeline parallelism | micro-batch、pipeline bubble |
+| P1 | PipeDream | asynchronous pipeline training | stale weights、调度权衡 |
+| P1 | GShard | MoE + sharding | expert parallel、routing、load balancing |
+| P1 | Switch Transformer | sparse expert model | top-1 routing、capacity factor、aux loss |
+| P1 | GSPMD | general sharding propagation | auto-parallel / compiler-based sharding |
+| P1 | Alpa | automatic parallelization | inter-op / intra-op parallel search |
+| P2 | Mesh-TensorFlow | tensor mesh abstraction | sharding annotation 思想 |
+| P2 | FlexFlow | parallelization strategy search | execution simulator / cost model |
+
+建议把这些系统放到同一张图里理解：
+
+```text
+Data Parallel
+  → ZeRO / FSDP
+  → Tensor Parallel / Megatron
+  → Pipeline Parallel / GPipe / PipeDream
+  → Sequence / Context Parallel
+  → Expert Parallel / GShard / Switch
+  → Auto Parallel / GSPMD / Alpa / FlexFlow
+```

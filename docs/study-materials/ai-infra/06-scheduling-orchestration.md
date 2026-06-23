@@ -221,4 +221,3 @@ GPU Worker Pool
 **推荐资料**：
 - [MegaScale 论文](https://arxiv.org/abs/2402.15627) — 字节万卡训练，故障恢复章节
 - [Gemini 训练基础设施](https://arxiv.org/abs/2312.11805) — Google 大规模训练实践
-

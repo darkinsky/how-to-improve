@@ -13,8 +13,8 @@
 
 ---
 
-> 目标：在已掌握 Sutton 强化学习与基础 Deep RL 的前提下，理解当前最热的 LLM reasoning、RLHF/RLVR、Agent 训练、工具使用和自改进方向。  
-> 更新时间：2026-05-24  
+> 目标：在已掌握 Sutton 强化学习与基础 Deep RL 的前提下，理解当前最热的 LLM reasoning、RLHF/RLVR、Agent 训练、工具使用和自改进方向。
+> 更新时间：2026-05-24
 > 选择原则：优先收录影响力大、范式代表性强、能连接经典 RL 与 LLM/Agent 前沿的论文。
 
 > 专题拆分：本文作为总览页；偏好优化见 [Preference Optimization](preference-optimization.md)，推理强化学习见 [Reasoning RL](reasoning-rl.md)，Agent 训练见 [Agentic RL](agentic-rl.md)。
@@ -306,3 +306,15 @@ advanced-rl.md
   → harness-engineering.md
   → agent-memory.md
 ```
+
+---
+
+## Freshness
+
+| 字段 | 内容 |
+|------|------|
+| 最后审阅 | 2026-06 |
+| 更新频率 | 每季度；高变化阶段可每月 |
+| 过时风险 | 高 |
+| 维护重点 | 新论文、新系统、新 benchmark、官方技术报告、失效链接 |
+| 稳定性 | 经典材料稳定，前沿系统观察中 |

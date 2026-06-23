@@ -97,3 +97,11 @@
 **博客 / 资料：**
 - [Lilian Weng](https://lilianweng.github.io) · [LMSYS Blog](https://www.lmsys.org/blog/) · [vLLM Blog](https://vllm.ai/blog) · [BBuf GitHub](https://github.com/BBuf)
 
+
+---
+
+## 前置与相邻路线
+
+- [Foundation Models / LLM Fundamentals](../foundation-models/README.md)：补 Transformer、Scaling Laws、MoE、长上下文底座。
+- [Systems Classic Papers](../computer-science/systems-classic-papers.md)：补分布式、调度、存储、数据库和 ML Systems 经典论文。
+- [Evaluation / Benchmarking](../evaluation-benchmarking.md)：补 serving benchmark、系统指标和回归测试方法。

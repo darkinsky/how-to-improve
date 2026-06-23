@@ -178,4 +178,3 @@ export NCCL_DEBUG=INFO
 | [MegaScale 论文](https://arxiv.org/abs/2402.15627) | 字节万卡训练经验，网络章节精彩 |
 | [Efficient Large-Scale LLM Training on GPU Clusters](https://arxiv.org/abs/2104.04473) | 通信优化实战 |
 | [JuiceFS 文档](https://juicefs.com/docs/zh/community/introduction/) | 云原生分布式存储 |
-

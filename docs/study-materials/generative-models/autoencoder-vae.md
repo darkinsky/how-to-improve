@@ -13,7 +13,7 @@
 
 ---
 
-> 整理时间：2026-03-27  
+> 整理时间：2026-03-27
 > 目标：系统掌握自编码器（AE）与变分自编码器（VAE）的理论基础、实现方法及前沿进展
 
 ---
@@ -278,3 +278,22 @@ Loss = 重建损失 + KL散度
 
 *文档由 OpenClaw AI 助手整理生成，持续更新中 🤖*
 
+---
+
+## 离散 Tokenizer / VQ 路线补充
+
+| 优先级 | 材料 | 方向 | 为什么重要 |
+|--------|------|------|------------|
+| P0 | VQ-VAE | discrete latent | 图像/音频离散 token 表示起点 |
+| P1 | VQ-VAE-2 | hierarchical discrete latent | 高质量层级离散表示 |
+| P1 | VQGAN | tokenizer + adversarial/perceptual loss | DALL-E、Taming Transformers 等 token 图像生成基础 |
+| P1 | dVAE / image tokenizer | discrete image tokens | autoregressive / masked image modeling 前置 |
+
+建议把 VAE 文档和现代生成模型连接起来：
+
+```text
+AutoEncoder / VAE
+  → VQ-VAE / VQGAN tokenizer
+  → Latent Diffusion
+  → Autoregressive Image Tokens / Masked Token Models
+```

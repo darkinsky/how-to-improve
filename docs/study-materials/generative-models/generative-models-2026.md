@@ -286,3 +286,15 @@ image quality
 - [Diffusion Model](diffusion-model.md)：扩散模型基础和 6 周学习计划。
 - [Flow Matching](flow-matching.md)：连续流生成的专题路线。
 - [Image & Video Generation](image-video-generation.md)：图像与视频生成模型演进和实践。
+
+---
+
+## Freshness
+
+| 字段 | 内容 |
+|------|------|
+| 最后审阅 | 2026-06 |
+| 更新频率 | 每季度；高变化阶段可每月 |
+| 过时风险 | 高 |
+| 维护重点 | 新论文、新系统、新 benchmark、官方技术报告、失效链接 |
+| 稳定性 | 经典材料稳定，前沿系统观察中 |

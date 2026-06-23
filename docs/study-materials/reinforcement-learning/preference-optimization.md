@@ -270,3 +270,26 @@ SFT → DPO → KTO → ORPO / SimPO
 - [LLM / Agent 相关强化学习前沿论文](llm-agent-rl-frontier.md)：总览 LLM / Agent RL 主线。
 - [Reasoning RL](reasoning-rl.md)：可验证奖励和推理模型训练。
 - [Agentic RL](agentic-rl.md)：多步工具使用、环境反馈和长轨迹训练。
+
+---
+
+## Preference Optimization 方法补充清单
+
+| 优先级 | 方法 | 核心思想 | 适合什么时候看 |
+|--------|------|----------|----------------|
+| P0 | PPO-style RLHF | reward model + policy optimization | 理解 RLHF 全流程 |
+| P0 | DPO | 直接从偏好对优化 policy | 当前入门必读 |
+| P1 | IPO | preference objective 变体 | 深入 DPO 理论时 |
+| P1 | KTO | prospect theory inspired alignment | 只有单边反馈或 mixed feedback 时 |
+| P1 | ORPO | odds-ratio preference optimization | 简化 SFT + preference 流程 |
+| P1 | SimPO | reference-free preference optimization | 对比 DPO 家族时 |
+| P1 | CPO | contrastive preference optimization | preference objective 对比 |
+| P1 | RLAIF / Constitutional AI | AI feedback | 缺少人工偏好或安全原则约束时 |
+
+实践上优先比较：
+
+```text
+SFT baseline → DPO → KTO / ORPO / SimPO → PPO-style RLHF
+```
+
+不要只看 leaderboard，要记录数据质量、length bias、chosen/rejected 噪声和分布漂移。
