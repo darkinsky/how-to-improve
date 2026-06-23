@@ -21,6 +21,34 @@
 2. **相关文档**：可以引用材料，但不重复展开过多背景。
 3. **标签**：帮助后续按主题检索和维护。
 4. 新增重要材料时，优先同步更新本索引。
+5. **治理字段**：P0/P1 材料应逐步补齐官方链接、代码入口、相关 Project Card 和最近审阅时间，形成单一事实源。
+
+## 单一事实源字段
+
+后续新增或整理 P0/P1 材料时，优先使用下列字段。已有分区表格可以先保留轻量格式，再逐步迁移。
+
+| 字段 | 说明 |
+|------|------|
+| 材料 | 论文、课程、系统、benchmark 或项目名称 |
+| 主文档 | 仓库中负责完整解释该材料的文档 |
+| 类型 | 课程 / 论文 / 系统 / Benchmark / 项目 / 综述 |
+| 优先级 | P0 / P1 / P2 / Classic / Frontier / Hands-on |
+| 官方链接 | arXiv、官网、课程主页、官方博客或规范 |
+| 代码 | 官方仓库或主流实现；没有代码时写 `N/A` |
+| 相关 Project | 对应 [Project Cards](project-cards.md) 中的可验证项目 |
+| 最近审阅 | `YYYY-MM`，用于 freshness 和失效链接治理 |
+
+### P0/P1 治理样例
+
+| 材料 | 主文档 | 类型 | 优先级 | 官方链接 | 代码 | 相关 Project | 最近审阅 |
+|------|--------|------|--------|----------|------|--------------|----------|
+| Transformer | `foundation-models/README.md` | 论文 | P0 / Classic | https://arxiv.org/abs/1706.03762 | N/A | Train a Tiny GPT | 2026-06 |
+| LoRA / QLoRA | `foundation-models/README.md` | 论文 / 方法 | P0 / Hands-on | https://arxiv.org/abs/2106.09685 | https://github.com/huggingface/peft | LoRA / QLoRA Fine-tuning | 2026-06 |
+| FlashAttention | `ai-infra/02-cuda-kernels.md` | 系统 / Kernel | P0 / Hands-on | https://arxiv.org/abs/2205.14135 | https://github.com/Dao-AILab/flash-attention | FlashAttention / FlashInfer Kernel Study | 2026-06 |
+| vLLM | `ai-infra/04-llm-inference.md` | 系统 | P0 / Frontier | https://arxiv.org/abs/2309.06180 | https://github.com/vllm-project/vllm | vLLM / SGLang Serving Benchmark | 2026-06 |
+| SWE-bench | `agent-engineering/agent-benchmarks.md` | Benchmark | P0 / Frontier | https://www.swebench.com/ | https://github.com/SWE-bench/SWE-bench | Mini SWE Agent | 2026-06 |
+| VBench | `evaluation-benchmarking.md` | Benchmark | P1 / Frontier | https://arxiv.org/abs/2311.17982 | https://github.com/Vchitect/VBench | VLM / Generation Evaluation | 2026-06 |
+
 
 ---
 

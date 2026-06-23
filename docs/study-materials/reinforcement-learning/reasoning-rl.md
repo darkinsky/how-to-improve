@@ -310,3 +310,14 @@ sampling
   → search / tree-of-thought
   → self-training / RL
 ```
+
+---
+
+## Freshness
+
+| 字段 | 内容 |
+|------|------|
+| 最后审阅 | 2026-06 |
+| 更新频率 | 每季度 |
+| 过时风险 | 高 |
+| 维护重点 | RLVR、PRM/ORM、verifier、reasoning benchmark 和开源复现 |

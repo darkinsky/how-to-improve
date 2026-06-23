@@ -107,7 +107,8 @@ CS61A / CS50x → CS61B → CSAPP → 6.S081 → 15-445 → 6.5840 → CS336 / C
 
 ## 详细课程清单
 
-- [CS 公开课资源整理](open-courses.md)
+- [CS 公开课资源整理](open-courses.md)：选课策略、课程分层和学习路线。
+- [CS 公开课详细目录](open-courses-catalog.md)：按方向维护完整课程条目。
 
 ---
 

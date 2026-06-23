@@ -356,3 +356,14 @@ send_email
 - [Agent Memory](agent-memory.md)：解释 memory 系统本身如何设计；本文关注 memory 如何被评测。
 - [Harness Engineering](harness-engineering.md)：解释 agent runtime / harness 如何设计；本文关注 harness 如何被 benchmark 验证。
 - [Harness Engineering 最新论文速读（2026）](harness-engineering-papers-2026.md)：跟进 harness 自动演化和安全审计前沿。
+
+---
+
+## Freshness
+
+| 字段 | 内容 |
+|------|------|
+| 最后审阅 | 2026-06 |
+| 更新频率 | 每季度 |
+| 过时风险 | 高 |
+| 维护重点 | SWE-bench、Terminal-Bench、WebArena、OSWorld、GAIA、τ-bench 等 benchmark 版本、数据污染和评测协议变化 |

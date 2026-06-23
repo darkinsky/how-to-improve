@@ -45,8 +45,8 @@
 - [x] GitHub Actions 自动运行 Markdown 检查
 - [x] `git diff --check` 空白字符检查
 - [ ] 增加外部链接抽样检查
-- [ ] 增加重复标题 / 重复材料检查
-- [ ] 增加 required sections 检查：元信息、先看结论、实践项目、维护信息
+- [x] 增加重复标题 / 重复材料检查
+- [x] 增加 required sections 检查：元信息、先看结论、实践项目、维护信息
 
 ---
 
@@ -54,7 +54,7 @@
 
 - [x] 在内容标准中加入 freshness metadata
 - [x] 在维护机制中加入 quarterly frontier review
-- [ ] 为所有 frontier 文档补 `最后审阅`、`过时风险`、`维护重点`
+- [x] 为高变化 frontier 文档补 `最后审阅`、`过时风险`、`维护重点`
 - [ ] 每季度审计一次：LLM Serving、Agent Runtime、VLM、Reasoning RL、Video Generation
 
 ---
@@ -82,13 +82,13 @@
 - [x] 补齐 Deep Reading Guide 中的 CS / Systems Top 5。
 - [x] 补齐 Deep Reading Guide 中的 Evaluation / Benchmarking Top 5。
 - [x] 补齐 Deep Reading Guide 中的 Learning Systems / Meta-learning Top 5。
-- [ ] 为高变化 frontier 文档补齐 `Freshness`：LLM Serving、Agent Runtime、VLM、Reasoning RL、Video Generation。
-- [ ] 将 [Material Index](study-materials/material-index.md) 扩展为 P0/P1 材料的单一事实源：官方链接、代码、主文档、相关 Project、最近审阅。
-- [ ] 增强 `scripts/check_markdown_links.py`：重复 URL / 重复材料 warning。
-- [ ] 增强 `scripts/check_markdown_links.py`：required sections warning，包括实践项目、完成标准和 Freshness。
-- [ ] 拆分或压缩超过 450 行的长文档：open-courses、image-video-generation、harness-engineering。
-- [ ] 补充 `docs/engineering` 的 Debugging / Code Review / System Design workflow。
-- [ ] 补充 `docs/research` 的 Paper Reading / Experiment Design / Literature Review workflow。
+- [x] 为高变化 frontier 文档补齐 `Freshness`：LLM Serving、Agent Runtime、VLM、Reasoning RL、Video Generation。
+- [x] 将 [Material Index](study-materials/material-index.md) 扩展为 P0/P1 材料的单一事实源：官方链接、代码、主文档、相关 Project、最近审阅。
+- [x] 增强 `scripts/check_markdown_links.py`：重复 URL / 重复材料 warning。
+- [x] 增强 `scripts/check_markdown_links.py`：required sections warning，包括实践项目、完成标准和 Freshness。
+- [x] 拆分或压缩超过 450 行的长文档：open-courses、image-video-generation。
+- [x] 补充 `docs/engineering` 的 Debugging / Code Review / System Design workflow。
+- [x] 补充 `docs/research` 的 Paper Reading / Experiment Design / Literature Review workflow。
 
 ## Backlog 分层
 

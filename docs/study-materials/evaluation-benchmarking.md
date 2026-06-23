@@ -119,3 +119,14 @@ Task Definition
 ### 补充：ARC-AGI
 
 - **ARC-AGI**：强调抽象推理、少样本归纳和泛化能力的 benchmark。适合作为 MMLU / GSM8K / MATH / GPQA 之外，观察模型是否具备组合泛化和任务外推能力的评估材料。
+
+---
+
+## Freshness
+
+| 字段 | 内容 |
+|------|------|
+| 最后审阅 | 2026-06 |
+| 更新频率 | 每季度 |
+| 过时风险 | 高 |
+| 维护重点 | LLM/RAG/Agent/生成模型 benchmark、leaderboard 污染和评估协议变化 |

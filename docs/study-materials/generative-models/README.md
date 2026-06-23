@@ -43,6 +43,7 @@ DiT / Video Diffusion：将生成模型扩展到更大规模图像、视频和�
 5. [Diffusion Model](diffusion-model.md)：掌握 DDPM、DDIM、Score SDE、CFG、LDM。
 6. [Flow Matching](flow-matching.md)：理解 Rectified Flow、velocity prediction 和少步采样。
 7. [Image & Video Generation](image-video-generation.md)：跟进 DiT、FLUX、Sora、Wan、CogVideoX 等现代系统。
+8. [Image / Video Frontier Appendix](image-video-generation-frontier-appendix.md)：维护更易变化的前沿补充材料和范式对比。
 
 ---
 

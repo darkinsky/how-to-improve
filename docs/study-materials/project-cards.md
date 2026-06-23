@@ -36,14 +36,31 @@
 
 | 字段 | 内容 |
 |------|------|
-| 目标 | 这个项目训练什么能力 |
+| 目标能力 | 这个项目训练什么能力 |
+| 难度 | 入门 / 中级 / 进阶 / 前沿 |
+| 预计时间 | 预估时间 |
 | 前置知识 | 需要先读哪些材料 |
-| 时间成本 | 预估时间 |
 | 输入 | 数据、代码、模型、任务 |
-| 输出 | repo、报告、benchmark、复盘 |
-| 验收标准 | 如何判断完成 |
-| 进阶 | 做完后可以怎么扩展 |
+| 输出物 | repo、报告、benchmark、复盘 |
+| 完成标准 | 如何判断完成 |
+| 相关材料 | Material Index 中对应的 P0/P1 材料 |
+| 延伸方向 | 做完后可以怎么扩展 |
 ```
+
+### 标准化样例
+
+| 字段 | 内容 |
+|------|------|
+| 目标能力 | Retrieval evaluation / answer faithfulness / failure analysis |
+| 难度 | 中级 |
+| 预计时间 | 1-2 周 |
+| 前置知识 | DPR / RAG / ColBERT / reranker |
+| 输入 | 50-100 个 query-answer-citation 样例 |
+| 输出物 | repo + benchmark report + JSONL traces |
+| 完成标准 | 能比较 3 种 retrieval 设置，并解释失败案例来自检索、上下文噪音还是生成幻觉 |
+| 相关材料 | RAG、ColBERT、Self-RAG、GraphRAG、RAGAS |
+| 延伸方向 | GraphRAG / Self-RAG / agentic retrieval / online eval |
+
 
 ---
 
